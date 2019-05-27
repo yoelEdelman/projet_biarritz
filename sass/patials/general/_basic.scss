@@ -1,0 +1,73 @@
+
+
+@include at-least($tablet){
+    p{
+        font-size: $p-font-size;
+    }
+    a{
+        font-size: $a-font-size;
+    }
+    h1{
+        font-size: $h1-font-size;
+    }
+    h2{
+        font-size: $h2-font-size;
+    }
+    h3{
+        font-size: $h3-font-size;
+    }
+    h4{
+        font-size: $h4-font-size;
+    }
+    h5{
+        font-size: $h5-font-size;
+    }
+    h6{
+        font-size: $h6-font-size;
+    }
+}
+
+
+
+@include responsive-font-size($tablet, $tablet-font-size);
+
+@include responsive-font-size($phone, $phone-font-size);
+
+
+
+body{
+    //font-size: $font-size-base;
+
+    //color: $blue;
+    overflow-x: hidden;
+    font: {
+        //size: 14px;
+        family: "Helvetica Neue";
+        //family: Comfortaa;
+        weight: bold;
+    }
+}
+
+
+
+main{
+    padding-top: 47px;
+    @include flex(column, null, null, null, null);
+    //@include size(100%, calc(100vh - 58px));
+    background: {
+        image: url("/assets/img/home.jpg");
+        size: cover;
+        attachment: fixed;
+    }
+}
+@include until($phone){
+    main{
+        padding-top: 40px;
+    }
+}
+
+img{
+    @include img-fluid;
+}
+
+

@@ -1,0 +1,33 @@
+$border-radius: .25rem !default;
+
+
+$font-size-base: 14px ;
+$tablet-font-size: 12px ;
+$phone-font-size: 10px ;
+
+$blue: #003051;
+$yellow: #FFD876;
+$white: #fff;
+$light-blue: #51CBEE;
+
+
+@mixin button{
+    @include padding(10px 30px);
+    border-radius: 5px;
+    font-size: $a-font-size;
+    //cursor: pointer;
+}
+
+@mixin button-blue{
+    @include button;
+    @include link-colors($blue, $yellow);
+    @include background-colors($yellow, $blue);
+    @include border(1px, solid, $blue, 1px, solid, $yellow);
+}
+@mixin button-yellow{
+    @include button;
+    @include link-colors($yellow, $blue);
+    @include background-colors($blue, $yellow);
+    @include border(1px, solid, $yellow, 1px, solid, $blue);
+}
+

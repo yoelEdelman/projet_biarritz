@@ -1,0 +1,28 @@
+.home-logo{
+    position: absolute;
+    width: 25%;
+    top: 50%;
+}
+.home-logo, .logo{
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    img{
+        @include img-fluid;
+    }
+}
+.logo, .logo-transition{
+    width: 10%;
+    position: fixed;
+    top: 2.5em;
+}
+.logo-transition, .undo-logo-transition{
+    transition: 3s;
+}
+
+@include until($phone){
+    .logo{
+        width: 30%;
+        top: 2em;
+    }
+}

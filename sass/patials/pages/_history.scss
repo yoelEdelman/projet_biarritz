@@ -1,0 +1,81 @@
+.story{
+    @include flex(column);
+    width: 90%;
+    margin: 50px auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .8);
+    //opacity: .8;
+    color: $blue;
+    h1{
+        text-transform: uppercase;
+        color: $blue;
+    }
+    > div{
+        margin: 20px auto;
+    }
+}
+
+.story-1{
+    @include flex();
+    div{
+        width: 50%;
+    }
+    div:last-child{
+        padding: 20px;
+        box-sizing: border-box;
+        margin: auto;
+    }
+    @include until($tablet){
+        @include flex(column);
+        div{
+            width: 100%;
+        }
+    }
+}
+.story-2{
+    @include flex(column);
+    div{
+        width: 100%;
+    }
+    div:last-child{
+        padding: 20px;
+        box-sizing: border-box;
+        margin: auto;
+        text-align: center;
+    }
+}
+.story-3{
+    @include flex();
+    div{
+        width: 50%;
+    }
+    div:first-child{
+        padding: 20px;
+        box-sizing: border-box;
+        margin: auto;
+        text-align: center;
+    }
+    @include until($tablet){
+        @include flex(column);
+        div{
+            width: 100%;
+        }
+        div:first-child{
+            order: 2;
+        }
+        div:last-child{
+            order: 1;
+        }
+    }
+}
+
+
+@include until($phone){
+    .story{
+        width: 80%;
+        h1{
+            text-align: center;
+        }
+    }
+}

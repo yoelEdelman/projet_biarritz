@@ -1,0 +1,23 @@
+header{
+    @include size(100%, calc(100vh - 47px));
+    background: {
+        image: url("/assets/img/home.jpg");
+        size: cover;
+    }
+}
+@include at-least($phone){
+    header{
+        .logo{
+            display: none;
+        }
+    }
+}
+@include until($phone){
+    header{
+        .bird-container, .home-logo{
+            display: none;
+        }
+        background: none;
+        @include size(100%, auto);
+    }
+}

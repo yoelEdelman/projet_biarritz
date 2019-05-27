@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <ul class="tabs">
+                <li class="active"><a href="#home">acceuil</a></li>
+                <li><a href="#mentions">mentions</a></li>
+            </ul>
+            <div class="tabs-content">
+                <div class="tab-content active" id="home">home Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cum dolorem dolores earum ex nihil quas, qui sed! Alias dolor est exercitationem inventore ipsam minima minus necessitatibus optio repellendus sint.</div>
+                <div class="tab-content" id="mentions">mentions Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam blanditiis doloribus nesciunt odio! Accusantium consectetur facere facilis. Ad, aperiam aspernatur assumenda expedita fuga laborum nam nihil pariatur possimus qui rem.</div>
+            </div>
+        </div>
+
+
+        <script>
+            let tabs = document.querySelectorAll('.tabs a')
+
+            for (let i = 0; i < tabs.length; i++){
+                tabs[i].addEventListener('click', function (e) {
+                    showTag(this)
+                })
+            }
+
+            const showTag = function (a){
+                let li = a.parentNode
+                let div = a.parentNode.parentNode.parentNode
+
+                if (li.classList.contains('active')){
+                    return false
+                }
+                div.querySelector('.tabs .active').classList.remove('active')
+                li.classList.add('active')
+
+                div.querySelector('.tab-content.active').classList.remove('active')
+                div.querySelector(a.getAttribute('href')).classList.add('active')
+            }
+
+            const hashchange = function(){
+                let hash = window.location.hash
+                let a = document.querySelector('a[href="'+ hash +'"]')
+                if (a !== null && !a.parentNode.classList.contains('active')) {
+                    showTag(a)
+                }
+            }
+
+            window.addEventListener('hashchange', hashchange)
+            hashchange()
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>-->
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .menu {
+                /* other styles */
+                -webkit-transition: all 1s ease-in-out;
+                transition: all 1s ease-in-out;
+            }
+            a{
+                display: block;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+
+    <body>
+    <header>
+<!--        <span>Author : <a href="https://glennsmith.me" target="_blank">Glenn Smith</a></span>-->
+        <button class="hamburger">&#9776;</button>
+        <button class="cross">&#735;</button>
+    </header>
+
+<!--    <div class="menu">-->
+<!--        <ul>-->
+<!--            <a href="#"><li>LINK ONE</li></a>-->
+<!--            <a href="#"><li>LINK TWO</li></a>-->
+<!--            <a href="#"><li>LINK THREE</li></a>-->
+<!--            <a href="#"><li>LINK FOUR</li></a>-->
+<!--            <a href="#"><li>LINK FIVE</li></a>-->
+<!--        </ul>-->
+<!--    </div>-->
+    <div class="menu">
+            <a href="#">LINK ONE</a>
+            <a href="#">LINK TWO</a>
+            <a href="#">LINK THREE</a>
+            <a href="#">LINK FOUR</a>
+            <a href="#">LINK FIVE</a>
+    </div>
+
+    <script>
+
+        // let open = true;
+        // let heightChecked = false;
+        // let initHeight = 0;
+        //
+        // function slideToggle() {
+        //     let menu = document.querySelector('.menu');
+        //     if(!heightChecked) {
+        //         initHeight = menu.offsetHeight;
+        //         heightChecked = true;
+        //     }
+        //     if(open) {
+        //         open = false;
+        //         menu.style.height = '0px';
+        //     }
+        //     else {
+        //         open = true;
+        //         menu.style.height = initHeight + 'px';
+        //     }
+        // }
+        // $( document ).ready(function() {
+        //
+        //     $( ".cross" ).hide();
+        //     $( ".menu" ).hide();
+        //     $( ".hamburger" ).click(function() {
+        //         $( ".menu" ).slideToggle( "slow", function() {
+        //             $( ".hamburger" ).hide();
+        //             $( ".cross" ).show();
+        //         });
+        //     });
+        //
+        //     $( ".cross" ).click(function() {
+        //         $( ".menu" ).slideToggle( "slow", function() {
+        //             $( ".cross" ).hide();
+        //             $( ".hamburger" ).show();
+        //         });
+        //     });
+        //
+        // });
+        let cross = document.querySelector('.cross')
+        let menu = document.querySelector('.menu')
+        let hamburger = document.querySelector('.hamburger')
+
+        cross.style.display = 'none'
+        // menu.style.display = 'none'
+
+        menu.style.transform = 'translateY(-290px)'
+
+
+        hamburger.addEventListener('click', function () {
+            hamburger.style.display = 'none'
+            cross.style.display = 'block'
+            menu.style.transform = 'translateY(0px)'
+
+            // menu.style.display = 'block'
+            // menu.style.transform = 'translateX(-300px)'
+            // menu.style.transition = 'transform 0.5s'
+        })
+
+        cross.addEventListener('click', function () {
+            cross.style.display = 'none'
+            hamburger.style.display = 'block'
+            menu.style.transform = 'translateY(-290px)'
+
+            // menu.style.display = 'none'
+        })
+
+    </script>
+    </body>
+</html>

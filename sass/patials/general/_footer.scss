@@ -1,0 +1,108 @@
+footer{
+    color: $yellow;
+    background-color: $blue;
+    width: 100%;
+    @include flex(null, null, center);
+    box-sizing: border-box;
+    .container{
+        @include flex(null, null, center);
+        @include padding();
+        width: 90%;
+    }
+}
+.footer-left-side, .footer-right-side{
+    width: 50%;
+    @include padding();
+}
+.footer-left-side{
+    @include flex(null, null, space-between, center);
+    div:first-child{
+        iframe{
+            min-height: 200px;
+            @include img-fluid;
+        }
+    }
+    div:last-child{
+        @include flex(column, null, space-between, flex-start);
+        min-height: 200px;
+        @include padding(5px 5px 5px 5%);
+        box-sizing: border-box;
+        h1, a{
+            text-transform: uppercase;
+        }
+        a{
+            display: block;
+            @include button-blue;
+            padding: 10px 20px;
+            border-radius: 10px;
+            @include border(1px, solid, transparent, 1px, solid, $yellow);
+        }
+    }
+}
+.footer-right-side{
+    @include flex(null, null, flex-end);
+}
+.footer-nav, .social-networks-policy{
+    text-align: center;
+    @include padding();
+    width: 30%;
+}
+.footer-nav{
+    @include flex(column, null, space-evenly);
+}
+.social-networks-policy {
+    @include flex(column, null, space-evenly, center);
+}
+.footer-nav a{
+    @include button-yellow;
+    margin: 3px 0;
+    text-transform: uppercase;
+}
+.social-networks-policy, .policy{
+    a{
+        height: $a-font-size * 2;
+        display: block;
+        color: $yellow;
+        margin: 3px 0;
+    }
+}
+.social-networks{
+    @include size(100%, 80%);
+    @include flex(column, null, space-around);
+}
+.fab{
+    font-size: $a-font-size * 1.5;
+    &:hover{
+        box-sizing: border-box;
+        transition: .5s font-size;
+        font-size: $a-font-size * 2;
+    }
+}
+.policy{
+    @include size(100%, 20%);
+    @include flex(column, null, null, center);
+    a{
+        text-decoration: underline;
+        text-transform: uppercase;
+        box-sizing: border-box;
+        //display: block;
+        font-size: $a-font-size / 1.3;
+    }
+}
+
+@include until($phone){
+    .footer-left-side div:first-child, .footer-left-side div:last-child a, .footer-nav{
+        display: none;
+    }
+    .footer-left-side div:last-child{
+        @include flex(null, null, space-evenly);
+        min-height: 150px;
+    }
+    .social-networks-policy{
+        width: 100%;
+    }
+    .social-networks{
+        @include flex(row, null, space-evenly, center);
+        height: auto;
+    }
+}

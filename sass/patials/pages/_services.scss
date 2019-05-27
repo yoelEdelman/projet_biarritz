@@ -1,0 +1,61 @@
+.services{
+    background-color: #F8F8F8;
+    width: 100%;
+    text-align: center;
+    h1{
+         text-transform: uppercase;
+         color: $blue;
+         text-align: left;
+         width: 90%;
+         margin: 20px auto;
+     }
+}
+
+.service{
+    @include flex();
+    width: 90%;
+    margin: 30px auto;
+    @include padding(10px 20px);
+    //padding: 10px 20px;
+    border-radius: 10px;
+    background-color: $white;
+    box-shadow: 5px 5px 6px #707070;
+    div:first-child{
+        width: 40%;
+    }
+    div:last-child{
+        width: 60%;
+        @include flex(column, null, space-around, center);
+        @include padding(5px 20px);
+        //padding: 5px 20px;
+        box-sizing: border-box;
+        h2{
+            text-transform: uppercase;
+            color: $blue;
+        }
+        p{
+            font-weight: normal;
+        }
+        a{
+            @include button-blue;
+            border: none;
+        }
+    }
+}
+
+
+@include until($phone){
+    .services{
+        //background: none;
+        h1{
+            display: none;
+        }
+    }
+    .service{
+        @include flex(column);
+        width: 80%;
+        div:first-child, div:last-child{
+            width: 100%;
+        }
+    }
+}

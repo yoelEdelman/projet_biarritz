@@ -1,0 +1,154 @@
+
+
+.eventContainer .container{
+    width: 350px;
+    margin: auto;
+    box-shadow: 5px 5px 6px #707070;
+    border-radius: 5px;
+}
+
+#calendar2{
+    //padding: 0px 10px 10px 10px;
+}
+.calendar2-msg{
+    width:100%;
+    height:30px;
+    line-height:30px;
+    color:#000;
+    text-align: center;
+    font-size:14px;
+    display:block;
+}
+
+
+
+
+
+
+.nice-date-picker-warpper{
+    background-color:$white;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    //padding:10px;
+    //border-radius: 0 0 5px 5px;
+}
+.nice-date-picker-header{
+    width:100%;
+    height:40px;
+    font-size:0;
+    position:relative;
+}
+.nice-date-picker-header span, .nice-date-picker-header a{
+    display:inline-block;
+    height:40px;
+    line-height:40px;
+}
+.nice-date-picker-header .prev-date-btn, .next-date-btn{
+    font-size:18px;
+    width:40px;
+    text-align:center;
+    color:$blue;
+    text-decoration: none;
+}
+.nice-date-picker-header .prev-date-btn{
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+.nice-date-picker-header .next-date-btn{
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+.nice-date-title{
+    width:100%;
+    font-size:18px;
+    color:$blue;
+    text-align:center;
+}
+.nice-date-picker-body{
+    width:100%;
+}
+.nice-date-picker-body tr{
+    width:100%;
+    height:40px;
+}
+.nice-date-picker-body tr th{
+    width:46px;
+    height:40px;
+    color:$blue;
+    line-height:40px;
+    text-align:center;
+    font-weight:100;
+}
+.nice-date-picker-body tr td{
+    width:46px;
+    height:40px;
+    color:$blue;
+    line-height:40px;
+    text-align:center;
+}
+.nice-date-picker-body tr .nice-gray{
+    opacity:.3;
+}
+.nice-date-picker-body tr .nice-normal{
+    cursor:pointer;
+}
+.nice-date-picker-body tr .nice-current{
+    background: $yellow;
+    color: $blue !important;
+    border-radius: 100%;
+}
+.nice-date-picker-body tr .nice-active{
+    background: $yellow;
+    color: $white;
+    border-radius: 100%;
+}
+
+.nice-date-picker-body tr .select{
+    background-color: $yellow;
+    color: $white;
+    border-radius: 100%;
+
+}
+
+
+
+table{
+    width: 100%;
+    margin: 0;
+    border-spacing: 0;
+}
+
+
+
+.dateSelected{
+    background-color: $yellow;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 130%;
+    border-radius: 5px 5px 0 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thead{
+    //color: $blue;
+    background-color: #F1F2F2;
+}
+
+
+
+td:first-child.nice-normal{
+    color: $yellow;
+}
