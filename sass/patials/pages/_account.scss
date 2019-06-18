@@ -1,0 +1,117 @@
+.account {
+    @include size(100%, calc(100vh - 107px));
+    @include flex(null, null, space-around, flex-start);
+    margin-top: 50px;
+    .profil, .bills{
+        background-color: rgba(255, 255, 255, .8);
+        border-radius: 10px;
+        div{
+            color: $blue;
+        }
+
+        h2{
+            width: 100%;
+            color: $yellow;
+            background-color: $blue;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            font-weight: normal;
+
+        }
+    }
+    .profil {
+        width: 20%;
+        //height: 30%;
+        div{
+            width: 80%;
+            margin: auto;
+
+            @include flex(column);
+            @include padding(10px 0);
+            p{
+                @include padding();
+
+            }
+
+        }
+    }
+    .bills {
+        width: 70%;
+        min-height: 50%;
+
+        @include flex(column, null, null, center);
+
+        div{
+            width: 100%;
+            @include padding(10px 0);
+            .bill{
+                @include flex(null, null, space-around);
+                @include padding(10px 5px);
+                margin: auto;
+                background-color: $white;
+                border-radius: 10px;
+                box-shadow: 5px 5px 6px #707070;
+                width: 95%;
+                a{
+                    display: block;
+                    color: $blue;
+                }
+            }
+        }
+    }
+}
+//
+//.event {
+//    @include flex();
+//    width: 90%;
+//    margin: 30px auto;
+//    padding: 10px 20px;
+//    border-radius: 10px;
+//    background-color: rgba(255, 255, 255, .8);
+//    box-shadow: 5px 5px 6px #707070;
+//    div:first-child {
+//        width: 40%;
+//    }
+//    div:last-child {
+//        width: 60%;
+//        //height: auto;
+//        @include flex(column, null, space-around, center);
+//        padding: 5px 20px;
+//        box-sizing: border-box;
+//        h3 {
+//            font-size: $h3-font-size / 1.5;
+//            color: $yellow;
+//        }
+//        h2 {
+//            text-transform: uppercase;
+//            color: $blue;
+//        }
+//        p {
+//            font-weight: normal;
+//        }
+//        a{
+//            @include button-blue;
+//            border: none;
+//        }
+//    }
+//}
+
+//@include until($tablet){
+//    $font-size-base: 12px;
+//}
+//
+//@include until($phone){
+//    $font-size-base: 10px;
+//}
+@include until($phone){
+    .account{
+        @include flex(column, null, space-around);
+        .profil, .bills{
+            width: 90%;
+            margin: auto;
+        }
+        .bills div .bill{
+            @include flex(column, null, space-around, center, center);
+        }
+    }
+}

@@ -17,7 +17,7 @@
                 <a href="index.php?page=services">services</a>
                 <a href="index.php?page=events">evenements</a>
                 <a href="index.php?page=contact">contact</a>
-                <a href="#">connexion</a>
+                <a href="index.php?page=login">connexion</a>
             </nav>
             <div class="social-networks-policy">
                 <div class="social-networks">
@@ -27,6 +27,7 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
                 <div class="policy">
+                    <a href="index.php?page=faq">FAQ</a>
                     <a href="#">mentions-legal</a>
                     <a href="#">politique des cookies</a>
                 </div>

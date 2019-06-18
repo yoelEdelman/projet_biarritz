@@ -19,20 +19,20 @@
 <!--                --><?php //endif; ?>
                 <!-- Si $category existe, chaque champ du formulaire sera pré-remplit avec les informations de la catégorie -->
                 <?php if (isset($_GET['category-id'])): ?>
-                <form action="index.php?page=admin-categories-form&category-id=<?= $category->getId();?>&action=edit" method="post" enctype="multipart/form-data">
+                <form action="index.php?page=admin-categories-form&category-id=<?= $category['id'];?>&action=edit" method="post" enctype="multipart/form-data">
                     <?php else: ?>
                     <form action="index.php?page=admin-categories-form" method="post" enctype="multipart/form-data">
                         <?php endif; ?>
                         <div class="form-group">
                             <label for="name">Nom : <b class="text-danger">*</b></label>
-                            <input class="form-control"  type="text" placeholder="Nom" name="name" id="name" value="<?= isset($category) ? htmlentities($category->getName()) : '';?>"/>
+                            <input class="form-control"  type="text" placeholder="Nom" name="name" id="name" value="<?= isset($category) ? htmlentities($category['name']) : '';?>"/>
                         </div>
 
 
                         <!-- Si $category existe, on ajoute un champ caché contenant l'id de la catégorie à modifier pour la requête UPDATE -->
                         <?php if (isset($_GET['category-id'])): ?>
                             <div class="form-group">
-                                <input class="form-control" type="hidden" name="category-id" id="category_id" value="<?= $category->getId();?>"/>
+                                <input class="form-control" type="hidden" name="category-id" id="category_id" value="<?= $category['id'];?>"/>
                             </div>
                         <?php endif;?>
                         <div class="text-right">

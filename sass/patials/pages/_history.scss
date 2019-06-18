@@ -1,20 +1,20 @@
 .story{
-    @include flex(column);
-    width: 90%;
-    margin: 50px auto;
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, .8);
-    //opacity: .8;
-    color: $blue;
-    h1{
-        text-transform: uppercase;
-        color: $blue;
-    }
-    > div{
-        margin: 20px auto;
-    }
-}
+     @include flex(column);
+     width: 90%;
+     margin: 50px auto;
+     padding: 10px 20px;
+     border-radius: 10px;
+     background-color: rgba(255, 255, 255, .8);
+     //opacity: .8;
+     color: $blue;
+     h1{
+         text-transform: uppercase;
+         color: $blue;
+     }
+     > div{
+         margin: 20px auto;
+     }
+ }
 
 .story-1{
     @include flex();

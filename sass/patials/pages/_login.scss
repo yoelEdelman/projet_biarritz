@@ -1,0 +1,74 @@
+.login {
+    @include size(100%, calc(100vh - 57px));
+    @include flex(column, null, center, center);
+}
+
+.form-container{
+    background-color: $blue;
+    border-radius: 10px;
+    width: 30%;
+}
+
+
+.form-container{
+    //@include size(100%);
+    form{
+        @include flex(column, null, space-around);
+        @include size(100%);
+        h3{
+            margin: 20px auto;
+            color: $white;
+        }
+        p{
+            margin: 20px auto;
+            color: $white;
+        }
+        div{
+            text-align: center;
+            width: 80%;
+            margin: 10px auto;
+            input{
+                @include size(100%, $p-font-size * 3);
+                color: $white;
+                border: $white solid .5px;
+                margin: auto;
+                outline: none;
+                box-sizing: border-box;
+                @include padding(10px 5px);
+                border-radius: 10px;
+                font-size: $p-font-size;
+                background-color: $blue;
+                &:focus{
+                    box-shadow: 0 0 5px $light-blue;
+                    border: 1px solid $light-blue;
+                    border-radius: 10px;
+                }
+            }
+            [type=submit]{
+                width: 50%;
+                margin: 10px auto;
+                @include button-blue;
+            }
+        }
+        .forgot-pwd{
+            text-align: right;
+            a{
+                color: $white;
+            }
+        }
+    }
+}
+@include until($desktop){
+    .form-container{
+        width: 40%;
+    }
+}@include until($tablet){
+     .form-container{
+         width: 50%;
+     }
+ }
+@include until($phone){
+    .form-container{
+        width: 90%;
+    }
+}

@@ -32,11 +32,11 @@
                     <tbody>
                     <?php foreach($categories as $key => $category): ?>
                         <tr>
-                            <th><?= $category->getId();?></th>
-                            <td><?= $category->getName();?></td>
+                            <th><?= $category['id'];?></th>
+                            <td><?= $category['name'];?></td>
                             <td>
-                                <a href="index.php?page=admin-categories-form&category-id=<?= $category->getId();?>&action=edit" class="btn btn-warning">Modifier</a>
-                                <a onclick="return confirm('Are you sure?')" href="index.php?page=admin-categories-list&category-id=<?= $category->getId();?>&action=delete" class="btn btn-danger">Supprimer</a>
+                                <a href="index.php?page=admin-categories-form&category-id=<?= $category['id'];?>&action=edit" class="btn btn-warning">Modifier</a>
+                                <a onclick="return confirm('Are you sure?')" href="index.php?page=admin-categories-list&category-id=<?= $category['id'];?>&action=delete" class="btn btn-danger">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -5,6 +5,11 @@
     position: relative;
     //margin: 0 auto;
 }
+#slider-modal-container{
+    box-sizing: border-box;
+    position: relative;
+    //margin: 0 auto;
+}
 #arrows-wrapper{
     @include padding();
     //box-sizing: border-box;

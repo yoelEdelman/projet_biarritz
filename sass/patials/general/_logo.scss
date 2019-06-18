@@ -15,9 +15,17 @@
     width: 10%;
     position: fixed;
     top: 2.5em;
+    //position: relative;
+    //top: -0.5em;
 }
 .logo-transition, .undo-logo-transition{
     transition: 3s;
+}
+
+@include until($desktop){
+    .logo, .logo-transition{
+        width: 15%;
+    }
 }
 
 @include until($phone){

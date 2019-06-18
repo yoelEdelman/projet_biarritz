@@ -51,7 +51,9 @@ body{
 
 
 main{
+    //padding-top: 57px;
     padding-top: 47px;
+
     @include flex(column, null, null, null, null);
     //@include size(100%, calc(100vh - 58px));
     background: {
@@ -71,3 +73,8 @@ img{
 }
 
 
+@include until($desktop){
+    [type=submit]{
+        width: 60% !important;
+    }
+}

@@ -236,8 +236,10 @@ new niceDatePicker({
       //  document.querySelector('.dateSelected').innerHTML=date;
 
         console.log(date)
+        eventByDate(date)
 
-       let dateForFrench = date.split('/');
+
+        let dateForFrench = date.split('/');
         console.log(dateForFrench[0])
         console.log(dateForFrench[1])
         console.log(dateForFrench[2])
@@ -251,102 +253,173 @@ new niceDatePicker({
         document.querySelector('.dateSelected').innerHTML=dateFrenchConv.toLocaleDateString('fr-FR', options);
 
 
-        let eventDate = new FormData
+        // let eventDate = new FormData
 
-        eventDate.append('date', date)
+        // eventDate.append('date', date)
 
-        sendDate(eventDate)
+        // sendDate(eventDate)
     }
 });
 
 
-const eventDisplay = function (title, image, description, id) {
-    let insideEvents = document.createElement('div')
-    forEvents.appendChild(insideEvents)
-    let titleEvent = document.createElement('h4')
-    let descriptionEvent = document.createElement('div')
-    titleEvent.innerText = title
-    insideEvents.appendChild(titleEvent)
-    let imageEvent = document.createElement('img')
-    imageEvent.setAttribute('src', './assets/image/'+image)
-    insideEvents.appendChild(imageEvent)
-    insideEvents.appendChild(descriptionEvent)
-    descriptionEvent.innerText = description
-    let seeEvents = document.createElement('span')
-    let forSeeEvents = document.createElement('div')
-    insideEvents.appendChild(forSeeEvents)
-    seeEvents.innerText= "Voir plus >"
-    forSeeEvents.appendChild(seeEvents)
-    seeEvents.classList.add('seeEvents')
-    seeEvents.setAttribute('eventId', id)
-    forSeeEvents.classList.add('forSeeEvents')
-    insideEvents.classList.add('insideEvents')
-
-    seeEvents.addEventListener('click', function () {
-        console.log(this)
-        console.log(this.getAttribute('eventId'))
-
-        let idForEvent = this.getAttribute('eventId')
-
-        let dataForEvent = new FormData()
-
-        dataForEvent.append('id', idForEvent)
-
-        sendId(dataForEvent)
-    })
-}
 
 
-
-const removeDisplay = function () {
-    forEvents.innerHTML = ""
-}
-
-
-
-const sendDate = function (param) {
-   // fetch(url+'event-by-date.php', {
-    fetch('http://localhost:8888/projet-city/event-by-date.php', {
+const eventByDate = function(param){
+    fetch('../controller/frontend/ajax/events.php', {
         method: 'POST',
         headers: new Headers(),
         body: param
     })
 
         .then((res) => res.json())
-
         .then((data) => {
             console.log(data)
-            removeDisplay()
 
-            if (data.type === 0) {
-                console.log(data.message)
-                document.querySelector('.calendar2-msg').innerHTML=data.message;
-
-
+            let event = document.querySelectorAll('.event')
+            for (let i = 0; i<event.length; i++){
+                event[i].style.display = "none";
             }
-            else{
-                for (let i = 0; i<data.length;i++){
-                    console.log(data[i].event_date)
-                    eventDisplay(data[i].title, data[i].image,data[i].description,data[i].id)
+            // console.log(event)
+            console.log(data[0].name)
 
-                    if (data.length>1) {
-                        document.querySelector('.calendar2-msg').innerHTML='Il y a : '+data.length+' événements à cette date';
+            // console.log(medias)
+            let eventContainer = document.querySelector('#eventContainer')
 
-                    }
-                    else{
-                        document.querySelector('.calendar2-msg').innerHTML='Il y a : '+data.length+' événement à cette date';
+            for (let i = 0; i<data.length; i++){
+                let medias = data[i].name.split(',')
+                console.log(medias)
 
-                    }
 
-                }
+                let div = document.createElement('div')
+                div.classList.add('event')
+                div.innerHTML = `<div>
+                                    <img class="" src="/assets/img/${medias[0]}" alt="">
+                                </div>
+                                <div>
+                                    <h3>type d'evenement</h3>
+                                    <h2>${data[i].title}</h2>
+                                    <p>${data[i].summary}</p>
+                                    <a href="#jsModal" data-event-id="${data[i].id}" id="popup" class="jsModalTrigger">en savoir plus</a>
+                                </div>`
+
+                eventContainer.appendChild(div)
+                console.log(eventHref)
+
+                console.log(div)
+
+               let testos = document.querySelectorAll(".jsModalTrigger")
+                testos.forEach(function (test){
+                    test.addEventListener('click', function () {
+                        console.log(this)
+                        console.log(this.getAttribute('data-event-id'))
+
+                       eventModal(parseInt(this.getAttribute('data-event-id')))
+                    })
+                })
+
             }
 
         })
 
-        .catch((data) => {
+        .catch((data) =>{
             alert("un incident s'est produit")
         })
+
 }
+
+
+
+
+
+
+//
+// const eventDisplay = function (title, image, description, id) {
+//     let insideEvents = document.createElement('div')
+//     forEvents.appendChild(insideEvents)
+//     let titleEvent = document.createElement('h4')
+//     let descriptionEvent = document.createElement('div')
+//     titleEvent.innerText = title
+//     insideEvents.appendChild(titleEvent)
+//     let imageEvent = document.createElement('img')
+//     imageEvent.setAttribute('src', './assets/image/'+image)
+//     insideEvents.appendChild(imageEvent)
+//     insideEvents.appendChild(descriptionEvent)
+//     descriptionEvent.innerText = description
+//     let seeEvents = document.createElement('span')
+//     let forSeeEvents = document.createElement('div')
+//     insideEvents.appendChild(forSeeEvents)
+//     seeEvents.innerText= "Voir plus >"
+//     forSeeEvents.appendChild(seeEvents)
+//     seeEvents.classList.add('seeEvents')
+//     seeEvents.setAttribute('eventId', id)
+//     forSeeEvents.classList.add('forSeeEvents')
+//     insideEvents.classList.add('insideEvents')
+//
+//     seeEvents.addEventListener('click', function () {
+//         console.log(this)
+//         console.log(this.getAttribute('eventId'))
+//
+//         let idForEvent = this.getAttribute('eventId')
+//
+//         let dataForEvent = new FormData()
+//
+//         dataForEvent.append('id', idForEvent)
+//
+//         sendId(dataForEvent)
+//     })
+// }
+//
+//
+//
+// const removeDisplay = function () {
+//     forEvents.innerHTML = ""
+// }
+//
+//
+//
+// const sendDate = function (param) {
+//    // fetch(url+'event-by-date.php', {
+//     fetch('http://localhost:8888/projet-city/event-by-date.php', {
+//         method: 'POST',
+//         headers: new Headers(),
+//         body: param
+//     })
+//
+//         .then((res) => res.json())
+//
+//         .then((data) => {
+//             console.log(data)
+//             removeDisplay()
+//
+//             if (data.type === 0) {
+//                 console.log(data.message)
+//                 document.querySelector('.calendar2-msg').innerHTML=data.message;
+//
+//
+//             }
+//             else{
+//                 for (let i = 0; i<data.length;i++){
+//                     console.log(data[i].event_date)
+//                     eventDisplay(data[i].title, data[i].image,data[i].description,data[i].id)
+//
+//                     if (data.length>1) {
+//                         document.querySelector('.calendar2-msg').innerHTML='Il y a : '+data.length+' événements à cette date';
+//
+//                     }
+//                     else{
+//                         document.querySelector('.calendar2-msg').innerHTML='Il y a : '+data.length+' événement à cette date';
+//
+//                     }
+//
+//                 }
+//             }
+//
+//         })
+//
+//         .catch((data) => {
+//             alert("un incident s'est produit")
+//         })
+// }
 
 
 let dateObj = new Date();
@@ -374,34 +447,34 @@ console.log(dateFrenchDay)
 document.querySelector('.dateSelected').innerHTML=dateFrenchDay;
 
 
-
-
-let objDateDay = new FormData()
-
-objDateDay.append('date', newdate)
-
-window.onload = sendDate(objDateDay)
-
-const sendId = function (elem) {
-
-    fetch('http://localhost:8888/projet-city/oneEvent.php', {
-        method: 'POST',
-        headers: new Headers(),
-        body: elem
-    })
-
-        .then((res) => res.json())
-
-        .then((data) => {
-            console.log(data)
-
-            displayMap(data['image'],data['content'],data['adress'],data['on_map'])
-
-
-        })
-
-        .catch((data) => {
-            alert("un incident s'est produit")
-        })
-}
-
+//
+//
+// let objDateDay = new FormData()
+//
+// objDateDay.append('date', newdate)
+//
+// window.onload = sendDate(objDateDay)
+//
+// const sendId = function (elem) {
+//
+//     fetch('http://localhost:8888/projet-city/oneEvent.php', {
+//         method: 'POST',
+//         headers: new Headers(),
+//         body: elem
+//     })
+//
+//         .then((res) => res.json())
+//
+//         .then((data) => {
+//             console.log(data)
+//
+//             displayMap(data['image'],data['content'],data['adress'],data['on_map'])
+//
+//
+//         })
+//
+//         .catch((data) => {
+//             alert("un incident s'est produit")
+//         })
+// }
+//

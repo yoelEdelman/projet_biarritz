@@ -2,8 +2,8 @@
     @include size(100%, calc(100vh - 57px));
     @include flex(column, null, center, center);
     section {
-        min-height: 60%;
-        min-width: 50%;
+        //min-height: 60%;
+        min-width: 40%;
         ul{
             //padding: 0;
             @include padding(0);
@@ -14,11 +14,9 @@
                 border-radius: 10px 10px 0 0;
                 width: 50%;
                 text-align: center;
-                @include padding(10px);
+                @include padding(8px);
                 //padding: 10px;
                 a{
-                    //@include link-colors(inherit, inherit);
-                    //@include background-colors(inherit, inherit);
                     @include padding(inherit);
                     //border-radius: inherit;
                     display: block;
@@ -43,10 +41,10 @@
         @include size(100%);
         .double-form-group, > div{
             text-align: center;
-            width: 80%;
+            width: 70%;
             margin: 10px auto;
             input, select, textarea{
-                @include size(100%, $p-font-size * 3);
+                @include size(100%, $p-font-size * 2.5);
                 color: $white;
                 border: $white solid .5px;
                 margin: auto;
@@ -56,8 +54,6 @@
                 border-radius: 10px;
                 font-size: $p-font-size;
                 background-color: $blue;
-                //line-height: $p-font-size * 3;
-                //border-color: gray;
                 &:focus{
                     box-shadow: 0 0 5px $light-blue;
                     border: 1px solid $light-blue;
@@ -69,26 +65,15 @@
             }
 
             [type=submit]{
-                width: 25%;
+                width: 35%;
                 margin: 10px auto;
                 @include button-blue;
-                //@include link-colors($blue, $yellow);
-                //@include background-colors($yellow, $blue);
-                //@include padding(10px 30px);
-                //border-radius: 10px;
-                //font-size: $a-font-size;
-                //border: transparent solid 1px;
-                //&:hover{
-                //    border: $yellow solid 1px;
-                //}
+
             }
         }
     }
 }
 
-//.form-group{
-//    margin: 5px;
-//}
 
 .double-form-group{
     @include flex(null, wrap, space-between);
@@ -110,4 +95,66 @@ li{
 }
 .tab-content.active{
     display: block;
+}
+
+@include until($desktop){
+    .contact{
+        section{
+            width: 50%;
+        }
+    }
+}
+
+@include until($tablet){
+    .contact {
+        section {
+            //min-height: 60%;
+            width: 65%;
+        }
+    }
+    .double-form-group{
+        @include flex(column, wrap, space-between);
+        div{
+            width: 100%;
+            margin: 0;
+        }
+        div:first-child{
+            margin-bottom: 20px;
+        }
+    }
+    //form{
+    //    > div{
+    //        width: 85% !important;
+    //        [type=submit]{
+    //            width: 60% !important;
+    //        }
+    //    }
+    //}
+}
+
+@include until($phone){
+    .contact {
+        section {
+            //min-height: 60%;
+            width: 90%;
+        }
+    }
+    //.double-form-group{
+    //    @include flex(column, wrap, space-between);
+    //    div{
+    //        width: 100%;
+    //        margin: 0;
+    //    }
+    //    div:first-child{
+    //        margin-bottom: 20px;
+    //    }
+    //}
+    //form{
+    //    > div{
+    //        width: 85% !important;
+    //        [type=submit]{
+    //            width: 60% !important;
+    //        }
+    //    }
+    //}
 }

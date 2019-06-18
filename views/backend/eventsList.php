@@ -33,12 +33,12 @@
                     <tbody>
                     <?php foreach($events as $event): ?>
                         <tr>
-                            <th><?= $event->getId();?></th>
-                            <td><?= $event->getTitle();?></td>
-                            <td><?= ($event->getIsPublished() == 0) ? 'non' : 'oui' ;?></td>
+                            <th><?= $event['id'];?></th>
+                            <td><?= $event['title'];?></td>
+                            <td><?= ($event['is_published'] == 0) ? 'non' : 'oui' ;?></td>
                             <td>
-                                <a href="index.php?page=admin-events-form&event-id=<?= $event->getId();?>&action=edit" class="btn btn-warning">Modifier</a>
-                                <a onclick="return confirm('Are you sure?')" href="index.php?page=admin-events-list&event-id=<?= $event->getId();?>&action=delete" class="btn btn-danger">Supprimer</a>
+                                <a href="index.php?page=admin-events-form&event-id=<?= $event['id'];?>&action=edit" class="btn btn-warning">Modifier</a>
+                                <a onclick="return confirm('Are you sure?')" href="index.php?page=admin-events-list&event-id=<?= $event['id'];?>&action=delete" class="btn btn-danger">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -45,13 +45,14 @@ footer{
 .footer-nav, .social-networks-policy{
     text-align: center;
     @include padding();
-    width: 30%;
 }
 .footer-nav{
     @include flex(column, null, space-evenly);
+    min-width: 30%;
 }
 .social-networks-policy {
     @include flex(column, null, space-evenly, center);
+    width: 30%;
 }
 .footer-nav a{
     @include button-yellow;
@@ -90,7 +91,7 @@ footer{
     }
 }
 
-@include until($phone){
+@include until($tablet){
     .footer-left-side div:first-child, .footer-left-side div:last-child a, .footer-nav{
         display: none;
     }
