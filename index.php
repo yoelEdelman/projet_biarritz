@@ -17,6 +17,9 @@ require 'controller/backend/services.php';
 require 'controller/backend/events.php';
 require 'controller/backend/index.php';
 require 'controller/backend/users.php';
+require 'controller/backend/reasons.php';
+require 'controller/backend/objects.php';
+
 
 
 
@@ -82,6 +85,18 @@ try{
                 break;
             case 'admin-users-form':
                 usersForm();
+                break;
+            case 'admin-reasons-list':
+                reasonsList();
+                break;
+            case 'admin-reasons-form':
+                reasonsForm();
+                break;
+            case 'admin-objects-list':
+                objectsList();
+                break;
+            case 'admin-objects-form':
+                objectsForm();
                 break;
             default:
                 // On redirige le visiteur vers la page d'accueil

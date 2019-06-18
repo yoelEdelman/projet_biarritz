@@ -132,10 +132,10 @@ for (let i = 0; i< eventHref.length; i++){
                 let serviceInfo = document.querySelector('.service-info')
                 serviceInfo.firstElementChild.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${data.address}`
                 serviceInfo.firstElementChild.nextElementSibling.innerHTML = `<i class="fas fa-phone"></i> ${data.phone_number}`
-                serviceInfo.firstElementChild.nextElementSibling.nextElementSibling.innerHTML = `<i class="fas fa-clock"></i> ${data.event_time}`
+                serviceInfo.firstElementChild.nextElementSibling.nextElementSibling.innerHTML = `<i class="fas fa-clock"></i> ${data.event_time_formated}`
                 serviceInfo.lastElementChild.innerText = `Itinéraire`
 
-                // console.log(title.previousElementSibling)
+                console.log(title.previousElementSibling)
 
 
             })

@@ -7,7 +7,7 @@ require_once('addresses.php');
     {
         $db = dbConnect();
         if ($eventId){
-            $queryString = 'SELECT e.*, GROUP_CONCAT(m.name) AS name, a.address, a.zip_code, a.city, a.country, a.location, c.id AS category_id, c.name AS category_name';
+            $queryString = 'SELECT e.*, DATE_FORMAT(e.event_time, "%H:%i") AS event_time_formated, GROUP_CONCAT(m.name) AS name, a.address, a.zip_code, a.city, a.country, a.location, c.id AS category_id, c.name AS category_name';
         }
         else{
             $queryString = 'SELECT e.id, e.title, e.summary, e.is_published, GROUP_CONCAT(m.name) AS name, c.name AS category_name';

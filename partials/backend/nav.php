@@ -8,6 +8,9 @@
         <li><a href="index.php?page=admin-categories-list">Gestion des catégories </a></li>
         <li><a href="index.php?page=admin-addresses-list">Gestion des addresses </a></li>
         <li><a href="index.php?page=admin-users-list">Gestion des utilisateurs </a></li>
+        <li><a href="index.php?page=admin-reasons-list">Gestion des raisons </a></li>
+        <li><a href="index.php?page=admin-objects-list">Gestion des objets </a></li>
+
 
     </ul>
 </nav>

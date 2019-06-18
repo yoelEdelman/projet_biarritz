@@ -1129,6 +1129,10 @@ td:first-child.nice-normal {
 .service div:first-child {
   width: 40%;
 }
+.service div:first-child img {
+  object-fit: cover;
+  height: 300px;
+}
 .service div:last-child {
   width: 60%;
   display: flex;
@@ -1393,6 +1397,10 @@ td:first-child.nice-normal {
 }
 .event div:first-child {
   width: 40%;
+}
+.event div:first-child img {
+  object-fit: cover;
+  height: 300px;
 }
 .event div:last-child {
   width: 60%;
