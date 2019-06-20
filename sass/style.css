@@ -1836,6 +1836,9 @@ li {
 .faq > div {
   margin: 10px auto;
 }
+.faq > div div {
+  margin: 10px auto;
+}
 
 .collapsible {
   background-color: #003f6b;
@@ -1870,7 +1873,6 @@ li {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
 }
 
 /*# sourceMappingURL=style.css.map */

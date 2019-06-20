@@ -23,6 +23,7 @@ require 'controller/backend/objects.php';
 
 
 
+
 ////function autoLoadController($class)
 ////{
 ////    require 'controller/frontend/' . $class . '.php';
@@ -53,11 +54,11 @@ try{
             case 'login':
                 login();
                 break;
-            case 'account':
-                account();
-                break;
+//            case 'account':
+//                account();
+//                break;
             case 'faq':
-                faqs();
+                faq();
                 break;
             case 'admin':
                 adminHome();
@@ -98,6 +99,22 @@ try{
             case 'admin-objects-form':
                 objectsForm();
                 break;
+            case 'admin-questions-list':
+                require 'controller/backend/questions.php';
+                questionsList();
+                break;
+            case 'admin-questions-form':
+                require 'controller/backend/questions.php';
+                questionsForm();
+                break;
+            case 'admin-responses-list':
+                require 'controller/backend/responses.php';
+                responsesList();
+                break;
+            case 'admin-responses-form':
+                require 'controller/backend/responses.php';
+                responsesForm();
+                break;
             default:
                 // On redirige le visiteur vers la page d'accueil
                 header('location:index.php');
@@ -106,7 +123,7 @@ try{
     }
     else{
         // si on a recu le parametre logout en url
-        if (isset($_GET['logout']) AND isset($_SESSION['user'])){
+        if (isset($_GET['logout']) && isset($_SESSION['user'])){
             // on deconecte
             unset($_SESSION["user"]);
             // On redirige le visiteur vers la page d'accueil

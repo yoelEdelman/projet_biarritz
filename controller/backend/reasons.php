@@ -2,7 +2,6 @@
 require_once ('././model/reasons.php');
 require_once ('././model/objects.php');
 
-
 function reasonsList(){
     if (isset($_GET['reason-id']) && isset($_GET['action']) && $_GET['action'] == 'delete'){
         $result = deleteReasons($_GET['reason-id']);
@@ -26,7 +25,7 @@ function reasonsForm(){
         $reason = getReasons($_GET['reason-id']);
     }
     if (isset($_POST['update']) || isset($_POST['save'])){
-        if (empty($_POST['reason_name']) && empty($_POST['objects'])){
+        if (empty($_POST['reason_name']) || empty($_POST['objects'])){
             $errors['empty'] = 'Veuillez remplir les champs sont obligatoire !';
         }
         elseif (isset($_POST['update'])){

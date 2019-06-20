@@ -6,24 +6,22 @@
         <?php require_once 'partials/frontend/nav.php';?>
         <section class="faq">
             <h2>FAQ</h2>
-
-            <button class="collapsible">Open Collapsible</button>
-            <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="collapsible">Open Section 1</button>
-            <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <button class="collapsible">Open Section 2</button>
-            <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <button class="collapsible">Open Section 3</button>
-            <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
+                <?php foreach($categories as $key => $category): ?>
+                    <button class="collapsible"><?= $category['name']; ?></button>
+                    <div class="content">
+                    <?php foreach($faqs as $key => $faq): ?>
+                        <?php if ($category['id'] == $faq['category_id']): ?>
+                            <button class="collapsible"><?= $faq['question']; ?></button>
+                            <div class="content">
+                                <p><?= $faq['answer']; ?></p>
+                            </div>
+<!--                        --><?php //else:?>
+<!--                            <p>Il n'y a pas de question pour le moment</p>-->
+<!--                        --><?php //break ;?>
+                        <?php endif;?>
+                    <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
         </section>
         <?php require_once 'partials/frontend/footer.php';?>
 
@@ -39,7 +37,7 @@
                 if (content.style.maxHeight){
                     content.style.maxHeight = null;
                 } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.maxHeight = content.scrollHeight*2 + "px";
                 }
             });
         }
