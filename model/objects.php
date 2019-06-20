@@ -62,6 +62,13 @@ function deleteObjects($id)
 {
     $db = dbConnect();
 
+    $queryString = 'DELETE FROM reasons';
+    $queryString .= ' WHERE object_id = :id';
+
+    $query = $db->prepare($queryString);
+    $query->bindParam(':id', $id, PDO::PARAM_INT);
+    $query->execute();
+
     $queryString = 'DELETE FROM objects';
     $queryString .= ' WHERE id = :id';
 

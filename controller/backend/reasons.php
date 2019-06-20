@@ -50,7 +50,6 @@ function reasonsForm(){
                 exit;
             }
         }
-//        $service = [];
         $reason['reason_name'] = $_POST['reason_name'];
     }
     require_once './views/backend/reasonsForm.php';

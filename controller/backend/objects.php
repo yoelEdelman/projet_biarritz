@@ -47,7 +47,6 @@ function objectsForm(){
                 exit;
             }
         }
-//        $service = [];
         $object['object_name'] = $_POST['object_name'];
     }
     require_once './views/backend/objectsForm.php';

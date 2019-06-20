@@ -1,5 +1,5 @@
 <?php
-function mailTo($destination, $pwd, $newPwd = FALSE, $updatePwd = FALSE, $request = FALSE){
+function mailTo($destination, $pwd = FALSE, $newPwd = FALSE, $updatePwd = FALSE, $request = FALSE){
     $mail = $destination; // Déclaration de l'adresse de destination.
     if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) // On filtre les serveurs qui rencontrent des bogues.
     {
@@ -20,6 +20,9 @@ function mailTo($destination, $pwd, $newPwd = FALSE, $updatePwd = FALSE, $reques
     }
     elseif ($request){
         $message_html = "<html><head></head><body><b>Salut à tous</b>, voici un e-mail envoyé par un <i>script PHP</i>nous avons bien recu votre demande nous vous reponderons d'ici 365 jours </body></html>";
+    }
+    else{
+        $message_html = "<html><head></head><body><b>Salut à tous</b>, voici un e-mail envoyé par un <i>script PHP</i. $pwd </body></html>";
     }
 
 //==========

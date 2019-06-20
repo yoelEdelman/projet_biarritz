@@ -1,7 +1,7 @@
 <?php
 require_once('dbConnect.php');
 
-function getReasons($reasonId = FALSE)
+function getReasons($reasonId = FALSE, $objectId = FALSE)
 {
     $db = dbConnect();
 
@@ -11,16 +11,23 @@ function getReasons($reasonId = FALSE)
     if ($reasonId){
         $queryString .= ' WHERE id = :id';
     }
+    elseif ($objectId){
+        $queryString .= ' WHERE object_id = :objectId';
+    }
 
     $query = $db->prepare($queryString);
 
-    if (!$reasonId){
+    if (!$reasonId && !$objectId){
         $query->execute();
         return $query->fetchAll();
     }
-    else{
+    elseif ($reasonId){
         $query->execute(['id' => $reasonId]);
         return $query->fetch(PDO::FETCH_ASSOC);
+    }
+    elseif ($objectId){
+        $query->execute(['objectId' => $objectId]);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 

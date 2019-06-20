@@ -1,71 +1,50 @@
 <?php
 require_once('dbConnect.php');
 
-function getReasons($reasonId = FALSE)
+function sendProblemForm($address, $email, $description, $objectId, $reasonId)
 {
     $db = dbConnect();
 
-    $queryString = 'SELECT *';
-    $queryString .= ' FROM reasons';
-
-    if ($reasonId){
-        $queryString .= ' WHERE s.id = :id';
-    }
-
-    $query = $db->prepare($queryString);
-
-    if (!$reasonId){
-        $query->execute();
-        return $query->fetchAll();
-    }
-    else{
-        $query->execute(['id' => $reasonId]);
-        return $query->fetch(PDO::FETCH_ASSOC);
-    }
-}
-
-function addReasons($reason)
-{
-    $db = dbConnect();
-
-    $queryString = 'INSERT INTO reasons (reason_name ';
-    $queryValues = 'VALUES (:reasonName';
+    $queryString = 'INSERT INTO signal_problem (address, email, description, object_id, reason_id ';
+    $queryValues = 'VALUES (:address, :email, :description, :objectId, :reasonId';
     $queryParameters = [
-        'reasonName' => htmlspecialchars($reason)
+        'address' => htmlspecialchars($address),
+        'email' => htmlspecialchars($email),
+        'description' => htmlspecialchars($description),
+        'objectId' => htmlspecialchars($objectId),
+        'reasonId' => htmlspecialchars($reasonId)
     ];
 
     $queryString .= ') ';
     $queryValues .= ')';
+
     $queryString .= $queryValues;
 
     $query = $db->prepare($queryString);
+
     return $query->execute($queryParameters);
 }
 
-function updateReasons($reason, $reasonId)
+function sendContactForm($name, $firstName, $phoneNumber, $email, $description)
 {
     $db = dbConnect();
 
-    $queryString = 'UPDATE reasons SET reason_name = :reasonName ';
+    $queryString = 'INSERT INTO contact_us (last_name, first_name, phone_number, email, description ';
+    $queryValues = 'VALUES (:name, :firstName, :phoneNumber, :email, :description';
     $queryParameters = [
-        'reasonName' => htmlspecialchars($reason),
-        'id' => htmlspecialchars($reasonId)
+        'name' => htmlspecialchars($name),
+        'firstName' => htmlspecialchars($firstName),
+        'phoneNumber' => htmlspecialchars($phoneNumber),
+        'email' => htmlspecialchars($email),
+        'description' => htmlspecialchars($description)
     ];
 
-    $queryString .= 'WHERE id = :id';
+    $queryString .= ') ';
+    $queryValues .= ')';
+
+    $queryString .= $queryValues;
 
     $query = $db->prepare($queryString);
+
     return $query->execute($queryParameters);
-}
-
-function deleteReasons($id)
-{
-    $db = dbConnect();
-
-    $queryString = 'DELETE FROM reasons';
-    $queryString .= ' WHERE id = :id';
-
-    $query = $db->prepare($queryString);
-    $query->bindParam(':id', $id, PDO::PARAM_INT);
-    return $query->execute();
 }
