@@ -54,4 +54,3 @@ function responsesForm(){
     }
     require_once './views/backend/responsesForm.php';
 }
-

@@ -11,6 +11,6 @@
 </head>
     <body>
         <?= $content ?>
-
+        <script src="../../assets/js/script.js"></script>
     </body>
 </html>

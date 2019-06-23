@@ -1842,8 +1842,7 @@ li {
 .faq > div div {
   margin: 10px auto;
 }
-
-.collapsible {
+.faq .collapsible {
   background-color: #003f6b;
   color: #FFD876;
   cursor: pointer;
@@ -1854,24 +1853,20 @@ li {
   outline: none;
   font-size: 15px;
 }
-
-.active, .collapsible:hover {
+.faq .active, .faq .collapsible:hover {
   background-color: #003051;
 }
-
-.collapsible:after {
+.faq .collapsible:after {
   content: "+";
   color: #FFD876;
   font-weight: bold;
   float: right;
   margin-left: 5px;
 }
-
-.active:after {
+.faq .active:after {
   content: "−";
 }
-
-.content {
+.faq .content {
   padding: 0 18px;
   max-height: 0;
   overflow: hidden;
