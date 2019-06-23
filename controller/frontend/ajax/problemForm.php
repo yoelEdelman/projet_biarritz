@@ -12,12 +12,12 @@ sendProblemForm($json->address, $json->email, $json->description, $json->objectS
 $result = mailTo('biarritz.dev@gmail.com');
 
 if (!$result){
-    echo 'Une erreur est survenue Veuillez réessayer !';
+    echo 'Une erreur est survenue Veuillez réessayer 1!';
 }
 else{
     $result = mailTo($json->email);
     if (!$result){
-        echo 'Une erreur est survenue Veuillez réessayer !';
+        echo 'Une erreur est survenue Veuillez réessayer 2!';
     }
     else{
         echo 'Nous avons bien reçu votre demande nous vous répondrons sous 365 jours !';

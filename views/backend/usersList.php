@@ -14,14 +14,16 @@
                 <?php if ( isset($_GET['action'])): ?>
                     <div class="bg-success text-white p-2 mb-4">Suppression efféctuée.</div>
                 <?php endif; ?>
-                <?php if(isset($_SESSION['message'])) :?>
-                    <?php foreach($_SESSION['message'] as $message): ?>
+
+                <?php if (!empty($_SESSION['success'])): ?>
+                    <?php foreach($_SESSION['success'] as $key => $success): ?>
                         <div class="bg-success text-white p-2 mb-4">
-                            <?= $message; ?>
-                            <?php unset($_SESSION['message']) ;?>
+                            <?= $success; ?>
                         </div>
                     <?php endforeach; ?>
-                <?php endif ;?>
+                    <?php unset($_SESSION['success']); ?>
+                <?php endif; ?>
+
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -42,6 +44,7 @@
                             <td><?= $user['email']; ?></td>
                             <td><?= ($user['is_admin'] == 0) ? 'non' : 'oui' ; ?></td>
                             <td>
+                                <a href="index.php?page=admin-bills-form&user-id=<?= $user['id']; ?>" class="btn btn-info">Assigner une facture</a>
                                 <a href="index.php?page=admin-users-form&user-id=<?= $user['id']; ?>&action=edit" class="btn btn-warning">Modifier</a>
                                 <a onclick="return confirm('Are you sure?')" href="index.php?page=admin-users-list&user-id=<?= $user['id']; ?>&action=delete" class="btn btn-danger">Supprimer</a>
                             </td>

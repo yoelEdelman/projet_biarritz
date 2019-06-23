@@ -8,6 +8,8 @@ require 'controller/frontend/contact.php';
 require 'controller/frontend/login.php';
 
 require 'controller/frontend/faq.php';
+require 'controller/frontend/account.php';
+
 
 
 
@@ -19,6 +21,8 @@ require 'controller/backend/index.php';
 require 'controller/backend/users.php';
 require 'controller/backend/reasons.php';
 require 'controller/backend/objects.php';
+require 'controller/backend/bills.php';
+
 
 
 
@@ -54,9 +58,9 @@ try{
             case 'login':
                 login();
                 break;
-//            case 'account':
-//                account();
-//                break;
+            case 'account':
+                account();
+                break;
             case 'faq':
                 faq();
                 break;
@@ -86,6 +90,9 @@ try{
                 break;
             case 'admin-users-form':
                 usersForm();
+                break;
+            case 'admin-bills-form':
+                billsForm();
                 break;
             case 'admin-reasons-list':
                 reasonsList();

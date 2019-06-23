@@ -19,10 +19,12 @@ function mailTo($destination, $pwd = FALSE, $newPwd = FALSE, $updatePwd = FALSE,
         $message_html = "<html><head></head><body><b>Salut à tous</b>, voici un e-mail envoyé par un <i>script PHP</i>avec votre nouveau mot de passe. $pwd </body></html>";
     }
     elseif ($request){
+        $message_txt = "Salut à tous, voici un e-mail envoyé par un script PHP nous avons bien recu votre demande nous vous reponderons d'ici 365 jours.";
         $message_html = "<html><head></head><body><b>Salut à tous</b>, voici un e-mail envoyé par un <i>script PHP</i>nous avons bien recu votre demande nous vous reponderons d'ici 365 jours </body></html>";
     }
     else{
-        $message_html = "<html><head></head><body><b>Salut à tous</b>, voici un e-mail envoyé par un <i>script PHP</i. $pwd </body></html>";
+        $message_txt = "Salut à tous, voici un e-mail envoyé par un script PHP . ";
+        $message_html = "<html><head></head><body><b>Salut à tous</b>, voici un e-mail envoyé par un <i>script PHP</i.  </body></html>";
     }
 
 //==========
@@ -60,7 +62,7 @@ function mailTo($destination, $pwd = FALSE, $newPwd = FALSE, $updatePwd = FALSE,
 //==========
 
 //=====Envoi de l'e-mail.
-    mail($mail,$sujet,$message,$header);
+    return mail($mail,$sujet,$message,$header);
 //==========
 }
 

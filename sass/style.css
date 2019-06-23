@@ -1351,6 +1351,9 @@ td:first-child.nice-normal {
   .service div:first-child, .service div:last-child {
     width: 100%;
   }
+  .service div:first-child img {
+    height: 200px;
+  }
 
   .bottom-modal-content {
     flex-direction: column !important;
@@ -1784,7 +1787,7 @@ li {
   align-items: stretch;
   align-content: stretch;
   padding: 10px 5px;
-  margin: auto;
+  margin: 10px auto 0 auto;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 5px 5px 6px #707070;

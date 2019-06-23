@@ -1,7 +1,7 @@
 <?php
 require_once('dbConnect.php');
 
-    function addMedias($name, $typeId, $serviceId = FALSE, $eventId = FALSE)
+    function addMedias($name, $typeId, $serviceId = FALSE, $eventId = FALSE, $billId = FALSE)
     {
         $db = dbConnect();
         $queryString = 'INSERT INTO medias (name, type_id ';
@@ -21,13 +21,18 @@ require_once('dbConnect.php');
             $queryValues .= ', :eventId';
             $queryParameters['eventId'] = htmlspecialchars($eventId);
         }
+        elseif (isset($billId) && !empty($billId)) {
+            $queryString .= ', bill_id ';
+            $queryValues .= ', :billId';
+            $queryParameters['billId'] = htmlspecialchars($billId);
+        }
 
         $queryString .= ') ';
         $queryValues .= ')';
         $queryString .= $queryValues;
 
         $query = $db->prepare($queryString);
-        $query->execute($queryParameters);
+        return $query->execute($queryParameters);
     }
 
     function deleteMedias($currentMedias = FALSE, $serviceId = FALSE, $eventId = FALSE)
@@ -131,3 +136,27 @@ require_once('dbConnect.php');
         }
         return $medias;
     }
+
+function checkPdf($pdf)
+{
+    $allowedPdfExtensions = ['pdf'];
+    $fileExtension = pathinfo($pdf['name'], PATHINFO_EXTENSION);
+
+    if(in_array($fileExtension , $allowedPdfExtensions)){
+        do {
+            $newFileName = rand() . time() . $pdf['name'];
+            $destination = '././assets/pdf/' . $newFileName;
+
+        } while (file_exists($destination));
+        $result = move_uploaded_file($pdf['tmp_name'], $destination);
+        if (!$result){
+            $errors['error'] = "Erreur.";
+        }
+        else{
+            return $newFileName;
+        }
+    }
+    else {
+        $errors['type'] = "Le type de fichier n'est pas conforme !";
+    }
+}

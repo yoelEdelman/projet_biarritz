@@ -29,7 +29,7 @@
                 <div class="policy">
                     <a href="index.php?page=faq">FAQ</a>
                     <a href="#">mentions-legal</a>
-                    <a href="#">politique des cookies</a>
+<!--                    <a href="#">politique des cookies</a>-->
                 </div>
             </div>
         </div>

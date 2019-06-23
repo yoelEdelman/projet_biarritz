@@ -26,6 +26,8 @@
         <?php require_once 'partials/frontend/footer.php';?>
 
     </main>
+    <script src="../../assets/js/menu-burger.js"></script>
+
     <script>
         var coll = document.getElementsByClassName("collapsible");
         var i;

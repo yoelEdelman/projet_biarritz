@@ -47,7 +47,7 @@
             .bill{
                 @include flex(null, null, space-around);
                 @include padding(10px 5px);
-                margin: auto;
+                margin: 10px auto 0 auto;
                 background-color: $white;
                 border-radius: 10px;
                 box-shadow: 5px 5px 6px #707070;

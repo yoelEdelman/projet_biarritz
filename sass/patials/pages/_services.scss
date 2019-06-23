@@ -226,6 +226,11 @@
         div:first-child, div:last-child{
             width: 100%;
         }
+        div:first-child{
+            img{
+                height: 200px;
+            }
+        }
     }
     .bottom-modal-content{
         flex-direction: column !important;

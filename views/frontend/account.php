@@ -10,12 +10,12 @@
 
             <h2>Profil</h2>
             <div>
-                <p>NOM</p>
-                <p>PRENOM</p>
-                <p>EMAIL</p>
-                <p>ADDRESSE</p>
-                <p>NUMERO FIXE</p>
-                <p>NUMERO MOBILE</p>
+                <p><?= $user['last_name'];?></p>
+                <p><?= $user['first_name'];?></p>
+                <p><?= $user['email'];?></p>
+                <p><?= $user['address'];?> <?= $user['zip_code'];?> <?= $user['city'];?> <?= $user['country'];?></p>
+                <p><?= $user['home_number'];?></p>
+                <p><?= $user['mobile_number'];?></p>
             </div>
 
 
@@ -30,20 +30,16 @@
         <section class="bills">
             <h2>Mes Factures</h2>
             <div>
-                <!--            --><?php //foreach ($bills as $bill):?>
-                <div class="bill">
-                    <p>Facture </p>
-                    <p>du 01/05/2019 au 01/06/2019</p>
-                    <p>IMPAYÉ</p>
-                    <a href="#" id=""><i class="fas fa-money-bill-wave-alt"></i></a>
-                    <a href="#" id=""><i class="fas fa-arrow-alt-circle-down"></i></a>
-                    <!--                    <p>--><?//= $bill['category_name'];?><!--</p>-->
-                    <!--                    <p>--><?//= $bill['title'];?><!--</p>-->
-                    <!--                    <p>--><?//= $bill['summary'];?><!--</p>-->
-                    <!--                    <a href="#" id="--><?//= $bill['id'];?><!--">en savoir plus</a>-->
-                    <!--                    <a href="#" id="--><?//= $bill['id'];?><!--">en savoir plus</a>-->
-                </div>
-                <!--            --><?php //endforeach;?>
+                <?php foreach ($bills as $bill):?>
+                    <div class="bill">
+                        <p>Facture </p>
+                        <p><?= $bill['formated_bill_from'];?> au <?= $bill['formated_bill_to'];?></p>
+                        <p><?= $bill['paid'] == 0 ? 'PAYÉ' : 'IMPAYÉ';?></p>
+                        <p><?= $bill['amount_due'];?> <i class="fas fa-euro-sign"></i></p>
+                        <a href="#" id=""><i class="fas fa-money-bill-wave-alt"></i></a>
+                        <a href="../assets/pdf/<?= $bill['name'];?>" target="_blank" id=""><i class="fas fa-arrow-alt-circle-down"></i></a>
+                    </div>
+                <?php endforeach;?>
             </div>
         </section>
     </section>
