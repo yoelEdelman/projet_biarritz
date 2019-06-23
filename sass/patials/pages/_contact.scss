@@ -2,10 +2,8 @@
     @include size(100%, calc(100vh - 57px));
     @include flex(column, null, center, center);
     section {
-        //min-height: 60%;
         min-width: 40%;
         ul{
-            //padding: 0;
             @include padding(0);
             width: 100%;
             @include flex();
@@ -15,10 +13,8 @@
                 width: 50%;
                 text-align: center;
                 @include padding(8px);
-                //padding: 10px;
                 a{
                     @include padding(inherit);
-                    //border-radius: inherit;
                     display: block;
                     color: white;
                 }
@@ -26,14 +22,11 @@
         }
     }
 }
-
 .tabs-content{
     background-color: $blue;
     border-radius: 0 0 10px 10px;
     @include size(100%, 90%);
 }
-
-
 .tab-content{
     @include size(100%);
     form{
@@ -73,8 +66,6 @@
         }
     }
 }
-
-
 .double-form-group{
     @include flex(null, wrap, space-between);
     div{
@@ -82,21 +73,18 @@
         margin: 0;
     }
 }
-
 li.active{
     border: transparent solid 1px;
 }
 li{
     border: white solid 1px;
 }
-
 .tab-content{
     display: none;
 }
 .tab-content.active{
     display: block;
 }
-
 @include until($desktop){
     .contact{
         section{
@@ -104,11 +92,9 @@ li{
         }
     }
 }
-
 @include until($tablet){
     .contact {
         section {
-            //min-height: 60%;
             width: 65%;
         }
     }
@@ -122,39 +108,11 @@ li{
             margin-bottom: 20px;
         }
     }
-    //form{
-    //    > div{
-    //        width: 85% !important;
-    //        [type=submit]{
-    //            width: 60% !important;
-    //        }
-    //    }
-    //}
 }
-
 @include until($phone){
     .contact {
         section {
-            //min-height: 60%;
             width: 90%;
         }
     }
-    //.double-form-group{
-    //    @include flex(column, wrap, space-between);
-    //    div{
-    //        width: 100%;
-    //        margin: 0;
-    //    }
-    //    div:first-child{
-    //        margin-bottom: 20px;
-    //    }
-    //}
-    //form{
-    //    > div{
-    //        width: 85% !important;
-    //        [type=submit]{
-    //            width: 60% !important;
-    //        }
-    //    }
-    //}
 }
