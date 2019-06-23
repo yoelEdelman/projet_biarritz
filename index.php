@@ -1,109 +1,89 @@
 <?php
-
-require 'controller/frontend/index.php';
-require 'controller/frontend/history.php';
-require 'controller/frontend/services.php';
-require 'controller/frontend/events.php';
-require 'controller/frontend/contact.php';
-require 'controller/frontend/login.php';
-
-require 'controller/frontend/faq.php';
-require 'controller/frontend/account.php';
-
-
-
-
-
-require 'controller/backend/categories.php';
-require 'controller/backend/services.php';
-require 'controller/backend/events.php';
-require 'controller/backend/index.php';
-require 'controller/backend/users.php';
-require 'controller/backend/reasons.php';
-require 'controller/backend/objects.php';
-require 'controller/backend/bills.php';
-
-
-
-
-
-
-////function autoLoadController($class)
-////{
-////    require 'controller/frontend/' . $class . '.php';
-////}
-//function autoLoad($class)
-//{
-//    require './model/' . $class . '.php';
-//}
-//spl_autoload_register('autoLoad');
-////spl_autoload_register('autoLoadController');
-
-
 try{
     if(isset($_GET['page'])){
         switch ($_GET['page']) {
             case 'history':
+                require 'controller/frontend/history.php';
                 history();
                 break;
             case 'services':
+                require 'controller/frontend/services.php';
                 services();
                 break;
             case 'events':
+                require 'controller/frontend/events.php';
                 events();
                 break;
             case 'contact':
+                require 'controller/frontend/contact.php';
                 contact();
                 break;
             case 'login':
+                require 'controller/frontend/login.php';
                 login();
                 break;
             case 'account':
+                require 'controller/frontend/account.php';
                 account();
                 break;
             case 'faq':
+                require 'controller/frontend/faq.php';
                 faq();
                 break;
             case 'admin':
+                require 'controller/backend/index.php';
                 adminHome();
                 break;
             case 'admin-categories-list':
+                require 'controller/backend/categories.php';
                 categoriesList();
                 break;
             case 'admin-categories-form':
+                require 'controller/backend/categories.php';
                 categoriesForm();
                 break;
             case 'admin-events-list':
+                require 'controller/backend/events.php';
                 eventsList();
                 break;
             case 'admin-events-form':
+                require 'controller/backend/events.php';
                 eventsForm();
                 break;
             case 'admin-services-list':
+                require 'controller/backend/services.php';
                 servicesList();
                 break;
             case 'admin-services-form':
+                require 'controller/backend/services.php';
                 servicesForm();
                 break;
             case 'admin-users-list':
+                require 'controller/backend/users.php';
                 usersList();
                 break;
             case 'admin-users-form':
+                require 'controller/backend/users.php';
                 usersForm();
                 break;
             case 'admin-bills-form':
+                require 'controller/backend/bills.php';
                 billsForm();
                 break;
             case 'admin-reasons-list':
+                require 'controller/backend/reasons.php';
                 reasonsList();
                 break;
             case 'admin-reasons-form':
+                require 'controller/backend/reasons.php';
                 reasonsForm();
                 break;
             case 'admin-objects-list':
+                require 'controller/backend/objects.php';
                 objectsList();
                 break;
             case 'admin-objects-form':
+                require 'controller/backend/objects.php';
                 objectsForm();
                 break;
             case 'admin-questions-list':
@@ -123,7 +103,6 @@ try{
                 responsesForm();
                 break;
             default:
-                // On redirige le visiteur vers la page d'accueil
                 header('location:index.php');
                 exit;
         }
@@ -137,6 +116,7 @@ try{
             header('location:index.php');
             exit;
         }
+        require 'controller/frontend/index.php';
         home();
     }
 }
