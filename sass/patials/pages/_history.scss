@@ -5,7 +5,6 @@
      padding: 10px 20px;
      border-radius: 10px;
      background-color: rgba(255, 255, 255, .8);
-     //opacity: .8;
      color: $blue;
      h1{
          text-transform: uppercase;
@@ -15,7 +14,6 @@
          margin: 20px auto;
      }
  }
-
 .story-1{
     @include flex();
     div{
@@ -25,6 +23,7 @@
         padding: 20px;
         box-sizing: border-box;
         margin: auto;
+        text-align: justify;
     }
     @include until($tablet){
         @include flex(column);
@@ -42,7 +41,7 @@
         padding: 20px;
         box-sizing: border-box;
         margin: auto;
-        text-align: center;
+        text-align: justify;
     }
 }
 .story-3{
@@ -54,7 +53,7 @@
         padding: 20px;
         box-sizing: border-box;
         margin: auto;
-        text-align: center;
+        text-align: justify;
     }
     @include until($tablet){
         @include flex(column);
@@ -69,8 +68,6 @@
         }
     }
 }
-
-
 @include until($phone){
     .story{
         width: 80%;

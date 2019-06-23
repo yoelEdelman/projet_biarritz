@@ -1021,6 +1021,7 @@ td:first-child.nice-normal {
   padding: 20px;
   box-sizing: border-box;
   margin: auto;
+  text-align: justify;
 }
 @media all and (max-width: 768px) {
   .story-1 {
@@ -1051,7 +1052,7 @@ td:first-child.nice-normal {
   padding: 20px;
   box-sizing: border-box;
   margin: auto;
-  text-align: center;
+  text-align: justify;
 }
 
 .story-3 {
@@ -1069,7 +1070,7 @@ td:first-child.nice-normal {
   padding: 20px;
   box-sizing: border-box;
   margin: auto;
-  text-align: center;
+  text-align: justify;
 }
 @media all and (max-width: 768px) {
   .story-3 {
