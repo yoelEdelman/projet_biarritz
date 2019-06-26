@@ -1,25 +1,15 @@
 let services = document.querySelectorAll('.service')
 let serviceHref = document.querySelectorAll('.service a[data-service-id]')
-let events = document.querySelectorAll('.event')
-let eventHref = document.querySelectorAll('.event a[data-event-id]')
-// console.log(serviceHref)
-// console.log(eventHref)
 
 
+// let interval
 
-let interval
-// console.log(services)
-// console.log(serviceHref)
 
 
 for (let i = 0; i< serviceHref.length; i++){
     serviceHref[i].addEventListener("click", function (e) {
         e.preventDefault()
         let serviceId = parseInt(serviceHref[i].getAttribute('data-service-id'))
-        console.log(typeof (serviceId))
-
-
-
 
         fetch('../controller/frontend/ajax/service.php', {
             method: 'POST',
@@ -29,14 +19,11 @@ for (let i = 0; i< serviceHref.length; i++){
 
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data)
 
                 let sliderContainer = document.querySelector('#slider-modal-container')
-                // console.log(sliderContainer)
 
                 let medias = data.name.split(',')
                 for (let i = 0; i<medias.length; i++){
-                    // console.log(medias[i])
 
                     let img = document.createElement('img')
                     img.classList.add('slide')
@@ -55,14 +42,18 @@ for (let i = 0; i< serviceHref.length; i++){
                 }, 5000);
                 console.log(medias)
 
+                let modalMap = document.querySelector('.modal-map')
+
+                modalMap.setAttribute('src', data.location)
+                console.log(modalMap)
 
                 let title = document.querySelector('.title')
                 title.innerText = data.title
-                title.nextElementSibling.innerText = data.content
+                title.nextElementSibling.innerHTML = data.content
                 let serviceInfo = document.querySelector('.service-info')
                 serviceInfo.firstElementChild.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${data.address}`
                 serviceInfo.firstElementChild.nextElementSibling.innerHTML = `<i class="fas fa-phone"></i> ${data.phone_number}`
-                serviceInfo.firstElementChild.nextElementSibling.nextElementSibling.innerHTML = `<i class="fas fa-clock"></i> ${data.hours_from} ${data.hours_to}`
+                serviceInfo.firstElementChild.nextElementSibling.nextElementSibling.innerHTML = `<i class="fas fa-clock"></i> ${data.hours_from_formated} ${data.hours_to_formated}`
                 serviceInfo.lastElementChild.innerText = `Itinéraire`
 
                 console.log(serviceInfo.lastElementChild)
@@ -76,15 +67,53 @@ for (let i = 0; i< serviceHref.length; i++){
 
     })
 }
-console.log(eventHref)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let interval
+
+
+let events = document.querySelectorAll('.event')
+let eventHref = document.querySelectorAll('.event a[data-event-id]')
+
 
 
 for (let i = 0; i< eventHref.length; i++){
     eventHref[i].addEventListener("click", function (e) {
         e.preventDefault()
-        console.log(this)
         let eventId = parseInt(eventHref[i].getAttribute('data-event-id'))
-        // console.log(typeof (eventId))
 
 
         console.log(eventHref)
@@ -98,14 +127,11 @@ for (let i = 0; i< eventHref.length; i++){
 
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data)
 
                 let sliderContainer = document.querySelector('#slider-modal-container')
-                // console.log(sliderContainer)
 
                 let medias = data.name.split(',')
                 for (let i = 0; i<medias.length; i++){
-                    // console.log(medias[i])
 
                     let img = document.createElement('img')
                     img.classList.add('slide')
@@ -113,7 +139,6 @@ for (let i = 0; i< eventHref.length; i++){
 
                     img.setAttribute('src', `../../assets/img/${medias[i]}`)
                     sliderContainer.appendChild(img)
-                    // console.log(img)
 
                 }
 
@@ -122,13 +147,12 @@ for (let i = 0; i< eventHref.length; i++){
                 interval = setInterval(function(){
                     showModalSlides(++slideIndex);
                 }, 5000);
-                // console.log(medias)
 
 
                 let title = document.querySelector('.title')
                 title.previousElementSibling.innerText = data.category_name
                 title.innerText = data.title
-                title.nextElementSibling.innerText = data.content
+                title.nextElementSibling.innerHTML = data.content
                 let serviceInfo = document.querySelector('.service-info')
                 serviceInfo.firstElementChild.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${data.address}`
                 serviceInfo.firstElementChild.nextElementSibling.innerHTML = `<i class="fas fa-phone"></i> ${data.phone_number}`

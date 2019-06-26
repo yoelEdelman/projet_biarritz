@@ -52,60 +52,69 @@ const contact = function () {
     let submitProblemForm = document.querySelector('#submit-problem-form')
     let submitContactForm = document.querySelector('#submit-contact-form')
 
+    if (problemForm){
+        problemForm.addEventListener('click', function (e) {
+            e.preventDefault()
+        })
+    }
 
-    problemForm.addEventListener('click', function (e) {
-        e.preventDefault()
-    })
+    if (contactForm){
+        contactForm.addEventListener('click', function (e) {
+            e.preventDefault()
+        })
+    }
 
-    contactForm.addEventListener('click', function (e) {
-        e.preventDefault()
-    })
+    if (objectSelected){
+        objectSelected.addEventListener('change', function () {
+            sendObjectSelected(this.value)
+        })
+    }
 
-    objectSelected.addEventListener('change', function () {
-        sendObjectSelected(this.value)
-    })
+    if (submitProblemForm){
+        submitProblemForm.addEventListener('click', function () {
+            let address = document.querySelector('#address')
+            let email = document.querySelector('#email')
+            let description = document.querySelector('#description')
 
-    submitProblemForm.addEventListener('click', function () {
-        let address = document.querySelector('#address')
-        let email = document.querySelector('#email')
-        let description = document.querySelector('#description')
-
-        if (address.value == "" || email.value == "" || description.value == "" || objectSelected.value == "" ||reasonSelected.value == ""){
-            alert('Tous les champs sont obligatoires !')
-        }
-        else {
-            let data = {
-                address: address.value,
-                email: email.value,
-                objectSelected: objectSelected.value,
-                reasonSelected: reasonSelected.value,
-                description: description.value
+            if (address.value == "" || email.value == "" || description.value == "" || objectSelected.value == "" ||reasonSelected.value == ""){
+                alert('Tous les champs sont obligatoires !')
             }
-            sendProblemForm(data)
-        }
-    })
-
-    submitContactForm.addEventListener('click', function () {
-        let name = document.querySelector('#name')
-        let firstName = document.querySelector('#first-name')
-        let phoneNumber = document.querySelector('#phone-number')
-        let email = document.querySelector('#email-contact-form')
-        let description = document.querySelector('#description-contact-form')
-
-        if (name.value == "" || firstName.value == "" || phoneNumber.value == "" || email.value == "" || description.value == ""){
-            alert('Tous les champs sont obligatoires !')
-        }
-        else {
-            let data = {
-                name: name.value,
-                firstName: firstName.value,
-                phoneNumber: phoneNumber.value,
-                email: email.value,
-                description: description.value
+            else {
+                let data = {
+                    address: address.value,
+                    email: email.value,
+                    objectSelected: objectSelected.value,
+                    reasonSelected: reasonSelected.value,
+                    description: description.value
+                }
+                sendProblemForm(data)
             }
-            sendContactForm(data)
-        }
-    })
+        })
+    }
+
+    if (submitContactForm){
+        submitContactForm.addEventListener('click', function () {
+            let name = document.querySelector('#name')
+            let firstName = document.querySelector('#first-name')
+            let phoneNumber = document.querySelector('#phone-number')
+            let email = document.querySelector('#email-contact-form')
+            let description = document.querySelector('#description-contact-form')
+
+            if (name.value == "" || firstName.value == "" || phoneNumber.value == "" || email.value == "" || description.value == ""){
+                alert('Tous les champs sont obligatoires !')
+            }
+            else {
+                let data = {
+                    name: name.value,
+                    firstName: firstName.value,
+                    phoneNumber: phoneNumber.value,
+                    email: email.value,
+                    description: description.value
+                }
+                sendContactForm(data)
+            }
+        })
+    }
 
     const sendProblemForm = function(form){
         fetch('../controller/frontend/ajax/problemForm.php', {
@@ -151,7 +160,7 @@ const contact = function () {
 
 contact()
 
-//tabs for contact poage to switch form
+//tabs for contact page to switch form
 const tabs = function () {
     let tabs = document.querySelectorAll('.tabs a')
 
@@ -189,3 +198,171 @@ const tabs = function () {
 }
 
 tabs()
+
+//modal
+const modal =function () {
+    (function() {
+        /* Opening modal window function */
+        function openModal() {
+            /* Get trigger element */
+            let modalTrigger = document.getElementsByClassName('jsModalTrigger');
+
+            /* Set onclick event handler for all trigger elements */
+            for(let i = 0; i < modalTrigger.length; i++) {
+                modalTrigger[i].onclick = function() {
+                    let target = this.getAttribute('href').substr(1);
+                    let modalWindow = document.getElementById(target);
+
+                    modalWindow.classList ? modalWindow.classList.add('open') : modalWindow.className += ' ' + 'open';
+                }
+            }
+        }
+
+        function closeModal(){
+            /* Get close button */
+            let closeButton = document.getElementsByClassName('jsModalClose');
+            let closeOverlay = document.getElementsByClassName('jsOverlay');
+
+            /* Set onclick event handler for close buttons */
+            for(let i = 0; i < closeButton.length; i++) {
+                closeButton[i].onclick = function() {
+
+                    let modalWindow = this.parentNode.parentNode;
+                    document.querySelector('#slider-modal-container').innerHTML = ''
+                    clearInterval(interval)
+
+                    modalWindow.classList ? modalWindow.classList.remove('open') : modalWindow.className = modalWindow.className.replace(new RegExp('(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                }
+            }
+
+            /* Set onclick event handler for modal overlay */
+            for(let i = 0; i < closeOverlay.length; i++) {
+                closeOverlay[i].onclick = function() {
+
+                    let modalWindow = this.parentNode;
+                    document.querySelector('#slider-modal-container').innerHTML = ''
+                    clearInterval(interval)
+
+                    modalWindow.classList ? modalWindow.classList.remove('open') : modalWindow.className = modalWindow.className.replace(new RegExp('(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                }
+            }
+        }
+
+        /* Handling domready event IE9+ */
+        function ready(fn) {
+            if (document.readyState != 'loading'){
+                fn();
+            } else {
+                document.addEventListener('DOMContentLoaded', fn);
+            }
+        }
+
+        /* Triggering modal window function after dom ready */
+        ready(openModal);
+        ready(closeModal);
+    }());
+}
+
+modal()
+
+//slider for modal
+const sliderModal = function () {
+    // initialize slideIndex with 0 as you want to show the first slide first
+    let slideIndex = 0;
+
+// creating function for showing slides
+    function showModalSlides(index){
+        let slides = document.querySelectorAll(".slide");
+
+        // if slide index value is greater than length of slides then jump to 1st slide
+        if (index >= slides.length){
+            slideIndex = 0;
+            // if we want to jump at the last of the slide in case the user is at the first one
+        } else if (index < 0) {
+            slideIndex = slides.length - 1;
+        } else{
+            slideIndex = slideIndex;
+        }
+
+        // before showing slides we must hide all the slides and remove active-dots class using for loop
+        for (let i = 0; i < slides.length; i++){
+            // hide slide elements
+            slides[i].style.display = "none";
+        }
+        // show the slide we want and set the dot class active-dot
+        slides[slideIndex].style.display = "block";
+    }
+}
+
+// sliderModal()
+
+//service modal with ajax
+const serviceAjaxModal = function () {
+    let services = document.querySelectorAll('.service')
+    let serviceHref = document.querySelectorAll('.service a[data-service-id]')
+    let interval
+
+    for (let i = 0; i< serviceHref.length; i++){
+        serviceHref[i].addEventListener("click", function (e) {
+            e.preventDefault()
+            let serviceId = parseInt(serviceHref[i].getAttribute('data-service-id'))
+
+            fetch('../controller/frontend/ajax/service.php', {
+                method: 'POST',
+                headers: new Headers(),
+                body: serviceId
+            })
+
+                .then((res) => res.json())
+                .then((data) => {
+
+                    let sliderContainer = document.querySelector('#slider-modal-container')
+
+                    let medias = data.name.split(',')
+                    for (let i = 0; i<medias.length; i++){
+
+                        let img = document.createElement('img')
+                        img.classList.add('slide')
+                        img.classList.add('fade')
+
+                        img.setAttribute('src', `../../assets/img/${medias[i]}`)
+                        sliderContainer.appendChild(img)
+                        console.log(img)
+
+                    }
+
+                    showModalSlides(slideIndex);
+
+                    interval = setInterval(function(){
+                        showModalSlides(++slideIndex);
+                    }, 5000);
+                    console.log(medias)
+
+                    let modalMap = document.querySelector('.modal-map')
+
+                    modalMap.setAttribute('src', data.location)
+                    console.log(modalMap)
+
+                    let title = document.querySelector('.title')
+                    title.innerText = data.title
+                    title.nextElementSibling.innerHTML = data.content
+                    let serviceInfo = document.querySelector('.service-info')
+                    serviceInfo.firstElementChild.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${data.address}`
+                    serviceInfo.firstElementChild.nextElementSibling.innerHTML = `<i class="fas fa-phone"></i> ${data.phone_number}`
+                    serviceInfo.firstElementChild.nextElementSibling.nextElementSibling.innerHTML = `<i class="fas fa-clock"></i> ${data.hours_from_formated} ${data.hours_to_formated}`
+                    serviceInfo.lastElementChild.innerText = `Itinéraire`
+
+                    console.log(serviceInfo.lastElementChild)
+
+
+                })
+
+                .catch((data) =>{
+                    alert("un incident s'est produit")
+                })
+
+        })
+    }
+}
+
+// serviceAjaxModal()

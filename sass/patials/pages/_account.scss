@@ -1,4 +1,5 @@
 .account {
+    min-height: 100vh;
     @include size(100%, calc(100vh - 107px));
     @include flex(null, null, space-around, flex-start);
     margin-top: 50px;

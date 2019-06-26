@@ -3,7 +3,15 @@ require_once ('././model/services.php');
 
 function servicesList(){
     if (isset($_GET['service-id']) && isset($_GET['action']) && $_GET['action'] == 'delete'){
-        $result = deleteServices($_GET['service-id']/*, $_POST['current-medias']*/);
+        $result = deleteServices($_GET['service-id']);
+        if (!$result){
+            $errors['errorDelete'] = 'Une erreur est survenue veuillez réessayer !';
+        }
+        else{
+            $_SESSION['success']['serviceDeleted'] = 'Suppression effectuée avec succès !';
+            header('location:index.php?page=admin-services-list');
+            exit;
+        }
     }
     $services = getServices(FALSE, TRUE);
     require_once './views/backend/servicesList.php';
@@ -14,25 +22,45 @@ function servicesForm(){
         $service = getServices($_GET['service-id'], TRUE);
     }
     if (isset($_POST['update']) || isset($_POST['save'])){
+        $zipCode = (int)$_POST['zip_code'];
         if (empty($_POST['title']) || empty($_POST['summary']) || empty($_POST['content']) || empty($_POST['phone_number'])
             || empty($_POST['opening_days']) || empty($_POST['hours_from']) || empty($_POST['hours_to'])
             || empty($_POST['address']) || empty($_POST['zip_code']) || empty($_POST['city'])){
-            $errors['empty'] = 'Veuillez remplir les champs sont obligatoire !';
+            $errors['empty'] = 'Veuillez remplir les champs obligatoire !';
+        }
+        elseif (!is_int($zipCode)){
+            $errors['notInt'] = 'Le code postale ne peut contenir des nombre uniquement';
         }
         elseif (isset($_POST['update'])){
-            $services = updateServices($_POST['address'], $_POST['zip_code'], $_POST['city'], $_POST['country'], $_POST['location']
+            $result = updateServices($_POST['address'], $zipCode, $_POST['city'], $_POST['country'], $_POST['location']
                 , $_POST['title'], $_POST['summary'], $_POST['content'], $_POST['phone_number'], $_POST['opening_days']
                 , $_POST['hours_from'], $_POST['hours_to'], $_POST['is_published'], $_POST['address-id'], $_POST['service-id']
                 , $_FILES, $_POST['current_medias']);
+            if (!$result){
+                $errors['errorUpdate'] = 'Une erreur est survenue veuillez réessayer !';
+            }
+            else{
+                $_SESSION['success']['serviceUpdated'] = 'Modification effectuée avec succès !';
+                header('location:index.php?page=admin-services-list');
+                exit;
+            }
         }
         elseif (isset($_POST['save'])){
             if (empty($_FILES['media'])){
                 $errors['empty'] = 'Veuillez remplir les champs sont obligatoire !';
             }
             else{
-                $services = addServices($_POST['address'], $_POST['zip_code'], $_POST['city'], $_POST['country'], $_POST['location']
+                $result = addServices($_POST['address'], $zipCode, $_POST['city'], $_POST['country'], $_POST['location']
                     , $_POST['title'], $_POST['summary'], $_POST['content'], $_POST['phone_number'], $_POST['opening_days']
                     , $_POST['hours_from'], $_POST['hours_to'], $_POST['is_published'], $_FILES);
+                if (!$result){
+                    $errors['errorInsert'] = 'Une erreur est survenue veuillez réessayer !';
+                }
+                else{
+                    $_SESSION['success']['serviceInserted'] = 'Insertion effectuée avec succès !';
+                    header('location:index.php?page=admin-services-list');
+                    exit;
+                }
             }
         }
     $service = [];

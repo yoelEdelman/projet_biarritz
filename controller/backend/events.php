@@ -1,5 +1,7 @@
 <?php
 require_once ('././model/events.php');
+require_once ('././model/categories.php');
+
 
 function eventsList(){
     if (isset($_GET['event-id']) && isset($_GET['action']) && $_GET['action'] == 'delete'){

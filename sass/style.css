@@ -696,6 +696,10 @@ footer .container {
   box-sizing: border-box;
   position: relative;
 }
+#slider-modal-container img {
+  height: 450px;
+  object-fit: cover;
+}
 
 #arrows-wrapper {
   padding: 5px;
@@ -842,6 +846,10 @@ footer .container {
 
   #dots-wrapper {
     display: none;
+  }
+
+  #slider-modal-container img {
+    height: 200px;
   }
 }
 .eventContainer .container {
@@ -1176,7 +1184,6 @@ td:first-child.nice-normal {
   bottom: 0;
   left: 0;
   z-index: 99;
-  padding: 30px;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -1361,6 +1368,10 @@ td:first-child.nice-normal {
   }
   .bottom-modal-content div {
     width: 100% !important;
+  }
+
+  .modal-content {
+    display: block;
   }
 }
 .events {
@@ -1730,6 +1741,7 @@ li {
   }
 }
 .account {
+  min-height: 100vh;
   width: 100%;
   height: calc(100vh - 107px);
   display: flex;

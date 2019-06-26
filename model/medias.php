@@ -55,8 +55,6 @@ require_once('dbConnect.php');
         elseif ($eventId){
             $query->bindParam(':eventId', $eventId, PDO::PARAM_INT);
         }
-//        print_r($currentMedias);
-//        die();
 
         $medias = explode(',', $currentMedias);
         foreach ($medias as $media){
@@ -80,7 +78,6 @@ require_once('dbConnect.php');
                 addMedias($media['name'], $media['typeId'], FALSE, $eventId);
             }
         }
-
     }
 
     function checkMedias($files)

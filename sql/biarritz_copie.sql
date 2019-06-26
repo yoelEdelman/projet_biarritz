@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  jeu. 09 mai 2019 à 20:29
+-- Généré le :  lun. 24 juin 2019 à 13:50
 -- Version du serveur :  5.7.23
--- Version de PHP :  7.2.8
+-- Version de PHP :  7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,16 +28,33 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `addresses` (
   `id` int(10) UNSIGNED NOT NULL,
-  `num` tinyint(5) UNSIGNED NOT NULL,
-  `bis` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `ter` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `type` varchar(25) NOT NULL,
-  `street_name` varchar(60) NOT NULL,
-  `zip_code` tinyint(6) UNSIGNED NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `zip_code` int(6) UNSIGNED NOT NULL,
   `city` varchar(30) NOT NULL,
   `country` varchar(40) DEFAULT 'France',
   `location` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `addresses`
+--
+
+INSERT INTO `addresses` (`id`, `address`, `zip_code`, `city`, `country`, `location`) VALUES
+(83, 'test insert event 1', 12345, 'test insert event 1', 'France', NULL),
+(84, 'test insert event 2', 12345, 'test insert event 2', 'France', NULL),
+(85, 'test insert event 3', 12345, 'test insert event 3', 'France', NULL),
+(86, 'test insert event 4', 12345, 'test insert event 4', 'France', NULL),
+(87, 'test insert event 5', 12345, 'test insert event 5', 'France', NULL),
+(89, 'test insert service 2', 12345, 'test insert service 2', 'France', NULL),
+(90, 'dasefdgh', 345, 'dasfgn', 'France', NULL),
+(91, 'dasefdgh', 345, 'dasfgn', 'France', NULL),
+(92, '', 2134, '', 'France', NULL),
+(93, '', 2134, 'dfbg', 'France', NULL),
+(94, 'test service plusieurs images', 75011, 'paris', 'France', NULL),
+(95, '61 Boulevard Beaumarchais', 75003, 'paris', 'France', NULL),
+(96, 'aaa', 1234, 'aaa', 'France', NULL),
+(97, 'aaa', 1234, 'aaa', 'France', NULL),
+(98, '12 avenue Edouard VII', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.918222671094!2d-1.5609816844658069!3d43.483176979127386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516ad81bb912b5%3A0x297f061521e8d6c6!2s12+Avenue+Edouard+VII%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1560810250352!5m2!1sfr!2sfr');
 
 -- --------------------------------------------------------
 
@@ -49,11 +66,23 @@ CREATE TABLE `bills` (
   `id` int(10) UNSIGNED NOT NULL,
   `bill_from` date NOT NULL,
   `bill_to` date NOT NULL,
-  `paid` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `type` varchar(200) NOT NULL,
-  `amount_due` tinyint(6) NOT NULL,
+  `paid` tinyint(1) NOT NULL DEFAULT '0',
+  `amount_due` int(11) NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `bills`
+--
+
+INSERT INTO `bills` (`id`, `bill_from`, `bill_to`, `paid`, `amount_due`, `user_id`) VALUES
+(1, '2019-06-23', '2019-06-30', 1, 345, 2),
+(2, '2019-06-02', '2019-06-30', 0, 123, 2),
+(3, '2019-06-01', '2019-06-08', 0, 24, 1),
+(4, '2019-06-14', '2019-06-21', 1, 234, 1),
+(5, '2019-06-02', '2019-06-23', 0, 777, 1),
+(6, '2019-06-02', '2019-06-23', 0, 777, 1),
+(7, '2019-06-02', '2019-06-08', 0, 234, 1);
 
 -- --------------------------------------------------------
 
@@ -63,9 +92,23 @@ CREATE TABLE `bills` (
 
 CREATE TABLE `categories` (
   `id` int(10) UNSIGNED NOT NULL,
-  `category_name` varchar(100) NOT NULL,
-  `deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT '0'
+  `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'spectacle'),
+(2, 'exposition'),
+(3, 'sport'),
+(4, 'test'),
+(5, 'test insert'),
+(6, 'test new again'),
+(7, 'test new update normal'),
+(8, 'autres'),
+(9, 'stationnement');
 
 -- --------------------------------------------------------
 
@@ -77,10 +120,20 @@ CREATE TABLE `contact_us` (
   `id` int(10) UNSIGNED NOT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
-  `phone_number` tinyint(15) DEFAULT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
   `email` varchar(75) NOT NULL,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `contact_us`
+--
+
+INSERT INTO `contact_us` (`id`, `last_name`, `first_name`, `phone_number`, `email`, `description`) VALUES
+(1, 'edelman', 'yoel', '0559415941', 'qwerty@gmail.com', 'test 1'),
+(2, 'aaa', 'aaa', '123456789', 'qwerty@gmail.com', 'test'),
+(3, 'aaa', 'aaa', '559415941', 'qwerty@gmail.com', 'test'),
+(4, 'aaa', 'aaa', '559415941', 'qwerty@gmail.com', 'test final');
 
 -- --------------------------------------------------------
 
@@ -95,26 +148,24 @@ CREATE TABLE `events` (
   `content` text NOT NULL,
   `event_date` date NOT NULL,
   `event_time` time DEFAULT NULL,
-  `phone_number` tinyint(15) DEFAULT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
   `is_published` tinyint(1) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Publiée ? oui/non',
   `published_at` date NOT NULL COMMENT 'date a publier sur le site',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `address_id` int(10) UNSIGNED NOT NULL,
-  `category_id` int(10) UNSIGNED NOT NULL,
-  `deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT '0'
+  `category_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `events_medias`
+-- Déchargement des données de la table `events`
 --
 
-CREATE TABLE `events_medias` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `event_id` int(10) UNSIGNED NOT NULL,
-  `media_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `events` (`id`, `title`, `summary`, `content`, `event_date`, `event_time`, `phone_number`, `is_published`, `published_at`, `created_at`, `address_id`, `category_id`) VALUES
+(12, 'test insert event 1', 'Test insert event 1', 'test insert event 1', '2019-06-02', '20:30:00', '0123456789', 1, '2019-06-02', '2019-06-02 20:03:55', 83, 1),
+(13, 'test insert event 2', 'Test insert event 2', 'test insert event 2', '2019-06-04', '20:30:00', '0123456789', 1, '2019-06-03', '2019-06-02 20:04:38', 84, 2),
+(14, 'test insert event 3', 'Test insert event 3', 'test insert event 3', '2019-06-12', '20:30:00', '0123456789', 1, '2019-06-02', '2019-06-02 20:05:24', 85, 3),
+(15, 'test insert event 4', 'Test insert event 4', 'test insert event 4', '2019-06-12', '20:30:00', '0123456789', 1, '2019-06-02', '2019-06-02 20:06:28', 86, 4),
+(16, 'test insert event 5', 'Test insert event 5', 'test insert event 5', '2019-06-13', '20:30:00', '0123456789', 1, '2019-06-02', '2019-06-02 20:07:04', 87, 5);
 
 -- --------------------------------------------------------
 
@@ -124,8 +175,19 @@ CREATE TABLE `events_medias` (
 
 CREATE TABLE `faq_answers` (
   `id` int(10) UNSIGNED NOT NULL,
-  `answer` text NOT NULL
+  `answer` text NOT NULL,
+  `question_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `faq_answers`
+--
+
+INSERT INTO `faq_answers` (`id`, `answer`, `question_id`) VALUES
+(1, 'test update 1', 4),
+(2, 'test insert 2', 4),
+(3, 'La piscine est ouverte tous les jours de la semaine sur des plages horaires spécifiques. Les horaires sont également différents pendant les petites et grandes vacances', 5),
+(4, 'Tous les Biarrots / Biarrotes peuvent profiter de tarifs préférentiels pour se garer dans les rues de la ville. Pour ce faire, il est nécessaire d\'ouvrir ses droits auprès du service Tranquillité Urbaine (STU).', 6);
 
 -- --------------------------------------------------------
 
@@ -136,9 +198,18 @@ CREATE TABLE `faq_answers` (
 CREATE TABLE `faq_questions` (
   `id` int(10) UNSIGNED NOT NULL,
   `question` text NOT NULL,
-  `category_id` int(10) UNSIGNED NOT NULL,
-  `deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT '0'
+  `category_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `faq_questions`
+--
+
+INSERT INTO `faq_questions` (`id`, `question`, `category_id`) VALUES
+(3, 'c quoi un spectacle ? test update 1', 3),
+(4, 'bla bla', 3),
+(5, 'Quels sont les horaires d\'ouverture de la Piscine ?', 3),
+(6, 'Comment obtenir une carte de stationnement sur la Ville ?', 9);
 
 -- --------------------------------------------------------
 
@@ -148,36 +219,56 @@ CREATE TABLE `faq_questions` (
 
 CREATE TABLE `medias` (
   `id` int(10) UNSIGNED NOT NULL,
-  `img` varchar(255) DEFAULT NULL,
-  `video` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `medias_services`
---
-
-CREATE TABLE `medias_services` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `media_id` int(10) UNSIGNED NOT NULL,
-  `service_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `misc`
---
-
-CREATE TABLE `misc` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `event_id` int(10) UNSIGNED DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `type_id` tinyint(10) UNSIGNED NOT NULL,
   `service_id` int(10) UNSIGNED DEFAULT NULL,
-  `faq_question_id` int(10) UNSIGNED DEFAULT NULL,
-  `category_id` int(10) UNSIGNED DEFAULT NULL
+  `event_id` int(10) UNSIGNED DEFAULT NULL,
+  `bill_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `medias`
+--
+
+INSERT INTO `medias` (`id`, `name`, `type_id`, `service_id`, `event_id`, `bill_id`) VALUES
+(88, '16611603181559505835express.jpg', 1, NULL, 12, 0),
+(89, '7804467001559505835Seigneurs_de_Dogtown_.jpg', 1, NULL, 12, 0),
+(90, '270593563155950587849864914_2387290394890568_8322540042799022080_o.jpg', 1, NULL, 13, 0),
+(91, '3457518711559505924destiny.png', 1, NULL, 14, 0),
+(92, '1201517659155950592459248d643a98b.jpg', 1, NULL, 14, 0),
+(93, '2892132241559505924ac_media_screen-pyramids_ncsa.jpg', 1, NULL, 14, 0),
+(94, '12049403651559505988test-unlink.jpg', 1, NULL, 15, 0),
+(95, '2166344981559505988test-new-img.jpeg', 1, NULL, 15, 0),
+(96, '11574140681559506024star-wars-8-1.jpg', 1, NULL, 16, 0),
+(98, '14198118371559506287ok1-27-XDIAVEL-S-750x410.jpg', 1, 59, NULL, 0),
+(99, '19359864111559680644Seigneurs_de_Dogtown_.jpg', 1, 63, NULL, 0),
+(100, '7587835651559680644star-wars-8-1.jpg', 1, 63, NULL, 0),
+(101, '18263343131559680644fb_star-wars-derniers-jedi-box-office.jpg', 1, 63, NULL, 0),
+(102, '4168005341559680644ramones_cchalkie_davies.jpg', 1, 63, NULL, 0),
+(105, '3112450201560811251csm_IMG_4259_1be4f75989.jpg', 1, 64, NULL, 0),
+(106, '21445899711561314522Gandi_invoice_2019061701439.pdf', 3, NULL, NULL, 5),
+(107, '783920521561314638Gandi_invoice_2019061701439.pdf', 3, NULL, NULL, 6),
+(108, '4675576091561314659Gandi_invoice_2019061701439.pdf', 3, NULL, NULL, 7);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `media_type`
+--
+
+CREATE TABLE `media_type` (
+  `id` tinyint(10) UNSIGNED NOT NULL,
+  `type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `media_type`
+--
+
+INSERT INTO `media_type` (`id`, `type`) VALUES
+(1, 'image'),
+(2, 'video'),
+(3, 'pdf');
 
 -- --------------------------------------------------------
 
@@ -190,19 +281,15 @@ CREATE TABLE `objects` (
   `object_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `payment_infos`
+-- Déchargement des données de la table `objects`
 --
 
-CREATE TABLE `payment_infos` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `card_number` tinyint(20) UNSIGNED NOT NULL,
-  `name` varchar(75) NOT NULL,
-  `address_id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `objects` (`id`, `object_name`) VALUES
+(4, 'voirie'),
+(5, 'signalisation'),
+(6, 'espaces verts'),
+(7, 'proprete');
 
 -- --------------------------------------------------------
 
@@ -212,8 +299,29 @@ CREATE TABLE `payment_infos` (
 
 CREATE TABLE `reasons` (
   `id` int(10) UNSIGNED NOT NULL,
-  `reason_name` varchar(255) NOT NULL
+  `reason_name` varchar(255) NOT NULL,
+  `object_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `reasons`
+--
+
+INSERT INTO `reasons` (`id`, `reason_name`, `object_id`) VALUES
+(2, 'Mobiliers', 4),
+(3, 'Revêtements', 4),
+(4, 'Signalisations au sol', 4),
+(5, 'Feux tricolores', 5),
+(6, 'Panneaux directionnels', 5),
+(7, 'Panneaux sectorisations', 5),
+(8, 'Poubelles', 7),
+(9, 'Ramassages', 7),
+(10, 'Dégradations', 7),
+(11, 'Propreté de la voirie', 7),
+(12, 'Parcs', 6),
+(13, 'Squares', 6),
+(14, 'Aires de jeu', 6),
+(15, 'Espaces ornementaux', 6);
 
 -- --------------------------------------------------------
 
@@ -226,14 +334,26 @@ CREATE TABLE `services` (
   `title` varchar(255) NOT NULL,
   `summary` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `phone_number` tinyint(15) NOT NULL,
+  `phone_number` varchar(15) NOT NULL,
   `opening_days` varchar(255) NOT NULL,
   `hours_from` time NOT NULL,
   `hours_to` time NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `address_id` int(10) UNSIGNED NOT NULL,
-  `deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT '0'
+  `is_published` tinyint(1) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Publiée ? oui/non',
+  `address_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `services`
+--
+
+INSERT INTO `services` (`id`, `title`, `summary`, `content`, `phone_number`, `opening_days`, `hours_from`, `hours_to`, `created_at`, `is_published`, `address_id`) VALUES
+(59, 'test insert service 2', 'Test insert service 2', 'test insert service 2', '123456789', 'test insert service 2', '12:00:00', '18:00:00', '2019-06-02 20:11:27', 1, 89),
+(60, 'dfgn', 'Qwergfhn', 'qwerfgh', '12345', 'seffrdg', '12:45:00', '12:45:00', '2019-06-03 13:51:30', 1, 90),
+(61, 'dfgn', 'Qwergfhn', 'qwerfgh', '12345', 'seffrdg', '12:45:00', '12:45:00', '2019-06-03 13:53:29', 1, 91),
+(62, 'dfgh', '', '', '345', 'dfdg', '23:04:00', '23:45:00', '2019-06-03 14:24:00', 0, 93),
+(63, 'test service plusieurs images', 'Test service plusieurs images test service plusieurs images', 'test service plusieurs images test service plusieurs images test service plusieurs images test service plusieurs images test service plusieurs images', '123456789', 'lundi', '10:00:00', '20:00:00', '2019-06-04 20:37:24', 1, 94),
+(64, 'ACTES DE NAISSANCE, MARIAGE, DÉCÈS', 'Vous trouverez ici toutes les infos utiles pour obtenir un acte d\'Etat Civil de la Ville de Biarritz', '<p class=\"p1\">Les demandes de documents d&rsquo;actes d&rsquo;ETAT CIVIL sont trait&eacute;es GRATUITEMENT par nos services. Prenez garde &agrave; certains sites en ligne douteux qui proposent d&rsquo;effectuer votre d&eacute;marche contre r&eacute;tribution.</p>', '0559415941', 'du lundi au vendredi', '08:30:00', '17:30:00', '2019-06-17 22:25:20', 1, 98);
 
 -- --------------------------------------------------------
 
@@ -250,6 +370,29 @@ CREATE TABLE `signal_problem` (
   `email` varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `signal_problem`
+--
+
+INSERT INTO `signal_problem` (`id`, `address`, `object_id`, `reason_id`, `description`, `email`) VALUES
+(1, '12 avenue Edouard VII', 4, 2, 'test 1', 'qwerty@gmail.com'),
+(2, 'aaa', 5, 5, 'test 2', 'qwerty@gmail.com'),
+(3, '12 avenue Edouard VII', 4, 3, 'test', 'qwerty@gmail.com'),
+(4, '12 avenue Edouard VII', 4, 3, 'test', 'qwerty@gmail.com'),
+(5, 'aaa', 5, 6, 'test', 'qwerty@gmail.com'),
+(6, '12 avenue Edouard VII', 5, 6, 'test', 'qwerty@gmail.com'),
+(7, 'aaa', 4, 2, 'tre', 'qwerty@gmail.com'),
+(8, 'aaa', 5, 6, 'ew', 'qwerty@gmail.com'),
+(9, 'aaa', 5, 5, 'edc', 'qwerty@gmail.com'),
+(10, 'aaa', 5, 5, 'vdxaz', 'qwerty@gmail.com'),
+(11, 'aaa', 6, 13, 'edx', 'qwerty@gmail.com'),
+(12, 'aaa', 5, 5, 'fcds', 'qwerty@gmail.com'),
+(13, '12 avenue Edouard VII', 6, 13, 'test final', 'qwerty@gmail.com'),
+(14, '12 avenue Edouard VII', 5, 6, 'test optimisation', 'qwerty@gmail.com'),
+(15, 'aaa', 6, 12, 'cdaz', 'qwerty@gmail.com'),
+(16, 'aaa', 6, 12, 'cdaz', 'qwerty@gmail.com'),
+(17, '12 avenue Edouard VII', 7, 8, 'fedws', 'qwerty@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -261,15 +404,22 @@ CREATE TABLE `users` (
   `last_name` varchar(50) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `email` varchar(75) NOT NULL,
-  `password` varchar(16) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `dob` date DEFAULT NULL,
-  `home_number` tinyint(15) DEFAULT NULL,
-  `mobile_number` tinyint(15) DEFAULT NULL,
+  `home_number` varchar(15) DEFAULT NULL,
+  `mobile_number` varchar(15) DEFAULT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT '0',
   `registered_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `address_id` int(10) UNSIGNED NOT NULL,
-  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+  `address_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `last_name`, `first_name`, `email`, `password`, `dob`, `home_number`, `mobile_number`, `is_admin`, `registered_at`, `address_id`) VALUES
+(1, 'edelman', 'Yoel', 'yoeledelman@gmail.com', '709bfa738ef16be56d391ac0c367f056', '1996-06-16', NULL, NULL, 1, '2019-06-06 21:21:53', 95),
+(2, 'aaa', 'Aaa', 'qwerty@gmail.com', 'a9a033351156bd354fbf9cf5bb4314a4', '2019-06-12', '', '', 1, '2019-06-12 13:13:49', 97);
 
 --
 -- Index pour les tables déchargées
@@ -309,18 +459,11 @@ ALTER TABLE `events`
   ADD KEY `address_id` (`address_id`) USING BTREE;
 
 --
--- Index pour la table `events_medias`
---
-ALTER TABLE `events_medias`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `event_id` (`event_id`),
-  ADD KEY `media_id` (`media_id`);
-
---
 -- Index pour la table `faq_answers`
 --
 ALTER TABLE `faq_answers`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `question_id` (`question_id`);
 
 --
 -- Index pour la table `faq_questions`
@@ -333,26 +476,17 @@ ALTER TABLE `faq_questions`
 -- Index pour la table `medias`
 --
 ALTER TABLE `medias`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `medias_services`
---
-ALTER TABLE `medias_services`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `media_id` (`media_id`),
-  ADD KEY `service_id` (`service_id`);
-
---
--- Index pour la table `misc`
---
-ALTER TABLE `misc`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `event_id` (`event_id`),
+  ADD KEY `type_id` (`type_id`),
   ADD KEY `service_id` (`service_id`),
-  ADD KEY `faq_question_id` (`faq_question_id`),
-  ADD KEY `category_id` (`category_id`);
+  ADD KEY `event_id` (`event_id`),
+  ADD KEY `bill_id` (`bill_id`);
+
+--
+-- Index pour la table `media_type`
+--
+ALTER TABLE `media_type`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `objects`
@@ -361,18 +495,11 @@ ALTER TABLE `objects`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `payment_infos`
---
-ALTER TABLE `payment_infos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `address_id` (`address_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
 -- Index pour la table `reasons`
 --
 ALTER TABLE `reasons`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `object_id` (`object_id`);
 
 --
 -- Index pour la table `services`
@@ -404,113 +531,95 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT pour la table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `events_medias`
---
-ALTER TABLE `events_medias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `faq_answers`
 --
 ALTER TABLE `faq_answers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `faq_questions`
 --
 ALTER TABLE `faq_questions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `medias`
 --
 ALTER TABLE `medias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
--- AUTO_INCREMENT pour la table `medias_services`
+-- AUTO_INCREMENT pour la table `media_type`
 --
-ALTER TABLE `medias_services`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `misc`
---
-ALTER TABLE `misc`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `media_type`
+  MODIFY `id` tinyint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `objects`
 --
 ALTER TABLE `objects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `payment_infos`
---
-ALTER TABLE `payment_infos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `reasons`
 --
 ALTER TABLE `reasons`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT pour la table `signal_problem`
 --
 ALTER TABLE `signal_problem`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `users`
+-- Contraintes pour la table `medias`
 --
-ALTER TABLE `users`
-  ADD CONSTRAINT `address_id` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`id`);
+ALTER TABLE `medias`
+  ADD CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `media_type` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

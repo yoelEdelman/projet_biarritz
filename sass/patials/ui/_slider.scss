@@ -8,6 +8,10 @@
 #slider-modal-container{
     box-sizing: border-box;
     position: relative;
+    img{
+        height: 450px;
+        object-fit: cover;
+    }
     //margin: 0 auto;
 }
 #arrows-wrapper{
@@ -103,5 +107,10 @@
     }
     #dots-wrapper{
         display: none;
+    }
+    #slider-modal-container{
+        img{
+            height: 200px;
+        }
     }
 }

@@ -9,7 +9,7 @@ function billsForm(){
         $amountDue = (int)$_POST['amount_due'];
         $paid = (int)$_POST['paid'];
         if (!is_int($amountDue)){
-            $errors['notDouble'] = 'La somme due ne peut contenir des nombre uniquement';
+            $errors['notInt'] = 'La somme due ne peut contenir des nombre uniquement';
         }
         else{
             $result = addBills($_POST['bill_from'], $_POST['bill_to'], $amountDue, $paid, $_POST['user-id'], $_FILES['bill']);

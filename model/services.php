@@ -7,7 +7,9 @@ require_once('addresses.php');
     {
         $db = dbConnect();
         if ($serviceId){
-            $queryString = 'SELECT s.*, GROUP_CONCAT(m.name) AS name, a.address, a.zip_code, a.city, a.country, a.location';
+            $queryString = 'SELECT s.*, DATE_FORMAT(s.hours_from, "%H:%i") AS hours_from_formated, 
+            DATE_FORMAT(s.hours_to, "%H:%i") AS hours_to_formated, GROUP_CONCAT(m.name) AS name, 
+            a.address, a.zip_code, a.city, a.country, a.location';
         }
         else{
             $queryString = 'SELECT s.id, s.title, s.summary, s.is_published, GROUP_CONCAT(m.name) AS name';
@@ -68,26 +70,25 @@ require_once('addresses.php');
 
         $queryString .= ') ';
         $queryValues .= ')';
-
         $queryString .= $queryValues;
 
         $query = $db->prepare($queryString);
-
-        $query->execute($queryParameters);
+        $result = $query->execute($queryParameters);
 
         $lastInsert = $db->lastInsertId();
 
         foreach ($medias as $media){
             addMedias($media['name'], $media['typeId'], $lastInsert, FALSE);
         }
+
+        return $result;
     }
 
     function updateServices($address, $zipCode, $city, $country, $location, $title, $summary, $content, $phoneNumber, $openingDays, $hoursFrom, $hoursTo, $isPublished, $addressId, $serviceId, $files, $currentMedias)
     {
         $db = dbConnect();
-        if (isset($files['media']['name']) && !empty($files['media']['name'])){
-//            print_r($files['media']);
-//            die();
+
+        if (isset($files['media']['name'][0]) && !empty($files['media']['name'][0])){
             $medias = checkMedias($files);
             updateMedias($currentMedias, $medias, $serviceId);
         }
@@ -106,7 +107,6 @@ require_once('addresses.php');
             'isPublished' => htmlspecialchars($isPublished),
             'id' => htmlspecialchars($serviceId)
         ];
-
         $queryString .= 'WHERE id = :id';
 
         $query = $db->prepare($queryString);
@@ -116,22 +116,22 @@ require_once('addresses.php');
     function deleteServices($id, $currentMedias = FALSE)
     {
         $db = dbConnect();
-        deleteMedias($currentMedias, $id);
 
-        $query = $db->prepare('SELECT address_id FROM services WHERE id = :id ');
+        $query = $db->prepare('SELECT s.address_id, GROUP_CONCAT(m.name) AS name
+        FROM services s INNER JOIN medias m
+        ON s.id = m.service_id
+        WHERE s.id = :id ');
         $query->execute(['id' => $id]);
-        $addressId = $query->fetch();
+        $data = $query->fetch();
 
-        deleteAddresses($addressId['address_id']);
+        deleteAddresses($data['address_id']);
+        deleteMedias($data['name'], $id);
 
         $queryString = 'DELETE FROM services';
         $queryString .= ' WHERE id = :id';
 
         $query = $db->prepare($queryString);
-
         $query->bindParam(':id', $id, PDO::PARAM_INT);
 
         return $query->execute();
     }
-
-
