@@ -16,10 +16,26 @@ function categoriesForm(){
         }
         else{
             if (isset($_POST['update'])){
-                $category = updateCategory($_POST['name'], $_POST['category-id']);
+                $result = updateCategory($_POST['name'], $_POST['category-id']);
+                if (!$result){
+                    $errors['errorUpdate'] = 'Une erreur est survenue veuillez réessayer !';
+                }
+                else{
+                    $_SESSION['success']['categoryUpdated'] = 'Modification effectuée avec succès !';
+                    header('location:index.php?page=admin-categories-list');
+                    exit;
+                }
             }
             else{
                 $result = addCategory($_POST['name']);
+                if (!$result){
+                    $errors['errorInsert'] = 'Une erreur est survenue veuillez réessayer !';
+                }
+                else{
+                    $_SESSION['success']['categoryInserted'] = 'Insertion effectuée avec succès !';
+                    header('location:index.php?page=admin-categories-list');
+                    exit;
+                }
             }
         }
     }

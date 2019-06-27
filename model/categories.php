@@ -49,5 +49,5 @@ require_once('dbConnect.php');
         ];
 
         $query = $db->prepare($queryString);
-        $query->execute($queryParameters);
+        return $query->execute($queryParameters);
     }
