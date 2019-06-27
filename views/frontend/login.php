@@ -72,7 +72,7 @@
     <?php require_once 'partials/frontend/footer.php';?>
 </main>
 
-<script src="../../assets/js/menu-burger.js"></script>
+<!--<script src="../../assets/js/menu-burger.js"></script>-->
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
 

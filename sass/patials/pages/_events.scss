@@ -32,7 +32,6 @@
     }
     div:last-child {
         width: 60%;
-        //height: auto;
         @include flex(column, null, space-around, center);
         padding: 5px 20px;
         box-sizing: border-box;
@@ -54,13 +53,33 @@
     }
 }
 
-//@include until($tablet){
-//    $font-size-base: 12px;
-//}
-//
-//@include until($phone){
-//    $font-size-base: 10px;
-//}
+.top-modal-event-content{
+    @include flex(row);
+    margin-bottom: 50px;
+    min-height: 300px;
+
+    div{
+        width: 50%;
+        &:last-child{
+            *{
+                margin: 20px auto;
+                width: 80%;
+            }
+            h4{
+                color: $yellow;
+            }
+        }
+    }
+}
+@include until($tablet){
+    .top-modal-event-content{
+        flex-direction: column;
+        div{
+            width: 100%;
+        }
+    }
+}
+
 @include until($phone){
     .events{
         @include flex(column);
@@ -73,6 +92,11 @@
             width: 80%;
             div:first-child, div:last-child{
                 width: 100%;
+            }
+            div:first-child{
+                img{
+                    height: 200px;
+                }
             }
             div:last-child h3{
                 color: $blue;

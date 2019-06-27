@@ -48,9 +48,9 @@
 
 
 </main>
-<script src="../../assets/js/menu-burger.js"></script>
+<!--<script src="../../assets/js/menu-burger.js"></script>-->
 <script src="../../assets/js/datepicker.js"></script>
-<script src="../../assets/js/modal.js"></script>
+<!--<script src="../../assets/js/modal.js"></script>-->
 <script src="../../assets/js/test-modal-ajax.js"></script>
 
 <script src="../../assets/js/modal-slider.js"></script>

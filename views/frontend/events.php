@@ -1,59 +1,21 @@
 <?php $title = ''; ?>
 <?php ob_start(); ?>
 <main>
-
     <?php require_once 'partials/frontend/logo.php';?>
-
     <?php require_once 'partials/frontend/nav.php';?>
     <section class="events">
         <section>
-            <!--<section class="imgUp">-->
-            <!--    <div class="forTitleUp">-->
-            <!--        <span class="pageHomeEvent">Événements</span>-->
-            <!--    </div>-->
-            <!--</section>-->
-
-            <!--<h1 class="eventPages">Nos événements</h1>-->
-<!--            <div class="dateSelected"></div>-->
-
-
-
-
-
             <section class="eventContainer">
                 <div class="container">
                     <div class="dateSelected"></div>
-<!--                    <div id="calendar2">-->
-                        <div id="calendar1-wrapper2"></div>
-                        <span class="calendar2-msg"></span>
-<!--                    </div>-->
+                    <div id="calendar1-wrapper2"></div>
+                    <span class="calendar2-msg"></span>
                 </div>
                 <section class="forEvents"></section>
             </section>
-
-
-
-
-
-            <!--<div class="onMap">-->
-            <!--    <div class="forCloser">-->
-            <!--        <span class="closerOnMap">-->
-            <!--            <i class="fas fa-times"></i>-->
-            <!--        </span>-->
-            <!--    </div>-->
-            <!--    <div class="insideOnMap">-->
-            <!--        <div class="insideLeft">-->
-            <!--            <img class="imgOnMap">-->
-            <!--            <div class="titleOnMap">Mairie</div>-->
-            <!--            <div class="adrressOnMap">12 rie fvzs ko,</div>-->
-            <!--        </div>-->
-            <!--        <div class="insideRight"></div>-->
-            <!--    </div>-->
-            <!---->
-            <!--</div>-->
         </section>
-        <section id="eventContainer">
 
+        <section id="eventContainer">
             <h1>evenements</h1>
             <?php foreach ($events as $event):?>
             <div class="event">
@@ -70,22 +32,12 @@
             </div>
             <?php endforeach;?>
 
-
             <div id="jsModal" class="modal">
                 <div class="modal__overlay jsOverlay"></div>
                 <div class="modal__container modal-content">
                     <div class="top-modal-event-content">
                         <!-- slider container -->
-                        <div id="slider-modal-container">
-                            <!-- arrows -->
-                            <!--                                <div id="arrows-wrapper" class="">-->
-                            <!-- previous arrow -->
-                            <!--                                    <i class="fas fa-chevron-left slider-arrow center_y" id="arrow-prev"></i>-->
-                            <!--                                    -->
-                            <!-- next arrow -->
-                            <!--                                    <i class="fas fa-chevron-right slider-arrow center_y" id="arrow-next"></i>-->
-                            <!--                                </div>-->
-                            <!--                            <img class="slide fade modal-img" src="../../assets/img/img-story1.jpg" alt="">-->
+                        <div id="slider-modal-container" class="events-slider-modal-container">
                         </div>
                         <div>
                             <h4></h4>
@@ -107,23 +59,13 @@
                     <button class="modal__close jsModalClose">&#10005;</button>
                 </div>
             </div>
-
         </section>
     </section>
-
     <?php require_once 'partials/frontend/footer.php';?>
-
-
 </main>
-<script src="../../assets/js/menu-burger.js"></script>
 <script src="../../assets/js/datepicker.js"></script>
-<script src="../../assets/js/modal.js"></script>
 <script src="../../assets/js/test-modal-ajax.js"></script>
-
 <script src="../../assets/js/modal-slider.js"></script>
-
-
-
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
 

@@ -47,7 +47,7 @@ function servicesForm(){
         }
         elseif (isset($_POST['save'])){
             if (empty($_FILES['media'])){
-                $errors['empty'] = 'Veuillez remplir les champs sont obligatoire !';
+                $errors['empty'] = 'Veuillez remplir les champs obligatoire !';
             }
             else{
                 $result = addServices($_POST['address'], $zipCode, $_POST['city'], $_POST['country'], $_POST['location']

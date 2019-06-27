@@ -59,35 +59,44 @@
     let menuConnected = document.querySelector('.menu-connected')
     let myAccount = document.querySelector('.my-account')
 
-    myAccount.addEventListener("mouseover", function (e) {
-        // e.stopPropagation()
+    if (myAccount){
+        myAccount.addEventListener("mouseover", function (e) {
+            // e.stopPropagation()
 
-        // menuConnected.style.display = "block"
-        menuConnected.classList.remove('hide-menu')
+            // menuConnected.style.display = "block"
+            menuConnected.classList.remove('hide-menu')
 
-        e.stopPropagation()
+            e.stopPropagation()
 
-    })
+        })
+    }
 
-    menuConnected.addEventListener("mouseover", function (e) {
-        // e.stopPropagation()
+    if (menuConnected){
+        menuConnected.addEventListener("mouseover", function (e) {
+            // e.stopPropagation()
 
-        menuConnected.style.display = "block"
-        menuConnected.classList.remove('hide-menu')
+            menuConnected.style.display = "block"
+            menuConnected.classList.remove('hide-menu')
 
 
-        e.stopPropagation()
+            e.stopPropagation()
 
-    })
+        })
 
-    menuConnected.addEventListener("mouseout", function (e) {
-        menuConnected.classList.add('hide-menu')
 
-        // menuConnected.style.display = "none"
+        menuConnected.addEventListener("mouseout", function (e) {
+            menuConnected.classList.add('hide-menu')
 
-        e.stopPropagation()
+            // menuConnected.style.display = "none"
 
-    })
+            e.stopPropagation()
+
+        })
+    }
+
+
+
+
 </script>
 
 

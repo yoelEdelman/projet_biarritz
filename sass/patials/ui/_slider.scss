@@ -3,20 +3,25 @@
     @include padding(40px);
     box-sizing: border-box;
     position: relative;
-    //margin: 0 auto;
 }
-#slider-modal-container{
+.services-slider-modal-container{
     box-sizing: border-box;
     position: relative;
     img{
         height: 450px;
         object-fit: cover;
     }
-    //margin: 0 auto;
+}
+.events-slider-modal-container{
+    box-sizing: border-box;
+    position: relative;
+    img{
+        height: 250px;
+        object-fit: cover;
+    }
 }
 #arrows-wrapper{
     @include padding();
-    //box-sizing: border-box;
     position: absolute;
     @include direction-size(40px, 40px, 40px, 0);
     @include flex(null, null, space-between, center);
@@ -32,8 +37,6 @@
     div{
         min-height: 30%;
         background-color: rgba(0, 48, 81, .7);
-        //background-color: $blue;
-        //opacity: .7;
         @include flex(column, null, space-around, center);
         position: absolute;
         @include direction-size(40px, null, 40px, 40px);
@@ -94,6 +97,13 @@
     to {opacity: 1}
 }
 
+@include until($tablet){
+    .services-slider-modal-container{
+        img{
+            height: 400px;
+        }
+    }
+}
 
 @include until($phone){
     #slider-container{

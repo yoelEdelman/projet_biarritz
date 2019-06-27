@@ -128,24 +128,6 @@
             }
         }
     }
-    .top-modal-event-content{
-        @include flex(row);
-        margin-bottom: 50px;
-        min-height: 300px;
-
-        div{
-            width: 50%;
-            &:last-child{
-                *{
-                    margin: 20px auto;
-                    width: 80%;
-                }
-                h4{
-                    color: $yellow;
-                }
-            }
-        }
-    }
     .bottom-modal-content{
         @include flex(row);
         min-height: 300px;
@@ -187,6 +169,22 @@
             }
         }
     }
+    .bottom-modal-content{
+        flex-direction: column !important;
+        div{
+            width: 100% !important;
+        }
+    }
+    .service{
+        div:first-child{
+            img{
+                height: 250px;
+            }
+        }
+    }
+    .modal-content{
+        display: block;
+    }
 }
 
 @include until($phone){
@@ -206,14 +204,5 @@
                 height: 200px;
             }
         }
-    }
-    .bottom-modal-content{
-        flex-direction: column !important;
-        div{
-            width: 100% !important;
-        }
-    }
-    .modal-content{
-        display: block;
     }
 }

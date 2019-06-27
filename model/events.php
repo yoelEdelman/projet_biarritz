@@ -70,7 +70,7 @@ require_once('addresses.php');
         $queryParameters = [
             'title' => htmlspecialchars($title),
             'summary' => htmlspecialchars(ucfirst($summary)),
-            'content' => htmlspecialchars($content),
+            'content' => $content,
             'eventDate' => htmlspecialchars($eventDate),
             'eventTime' => htmlspecialchars($eventTime),
             'phoneNumber' => htmlspecialchars($phoneNumber),
@@ -85,18 +85,21 @@ require_once('addresses.php');
         $queryString .= $queryValues;
 
         $query = $db->prepare($queryString);
-        $query->execute($queryParameters);
+        $result = $query->execute($queryParameters);
 
         $lastInsert = $db->lastInsertId();
 
         foreach ($medias as $media){
             addMedias($media['name'], $media['typeId'], FALSE, $lastInsert);
         }
+
+        return $result;
     }
 
     function updateEvents($address, $zipCode, $city, $country, $location, $title, $summary, $content, $eventDate, $eventTime, $phoneNumber, $isPublished, $publishedAt, $addressId, $eventId, $categoryId, $files, $currentMedias)
     {
         $db = dbConnect();
+
         if (isset($files['media']) && !empty($files['media'])){
             $medias = checkMedias($files);
             updateMedias($currentMedias, $medias, FALSE, $eventId);
@@ -108,7 +111,7 @@ require_once('addresses.php');
         $query_parameters = [
             'title' => htmlspecialchars($title),
             'summary' => htmlspecialchars(ucfirst($summary)),
-            'content' => htmlspecialchars($content),
+            'content' => $content,
             'eventDate' => htmlspecialchars($eventDate),
             'eventTime' => htmlspecialchars($eventTime),
             'phoneNumber' => htmlspecialchars($phoneNumber),
@@ -128,15 +131,16 @@ require_once('addresses.php');
     function deleteEvents($id, $currentMedias = FALSE)
     {
         $db = dbConnect();
-        deleteMedias($currentMedias,FALSE, $id);
 
-        $query = $db->prepare('SELECT address_id FROM events WHERE id = :id ');
+        $query = $db->prepare('SELECT e.address_id, GROUP_CONCAT(m.name) AS name
+        FROM events e INNER JOIN medias m
+        ON e.id = m.event_id
+        WHERE e.id = :id ');
         $query->execute(['id' => $id]);
-        $addressId = $query->fetch();
-//        print_r($addressId);
-//        die($addressId);
+        $data = $query->fetch();
 
-        deleteAddresses($addressId['address_id']);
+        deleteAddresses($data['address_id']);
+        deleteMedias($data['name'], FALSE, $id);
 
         $queryString = 'DELETE FROM events';
         $queryString .= ' WHERE id = :id';

@@ -12,7 +12,12 @@
 <!-- scripts -->
 <script src="../../assets/js/header.js"></script>
 <script src="../../assets/js/slider.js"></script>
-<script src="../../assets/js/menu-burger.js"></script>
+<!--<script src="../../assets/js/menu-burger.js"></script>-->
+
+
+
+
+
 <!--<script src="../../assets/js/modal.js"></script>-->
 <!--<script src="../../assets/js/test-modal-ajax.js"></script>-->
 
