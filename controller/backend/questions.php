@@ -26,7 +26,7 @@ function questionsForm(){
     }
     if (isset($_POST['update']) || isset($_POST['save'])){
         if (empty($_POST['question']) || empty($_POST['categories'])){
-            $errors['empty'] = 'Veuillez remplir les champs sont obligatoire !';
+            $errors['empty'] = 'Veuillez remplir les champs obligatoire !';
         }
         elseif (isset($_POST['update'])){
             $result = updateQuestions($_POST['question'], $_POST['categories'], $_POST['question-id']);

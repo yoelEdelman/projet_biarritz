@@ -26,7 +26,7 @@ function responsesForm(){
     }
     if (isset($_POST['update']) || isset($_POST['save'])){
         if (empty($_POST['response']) || empty($_POST['question'])){
-            $errors['empty'] = 'Veuillez remplir les champs sont obligatoire !';
+            $errors['empty'] = 'Veuillez remplir les champs obligatoire !';
         }
         elseif (isset($_POST['update'])){
             $result = updateResponses($_POST['response'], $_POST['question'], $_POST['response-id']);
