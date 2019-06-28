@@ -1,4 +1,5 @@
 <?php
+require 'controller/frontend/index.php';
 try{
     if(isset($_GET['page'])){
         switch ($_GET['page']) {
@@ -111,12 +112,11 @@ try{
         // si on a recu le parametre logout en url
         if (isset($_GET['logout']) && isset($_SESSION['user'])){
             // on deconecte
-            unset($_SESSION["user"]);
+            unset($_SESSION['user']);
             // On redirige le visiteur vers la page d'accueil
             header('location:index.php');
             exit;
         }
-        require 'controller/frontend/index.php';
         home();
     }
 }
