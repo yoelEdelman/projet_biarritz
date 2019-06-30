@@ -1,0 +1,84 @@
+.confirm-account {
+    @include flex(column, null, center, center);
+    min-height: calc(100vh - 49px);
+}
+
+.confirm-account-form-container{
+    background-color: $blue;
+    border-radius: 10px;
+    width: 50%;
+    margin: 20px auto;
+}
+
+
+.confirm-account-form-container{
+    form{
+        @include flex(row, wrap, space-around);
+        @include size(100%);
+        p{
+            margin: 20px auto;
+            color: $white;
+            text-align: center;
+            width: 80%;
+        }
+        .form-organiser, .submit-inputs-container{
+            width: 50%;
+            margin: auto;
+        }
+        .submit-inputs-container{
+            text-align: center;
+            margin: 10px auto;
+        }
+        .inputs-container{
+            text-align: left;
+            width: 80%;
+            margin: 10px auto;
+            label{
+                width: 100%;
+                color: $white;
+            }
+            input{
+                @include size(100%, $p-font-size * 3);
+                color: $white;
+                border: $white solid .5px;
+                margin: auto;
+                outline: none;
+                box-sizing: border-box;
+                @include padding(10px 5px);
+                border-radius: 10px;
+                font-size: $p-font-size;
+                background-color: $blue;
+                &:focus{
+                    box-shadow: 0 0 5px $light-blue;
+                    border: 1px solid $light-blue;
+                    border-radius: 10px;
+                }
+            }
+        }
+        [type=submit]{
+            width: 50%;
+            margin: 10px auto;
+            @include button-blue;
+            font-size: $p-font-size;
+
+        }
+    }
+}
+@include until($desktop){
+    .confirm-account-form-container{
+        width: 70%;
+    }
+}@include until($tablet){
+     .confirm-account-form-container{
+         width: 80%;
+     }
+ }
+@include until($phone){
+    .confirm-account-form-container{
+        width: 90%;
+    }
+    .form-organiser, .submit-inputs-container{
+        width: 100% !important;
+        margin: auto;
+    }
+}

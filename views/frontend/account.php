@@ -1,13 +1,11 @@
 <?php $title = ''; ?>
 <?php ob_start(); ?>
 <main>
-
     <?php require_once 'partials/frontend/logo.php';?>
-
     <?php require_once 'partials/frontend/nav.php';?>
     <section class="account">
-        <section class="profil">
 
+        <section class="profil">
             <h2>Profil</h2>
             <div>
                 <p><?= $user['last_name'];?></p>
@@ -17,14 +15,6 @@
                 <p><?= $user['home_number'];?></p>
                 <p><?= $user['mobile_number'];?></p>
             </div>
-
-
-
-
-
-
-
-
         </section>
 
         <section class="bills">
@@ -48,15 +38,9 @@
 
 
 </main>
-<!--<script src="../../assets/js/menu-burger.js"></script>-->
 <script src="../../assets/js/datepicker.js"></script>
-<!--<script src="../../assets/js/modal.js"></script>-->
 <script src="../../assets/js/test-modal-ajax.js"></script>
-
 <script src="../../assets/js/modal-slider.js"></script>
-
-
-
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
 

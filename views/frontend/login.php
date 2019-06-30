@@ -2,23 +2,22 @@
 <?php ob_start(); ?>
 <main>
     <?php require_once 'partials/frontend/logo.php';?>
-
     <?php require_once 'partials/frontend/nav.php';?>
     <section class="login">
         <div class="form-container">
                 <?php if (isset($_GET['action']) && $_GET['action'] == 'forgot-password') :?>
                 <form action="index.php?page=login&action=forgot-password" method="post" enctype="multipart/form-data">
 
-                <p>Veuillez inserer votre addresse mail liée a votre compte</p>
+                <p>Veuillez insérer l'adresse mail liée à votre compte</p>
                 <div>
                     <label for="email"></label>
                     <input type="text" placeholder="Email" name="email" id="email">
                 </div>
 
-                    <?php if (!empty($warnings)): ?>
-                        <?php foreach($warnings as $key => $warning): ?>
+                    <?php if (!empty($errors)): ?>
+                        <?php foreach($errors as $key => $error): ?>
                             <div class="error-message">
-                                <?= $warning; ?>
+                                <?= $error; ?>
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -44,13 +43,6 @@
                     <a href="index.php?page=login&action=forgot-password">Mot de passe oubliée ?</a>
                 </div>
 
-                <?php if (!empty($warnings)): ?>
-                    <?php foreach($warnings as $key => $warning): ?>
-                        <div class="error-message">
-                            <?= $warning; ?>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
                 <?php if (!empty($_SESSION['success'])): ?>
                     <?php foreach($_SESSION['success'] as $key => $success): ?>
                         <div class="success-message">
@@ -58,6 +50,14 @@
                         </div>
                     <?php endforeach; ?>
                     <?php unset($_SESSION['success']); ?>
+                <?php endif; ?>
+
+                <?php if (!empty($errors)): ?>
+                    <?php foreach($errors as $key => $error): ?>
+                        <div class="error-message">
+                            <?= $error; ?>
+                        </div>
+                    <?php endforeach; ?>
                 <?php endif; ?>
 
                 <div>
@@ -71,8 +71,6 @@
     </section>
     <?php require_once 'partials/frontend/footer.php';?>
 </main>
-
-<!--<script src="../../assets/js/menu-burger.js"></script>-->
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
 

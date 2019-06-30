@@ -1517,7 +1517,7 @@ td:first-child.nice-normal {
 }
 .contact {
   width: 100%;
-  height: calc(100vh - 57px);
+  height: calc(100vh - 49px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1676,7 +1676,7 @@ li {
 }
 .login {
   width: 100%;
-  height: calc(100vh - 57px);
+  height: calc(100vh - 49px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1706,6 +1706,8 @@ li {
 .form-container form p {
   margin: 20px auto;
   color: #fff;
+  text-align: center;
+  width: 80%;
 }
 .form-container form div {
   text-align: center;
@@ -1859,6 +1861,113 @@ li {
     justify-content: space-around;
     align-items: center;
     align-content: center;
+  }
+}
+.confirm-account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  min-height: calc(100vh - 49px);
+}
+
+.confirm-account-form-container {
+  background-color: #003051;
+  border-radius: 10px;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.confirm-account-form-container form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+  width: 100%;
+  height: 100%;
+}
+.confirm-account-form-container form p {
+  margin: 20px auto;
+  color: #fff;
+  text-align: center;
+  width: 80%;
+}
+.confirm-account-form-container form .form-organiser, .confirm-account-form-container form .submit-inputs-container {
+  width: 50%;
+  margin: auto;
+}
+.confirm-account-form-container form .submit-inputs-container {
+  text-align: center;
+  margin: 10px auto;
+}
+.confirm-account-form-container form .inputs-container {
+  text-align: left;
+  width: 80%;
+  margin: 10px auto;
+}
+.confirm-account-form-container form .inputs-container label {
+  width: 100%;
+  color: #fff;
+}
+.confirm-account-form-container form .inputs-container input {
+  width: 100%;
+  height: 48px;
+  color: #fff;
+  border: #fff solid 0.5px;
+  margin: auto;
+  outline: none;
+  box-sizing: border-box;
+  padding: 10px 5px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #003051;
+}
+.confirm-account-form-container form .inputs-container input:focus {
+  box-shadow: 0 0 5px #51CBEE;
+  border: 1px solid #51CBEE;
+  border-radius: 10px;
+}
+.confirm-account-form-container form [type=submit] {
+  width: 50%;
+  margin: 10px auto;
+  padding: 10px 30px;
+  border-radius: 5px;
+  color: #003051;
+  background-color: #FFD876;
+  border: 1px solid #003051;
+  font-size: 16px;
+}
+.confirm-account-form-container form [type=submit]:hover {
+  color: #FFD876;
+}
+.confirm-account-form-container form [type=submit]:hover {
+  background-color: #003051;
+}
+.confirm-account-form-container form [type=submit]:hover {
+  border: 1px solid #FFD876;
+}
+
+@media all and (max-width: 992px) {
+  .confirm-account-form-container {
+    width: 70%;
+  }
+}
+@media all and (max-width: 768px) {
+  .confirm-account-form-container {
+    width: 80%;
+  }
+}
+@media all and (max-width: 576px) {
+  .confirm-account-form-container {
+    width: 90%;
+  }
+
+  .form-organiser, .submit-inputs-container {
+    width: 100% !important;
+    margin: auto;
   }
 }
 .faq {

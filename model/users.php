@@ -1,18 +1,17 @@
 <?php
 require_once('dbConnect.php');
 require_once('addresses.php');
+require_once('mail.php');
 
-function getUsers($userId = FALSE, $backOffice = FALSE)
+function getUsers($userId = FALSE, $backOffice = FALSE, $confirmAccount = FALSE)
 {
     $db = dbConnect();
 
     $queryString = 'SELECT u.*, a.address, a.zip_code, a.city, a.country, a.location';
-
-
     $queryString .= ' FROM users u INNER JOIN addresses a
         ON u.address_id = a.id';
 
-    if ($userId && $backOffice){
+    if ($userId && ($backOffice || $confirmAccount)){
         $queryString .= ' WHERE u.id = :id';
     }
 
@@ -38,7 +37,6 @@ function addUsers($address, $zipCode, $city, $country, $lastName, $firstName, $m
 
     $resultMail = mailTo($mail, $pwd, TRUE);
 
-
     $queryString = 'INSERT INTO users (last_name, first_name, email, password, dob, home_number, mobile_number, is_admin, address_id ';
     $queryValues = 'VALUES (:lastName, :firstName, :mail, :pwd, :dob, :homeNum, :mobileNum, :isAdmin, :addressId';
     $queryParameters = [
@@ -59,8 +57,7 @@ function addUsers($address, $zipCode, $city, $country, $lastName, $firstName, $m
     $queryString .= $queryValues;
 
     $query = $db->prepare($queryString);
-
-    $query->execute($queryParameters);
+    return $query->execute($queryParameters);
 }
 
 function updateUsers($address, $zipCode, $city, $country, $lastName, $firstName, $mail, $dob, $homeNum, $mobileNum, $isAdmin, $addressId, $userId)
@@ -74,7 +71,6 @@ function updateUsers($address, $zipCode, $city, $country, $lastName, $firstName,
         'lastName' => htmlspecialchars($lastName),
         'firstName' => htmlspecialchars(ucfirst($firstName)),
         'mail' => htmlspecialchars($mail),
-//        'pwd' => htmlspecialchars($pwd),
         'dob' => htmlspecialchars($dob),
         'homeNum' => htmlspecialchars($homeNum),
         'mobileNum' => htmlspecialchars($mobileNum),
@@ -105,10 +101,8 @@ function deleteUsers($id)
 
     $query->bindParam(':id', $id, PDO::PARAM_INT);
 
-
     return $query->execute();
 }
-
 
 function updatePwd($mail)
 {
@@ -128,23 +122,26 @@ function updatePwd($mail)
 
     $query = $db->prepare($queryString);
     return $query->execute($queryParameters);
-
 }
 
+function confirmAccount($userId, $confirmAccount){
+    $db = dbConnect();
 
+    $queryString = 'UPDATE users SET account_confirmed = :accountConfirmed ';
+    $queryParameters = [
+        'accountConfirmed' => htmlspecialchars($confirmAccount),
+        'id' => htmlspecialchars($userId)
+    ];
 
+    $queryString .= 'WHERE id = :id';
 
+    $query = $db->prepare($queryString);
+    return $query->execute($queryParameters);
+}
 
-
-
-/***********************************/
-/*     Génère un mot de passe      */
-/***********************************/
-// $size : longueur du mot passe voulue
 function randPassword($size)
 {
     $password = NULL;
-    // Initialisation des caractères utilisables
     $characters = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
 
     for($i=0;$i<$size;$i++)

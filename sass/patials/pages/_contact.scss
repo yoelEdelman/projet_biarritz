@@ -1,5 +1,5 @@
 .contact {
-    @include size(100%, calc(100vh - 57px));
+    @include size(100%, calc(100vh - 49px));
     @include flex(column, null, center, center);
     section {
         min-width: 40%;

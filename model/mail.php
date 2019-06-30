@@ -11,20 +11,20 @@ function mailTo($destination, $pwd = FALSE, $newPwd = FALSE, $updatePwd = FALSE,
     }
 //=====Déclaration des messages au format texte et au format HTML.
     if ($newPwd){
-        $message_txt = "Salut à tous, voici un e-mail envoyé par un script PHP avec votre mot de passe. $pwd";
-        $message_html = "<html><head></head><body><b>Salut à tous</b>, Bienvenue et voici un e-mail envoyé par un <i>script PHP</i>avec votre mot de passe. $pwd </body></html>";
+        $message_txt = "Bonjour nous avons le plaisir de vous communiquer votre mot de passe pour vous connecter à votre espace. $pwd";
+        $message_html = "<html><head></head><body><b>Bonjour</b>, nous avons le plaisir de vous communiquer votre mot de passe pour vous connecter à votre espace. $pwd </body></html>";
     }
     elseif ($updatePwd){
-        $message_txt = "Salut à tous, voici un e-mail envoyé par un script PHP avec votre mot de passe. $pwd";
-        $message_html = "<html><head></head><body><b>Salut à tous</b>, voici un e-mail envoyé par un <i>script PHP</i>avec votre nouveau mot de passe. $pwd </body></html>";
+        $message_txt = "Bonjour voici votre nouveau mot de passe essayer de ne pas le perdre la prochaine fois. $pwd";
+        $message_html = "<html><head></head><body><b>Bonjour</b>, voici votre nouveau mot de passe essayer de ne pas le perdre la prochaine fois. $pwd </body></html>";
     }
     elseif ($request){
-        $message_txt = "Salut à tous, voici un e-mail envoyé par un script PHP nous avons bien recu votre demande nous vous reponderons d'ici 365 jours.";
-        $message_html = "<html><head></head><body><b>Salut à tous</b>, voici un e-mail envoyé par un <i>script PHP</i>nous avons bien recu votre demande nous vous reponderons d'ici 365 jours </body></html>";
+        $message_txt = "Bonjour, nous avons bien reçu votre message, Nous vous répondrons sous 365 jours Ou pas ;).";
+        $message_html = "<html><head></head><body><b>Bonjour</b>, nous avons bien reçu votre message, Nous vous répondrons sous 365 jours Ou pas ;). </body></html>";
     }
     else{
-        $message_txt = "Salut à tous, voici un e-mail envoyé par un script PHP . ";
-        $message_html = "<html><head></head><body><b>Salut à tous</b>, voici un e-mail envoyé par un <i>script PHP</i.  </body></html>";
+        $message_txt = "Salut Admin tu viens de recevoir en nouveau message . ";
+        $message_html = "<html><head></head><body><b>Salut Admin</b>, tu viens de recevoir en nouveau message .   </body></html>";
     }
 
 //==========
@@ -65,6 +65,3 @@ function mailTo($destination, $pwd = FALSE, $newPwd = FALSE, $updatePwd = FALSE,
     return mail($mail,$sujet,$message,$header);
 //==========
 }
-
-?>
-

@@ -367,4 +367,32 @@ const serviceAjaxModal = function () {
 
 // serviceAjaxModal()
 
+//nav acces to account
+const navConnected = function () {
+    let menuConnected = document.querySelector('.menu-connected')
+    let myAccount = document.querySelector('.my-account')
+
+    if (myAccount){
+        myAccount.addEventListener("mouseover", function (e) {
+            menuConnected.classList.remove('hide-menu')
+            e.stopPropagation()
+        })
+    }
+
+    if (menuConnected){
+        menuConnected.addEventListener("mouseover", function (e) {
+            menuConnected.style.display = "block"
+            menuConnected.classList.remove('hide-menu')
+            e.stopPropagation()
+        })
+
+        menuConnected.addEventListener("mouseout", function (e) {
+            menuConnected.classList.add('hide-menu')
+            e.stopPropagation()
+        })
+    }
+}
+
+navConnected()
+
 

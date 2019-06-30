@@ -1,5 +1,5 @@
 .login {
-    @include size(100%, calc(100vh - 57px));
+    @include size(100%, calc(100vh - 49px));
     @include flex(column, null, center, center);
 }
 
@@ -9,9 +9,7 @@
     width: 30%;
 }
 
-
 .form-container{
-    //@include size(100%);
     form{
         @include flex(column, null, space-around);
         @include size(100%);
@@ -22,6 +20,8 @@
         p{
             margin: 20px auto;
             color: $white;
+            text-align: center;
+            width: 80%;
         }
         div{
             text-align: center;

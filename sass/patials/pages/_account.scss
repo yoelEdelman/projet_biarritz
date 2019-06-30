@@ -22,7 +22,6 @@
     }
     .profil {
         width: 20%;
-        //height: 30%;
         div{
             width: 80%;
             margin: auto;
@@ -61,49 +60,6 @@
         }
     }
 }
-//
-//.event {
-//    @include flex();
-//    width: 90%;
-//    margin: 30px auto;
-//    padding: 10px 20px;
-//    border-radius: 10px;
-//    background-color: rgba(255, 255, 255, .8);
-//    box-shadow: 5px 5px 6px #707070;
-//    div:first-child {
-//        width: 40%;
-//    }
-//    div:last-child {
-//        width: 60%;
-//        //height: auto;
-//        @include flex(column, null, space-around, center);
-//        padding: 5px 20px;
-//        box-sizing: border-box;
-//        h3 {
-//            font-size: $h3-font-size / 1.5;
-//            color: $yellow;
-//        }
-//        h2 {
-//            text-transform: uppercase;
-//            color: $blue;
-//        }
-//        p {
-//            font-weight: normal;
-//        }
-//        a{
-//            @include button-blue;
-//            border: none;
-//        }
-//    }
-//}
-
-//@include until($tablet){
-//    $font-size-base: 12px;
-//}
-//
-//@include until($phone){
-//    $font-size-base: 10px;
-//}
 @include until($phone){
     .account{
         @include flex(column, null, space-around);

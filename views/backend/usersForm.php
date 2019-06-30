@@ -1,31 +1,28 @@
 <?php $title = 'Administration des utilisateurs - !'; ?>
 <?php ob_start(); ?>
-    <body class="index-body">
-    <div class="container-fluid">
-        <?php require '././partials/backend/header.php'; ?>
-        <div class="row my-3 index-content">
-            <?php require '././partials/backend/nav.php'; ?>
-            <section class="col-9">
-                <header class="pb-3">
-                    <!-- Si $user existe, on affiche "Modifier" SINON on affiche "Ajouter" -->
-                    <h4><?= (isset($_GET['user-id'])) ? 'Modifier un utilisateur' : 'Ajouter un utilisateur' ;?></h4>
-                </header>
-                <!-- on verifie si le tableau $warnings n'est pas vide pour afficher les massages a l'interieur d'une condition pour gagner en performance-->
-                <?php if (!empty($errors)): ?>
-                    <?php foreach($errors as $key => $error): ?>
-                        <div class="bg-danger text-white p-2 mb-4">
-                            <?= $error; ?>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-                <!-- Si $user existe, chaque champ du formulaire sera pré-remplit avec les informations de l'utilisateur -->
+<div class="container-fluid">
+    <?php require '././partials/backend/header.php'; ?>
+    <div class="row my-3 index-content">
+        <?php require '././partials/backend/nav.php'; ?>
+        <section class="col-9">
 
-                <?php if (isset($_GET['user-id'])): ?>
-                    <form action="index.php?page=admin-users-form&user-id=<?= $user['id'];?>&action=edit" method="post" enctype="multipart/form-data">
-                <?php else: ?>
-                    <form action="index.php?page=admin-users-form" method="post" enctype="multipart/form-data">
-                <?php endif; ?>
+            <header class="pb-3">
+                <h4><?= (isset($_GET['user-id'])) ? 'Modifier un utilisateur' : 'Ajouter un utilisateur' ;?></h4>
+            </header>
 
+            <?php if (!empty($errors)): ?>
+                <?php foreach($errors as $key => $error): ?>
+                    <div class="bg-danger text-white p-2 mb-4">
+                        <?= $error; ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            <?php if (isset($_GET['user-id'])): ?>
+                <form action="index.php?page=admin-users-form&user-id=<?= $user['id'];?>&action=edit" method="post" enctype="multipart/form-data">
+            <?php else: ?>
+                <form action="index.php?page=admin-users-form" method="post" enctype="multipart/form-data">
+            <?php endif; ?>
 
                     <div class="form-group">
                         <label for="last_name">Nom de famille : <b class="text-danger">*</b></label>
@@ -43,7 +40,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="dob">Date de naissance :</label>
+                        <label for="dob">Date de naissance : <b class="text-danger">*</b></label>
                         <input class="form-control" type="date" placeholder="Date de naissance" name="dob" id="dob" value="<?= isset($user) ? htmlentities($user['dob']) : '';?>"/>
                     </div>
 
@@ -94,16 +91,15 @@
                             <?php endif; ?>
                         </select>
                     </div>
-                    <!-- Si $user-id existe, on ajoute un champ caché contenant l'id de l'utilisateur à modifier pour la requête UPDATE -->
+
                     <?php if (isset($_GET['user-id'])): ?>
                         <div class="form-group">
                             <input class="form-control" type="hidden" name="user-id" id="user-id" value="<?= $user['id']; ?>"/>
                             <input class="form-control" type="hidden" name="address-id" id="address-id" value="<?= $user['address_id']; ?>"/>
-
                         </div>
                     <?php endif;?>
+
                     <div class="text-right">
-                        <!-- Si $user existe, on affiche un lien de mise à jour -->
                         <?php if (isset($_GET['user-id'])): ?>
                             <p class="text-danger">* champs requis</p>
                             <input class="btn btn-success" type="submit" name="update" value="Mettre a jour" />
@@ -112,11 +108,9 @@
                             <input class="btn btn-success" type="submit" name="save" value="Enregistrer" />
                         <?php endif; ?>
                     </div>
-                    <!-- Si $user existe, on ajoute un champ caché contenant l'id de l'utilisateur à modifier pour la requête UPDATE -->
-                </form>
-            </section>
-        </div>
+            </form>
+        </section>
     </div>
-    </body>
+</div>
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
