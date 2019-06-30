@@ -23,6 +23,10 @@ try{
                 require 'controller/frontend/login.php';
                 login();
                 break;
+            case 'confirm-account':
+                require 'controller/frontend/confirmAccount.php';
+                accountDetails();
+                break;
             case 'account':
                 require 'controller/frontend/account.php';
                 account();
