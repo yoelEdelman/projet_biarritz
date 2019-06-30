@@ -93,7 +93,7 @@ require_once('addresses.php');
             updateMedias($currentMedias, $medias, $serviceId);
         }
 
-        updateAddress($address, $zipCode, $city, $country, $location, $addressId);
+        updateAddress($address, $zipCode, $city, $country, $addressId, $location);
 
         $queryString = 'UPDATE services SET title = :title, summary = :summary, content = :content, phone_number = :phoneNumber, opening_days = :openingDays, hours_from = :hoursFrom, hours_to = :hoursTo, is_published = :isPublished ';
         $queryParameters = [

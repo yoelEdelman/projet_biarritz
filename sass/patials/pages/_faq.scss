@@ -6,6 +6,7 @@
     border-radius: 10px;
     background-color: rgba(255, 255, 255, .8);
     color: $blue;
+    min-height: calc(100vh - 49px);
     h2{
         text-transform: uppercase;
         color: $blue;

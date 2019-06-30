@@ -148,6 +148,9 @@ for (let i = 0; i< eventHref.length; i++){
                     showModalSlides(++slideIndex);
                 }, 5000);
 
+                let modalMap = document.querySelector('.modal-map')
+
+                modalMap.setAttribute('src', data.location)
 
                 let title = document.querySelector('.title')
                 title.previousElementSibling.innerText = data.category_name

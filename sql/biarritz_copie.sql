@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  lun. 24 juin 2019 à 13:50
+-- Généré le :  Dim 30 juin 2019 à 22:31
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -40,21 +40,20 @@ CREATE TABLE `addresses` (
 --
 
 INSERT INTO `addresses` (`id`, `address`, `zip_code`, `city`, `country`, `location`) VALUES
-(83, 'test insert event 1', 12345, 'test insert event 1', 'France', NULL),
-(84, 'test insert event 2', 12345, 'test insert event 2', 'France', NULL),
-(85, 'test insert event 3', 12345, 'test insert event 3', 'France', NULL),
-(86, 'test insert event 4', 12345, 'test insert event 4', 'France', NULL),
-(87, 'test insert event 5', 12345, 'test insert event 5', 'France', NULL),
-(89, 'test insert service 2', 12345, 'test insert service 2', 'France', NULL),
-(90, 'dasefdgh', 345, 'dasfgn', 'France', NULL),
-(91, 'dasefdgh', 345, 'dasfgn', 'France', NULL),
-(92, '', 2134, '', 'France', NULL),
-(93, '', 2134, 'dfbg', 'France', NULL),
-(94, 'test service plusieurs images', 75011, 'paris', 'France', NULL),
 (95, '61 Boulevard Beaumarchais', 75003, 'paris', 'France', NULL),
-(96, 'aaa', 1234, 'aaa', 'France', NULL),
-(97, 'aaa', 1234, 'aaa', 'France', NULL),
-(98, '12 avenue Edouard VII', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.918222671094!2d-1.5609816844658069!3d43.483176979127386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516ad81bb912b5%3A0x297f061521e8d6c6!2s12+Avenue+Edouard+VII%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1560810250352!5m2!1sfr!2sfr');
+(98, '12 avenue Edouard VII', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.918222671094!2d-1.5609816844658069!3d43.483176979127386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516ad81bb912b5%3A0x297f061521e8d6c6!2s12+Avenue+Edouard+VII%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1560810250352!5m2!1sfr!2sfr'),
+(99, '5 square d\'Ixelles', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2895.376657483892!2d-1.5601604844660946!3d43.473609279127864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516ad6813b0809%3A0xab1cbcdf91ac0a99!2sBiarritz+Ev%C3%A8nement!5e0!3m2!1sfr!2sfr!4v1561919261756!5m2!1sfr!2sfr'),
+(100, 'Villa Natacha – 110, rue d’Espagne', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2895.376657483892!2d-1.5601604844660946!3d43.473609279127864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516ad6813b0809%3A0xab1cbcdf91ac0a99!2sBiarritz+Ev%C3%A8nement!5e0!3m2!1sfr!2sfr!4v1561919261756!5m2!1sfr!2sfr'),
+(101, 'Villa Natacha – 110, rue d’Espagne', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2895.376657483892!2d-1.5601604844660946!3d43.473609279127864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516ad6813b0809%3A0xab1cbcdf91ac0a99!2sBiarritz+Ev%C3%A8nement!5e0!3m2!1sfr!2sfr!4v1561919261756!5m2!1sfr!2sfr'),
+(102, 'Hôtel de Ville, 12 avenue Edouard VII', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.922262244594!2d-1.5608014844657954!3d43.48309267912759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516ad8194c45d9%3A0x346ef8b0c9e093b7!2sMairie+de+Biarritz!5e0!3m2!1sfr!2sfr!4v1561919992797!5m2!1sfr!2sfr'),
+(103, '19 Rue Yves Toudic', 75010, 'Paris', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.3564642210663!2d2.360851415712846!3d48.87048077928864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e0950555883%3A0x25e6ea66d950d9ec!2s19+Rue+Yves+Toudic%2C+75010+Paris!5e0!3m2!1sfr!2sfr!4v1561921162478!5m2!1sfr!2sfr'),
+(104, '19 Rue Yves Toudic', 75010, 'Paris', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.3564642210663!2d2.360851415712846!3d48.87048077928864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e0950555883%3A0x25e6ea66d950d9ec!2s19+Rue+Yves+Toudic%2C+75010+Paris!5e0!3m2!1sfr!2sfr!4v1561921162478!5m2!1sfr!2sfr'),
+(105, '1B Place Georges Clemenceau', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.920316733105!2d-1.5598468844657765!3d43.48313327912758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516b287e8139d7%3A0xcfa1d799d6914d13!2sMiremont!5e0!3m2!1sfr!2sfr!4v1561922653923!5m2!1sfr!2sfr'),
+(106, '1B Place Georges Clemenceau', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.920316733105!2d-1.5598468844657765!3d43.48313327912758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516b287e8139d7%3A0xcfa1d799d6914d13!2sMiremont!5e0!3m2!1sfr!2sfr!4v1561922653923!5m2!1sfr!2sfr'),
+(109, '2 rue Ambroise Paré', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.990430899307!2d-1.556498484465829!3d43.4816700791276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516ad0c47e0a49%3A0x4d705d5a940096af!2s2+Rue+Ambroise+Par%C3%A9%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1561922862943!5m2!1sfr!2sfr'),
+(110, '11 Avenue Sarasate', 64200, 'BIARRITZ', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.763947483872!2d-1.5535959844657135!3d43.48639637912738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516adb14990a35%3A0xf9757bd7a91c6930!2s11+Avenue+Sarasate%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1561923927887!5m2!1sfr!2sfr'),
+(111, '11 Avenue Sarasate', 64200, 'BIARRITZ', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.7255713455656!2d-1.5543141844656474!3d43.48719717912742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516adb6fddc6f9%3A0xde380fa3e84fd309!2s12+Avenue+Sarasate%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1561924111400!5m2!1sfr!2sfr'),
+(112, 'Avenue du Lac Marion', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2895.6958903236027!2d-1.5485657844663103!3d43.46694577912807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd511531de074fab%3A0x18fc5107f322b568!2sAvenue+du+Lac+Marion%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1561925347187!5m2!1sfr!2sfr');
 
 -- --------------------------------------------------------
 
@@ -70,19 +69,6 @@ CREATE TABLE `bills` (
   `amount_due` int(11) NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `bills`
---
-
-INSERT INTO `bills` (`id`, `bill_from`, `bill_to`, `paid`, `amount_due`, `user_id`) VALUES
-(1, '2019-06-23', '2019-06-30', 1, 345, 2),
-(2, '2019-06-02', '2019-06-30', 0, 123, 2),
-(3, '2019-06-01', '2019-06-08', 0, 24, 1),
-(4, '2019-06-14', '2019-06-21', 1, 234, 1),
-(5, '2019-06-02', '2019-06-23', 0, 777, 1),
-(6, '2019-06-02', '2019-06-23', 0, 777, 1),
-(7, '2019-06-02', '2019-06-08', 0, 234, 1);
 
 -- --------------------------------------------------------
 
@@ -103,12 +89,8 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 (1, 'spectacle'),
 (2, 'exposition'),
 (3, 'sport'),
-(4, 'test'),
-(5, 'test insert'),
-(6, 'test new again'),
-(7, 'test new update normal'),
-(8, 'autres'),
-(9, 'stationnement');
+(9, 'stationnement'),
+(10, 'conférence');
 
 -- --------------------------------------------------------
 
@@ -124,16 +106,6 @@ CREATE TABLE `contact_us` (
   `email` varchar(75) NOT NULL,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `contact_us`
---
-
-INSERT INTO `contact_us` (`id`, `last_name`, `first_name`, `phone_number`, `email`, `description`) VALUES
-(1, 'edelman', 'yoel', '0559415941', 'qwerty@gmail.com', 'test 1'),
-(2, 'aaa', 'aaa', '123456789', 'qwerty@gmail.com', 'test'),
-(3, 'aaa', 'aaa', '559415941', 'qwerty@gmail.com', 'test'),
-(4, 'aaa', 'aaa', '559415941', 'qwerty@gmail.com', 'test final');
 
 -- --------------------------------------------------------
 
@@ -161,11 +133,11 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `title`, `summary`, `content`, `event_date`, `event_time`, `phone_number`, `is_published`, `published_at`, `created_at`, `address_id`, `category_id`) VALUES
-(12, 'test insert event 1', 'Test insert event 1', 'test insert event 1', '2019-06-02', '20:30:00', '0123456789', 1, '2019-06-02', '2019-06-02 20:03:55', 83, 1),
-(13, 'test insert event 2', 'Test insert event 2', 'test insert event 2', '2019-06-04', '20:30:00', '0123456789', 1, '2019-06-03', '2019-06-02 20:04:38', 84, 2),
-(14, 'test insert event 3', 'Test insert event 3', 'test insert event 3', '2019-06-12', '20:30:00', '0123456789', 1, '2019-06-02', '2019-06-02 20:05:24', 85, 3),
-(15, 'test insert event 4', 'Test insert event 4', 'test insert event 4', '2019-06-12', '20:30:00', '0123456789', 1, '2019-06-02', '2019-06-02 20:06:28', 86, 4),
-(16, 'test insert event 5', 'Test insert event 5', 'test insert event 5', '2019-06-13', '20:30:00', '0123456789', 1, '2019-06-02', '2019-06-02 20:07:04', 87, 5);
+(1, 'LE BALEINIER SAN JUAN', 'La renaissance du San Juan, baleinier basque du XVIème siècle. En 1563, le San Juan, construit dans les chantiers navals de la baie de Pasaia, en Guipuzcoa, hisse les voiles direction Terre-Neuve et la chasse à la baleine.', '<p class=\"p1\">La renaissance du San Juan, baleinier basque du XVI&egrave;me si&egrave;cle. En 1563, le San Juan, construit dans les chantiers navals de la baie de Pasaia, en Guipuzcoa, hisse les voiles direction Terre-Neuve et la chasse &agrave; la baleine. Une temp&ecirc;te, le navire sombre et reste endormi plus de quatre si&egrave;cles pr&egrave;s des c&ocirc;tes de l&rsquo;actuel Canada.</p>', '2019-07-27', '18:00:00', '0573821392', 1, '2019-06-30', '2019-06-30 19:25:35', 106, 2),
+(4, 'MASCULIN // FÉMININ : QUAND L’ART L’EMPORTE', 'Affirmer que les femmes sont sous-représentées dans l’histoire de la création artistique est un euphémisme.', '<p><span style=\"color: #232323; font-family: rubik_regular, Arial, Verdana, sans-serif; font-size: 15px; background-color: #ffffff;\">Affirmer que les femmes sont sous-repr&eacute;sent&eacute;es dans l&rsquo;histoire de la cr&eacute;ation artistique est un euph&eacute;misme. Dans notre soci&eacute;t&eacute; patriarcale occidentale, l&rsquo;homme a domin&eacute; l&rsquo;histoire de l&rsquo;art en tant que g&eacute;nie cr&eacute;ateur, d&eacute;cideur du bon go&ucirc;t et collectionneur critique.</span></p>', '2019-07-11', '19:00:00', '05 59 22 28 86', 1, '2019-06-30', '2019-06-30 19:35:33', 109, 10),
+(5, 'ABASTO - MÉLODIES SUD-AMÉRICAINES', 'ABASTO, du nom d’un vieux quartier de Buenos Aires, réunit trois excellents musiciens autour  de Simone Etcheverry, à la voix toujours aussi envoûtante.', '<p class=\"p1\">ABASTO, du nom d&rsquo;un vieux quartier de Buenos Aires, r&eacute;unit trois excellents musiciens autour</p>\r\n<p class=\"p1\">de Simone Etcheverry, &agrave; la voix toujours aussi envo&ucirc;tante.</p>\r\n<p class=\"p1\">L&rsquo;accord&eacute;on magique de J&eacute;sus Aured, aussi &agrave; l&rsquo;aise avec Bach qu&rsquo;avec Piazzola.</p>', '2019-07-03', '15:00:00', '0573847343', 1, '2019-06-30', '2019-06-30 19:45:48', 110, 1),
+(6, 'LE BAL DES ÂMES VALOISES', 'Alice va perdre connaissance et commencer à vagabonder dans un monde parallèle, étrange. Un spectacle pleins de mystères et de fantaisies.', '<p class=\"p1\">\"Que se passe-t-il lorsque l\'on tombe dans le coma? Restons-nous inerte ou est-ce que notre esprit s\'&eacute;vade au gr&egrave;s de nos envies? Ce sont des r&ecirc;ves? Des cauchemars? Des blancs ou des trous noirs? Bienvenues dans l\'incident.</p>', '2019-07-04', '18:30:00', '0634348723', 1, '2019-06-30', '2019-06-30 19:48:57', 111, 1),
+(7, 'COURSES AU TROT À L\'HIPPODROME DE BIARRITZ', 'La piste de l\'Hippodrome des Fleurs est atypique avec ses virages relevés et sa corde à droite. D\'une longueur de 803 mètres, elle est une des plus courtes de France.', '<p><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">La piste de l\'Hippodrome des Fleurs est atypique avec ses virages relev&eacute;s et sa corde &agrave; droite. D\'une longueur de 803 m&egrave;tres, elle est une des plus courtes de&nbsp;</span><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/france\">France</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">. Sa proximit&eacute; avec le public permet &agrave; celui-ci de vivre intens&eacute;ment le&nbsp;</span><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/spectacle\">spectacle</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">&nbsp;qui se d&eacute;roule sous ses yeux.&nbsp;</span><br style=\"box-sizing: inherit; color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" /><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/restauration\">Restauration</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">&nbsp;</span><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/restauration-sur-place\">sur place</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">.</span></p>', '2019-07-04', '20:00:00', '0987654321', 1, '2019-06-30', '2019-06-30 20:09:38', 112, 3);
 
 -- --------------------------------------------------------
 
@@ -184,10 +156,18 @@ CREATE TABLE `faq_answers` (
 --
 
 INSERT INTO `faq_answers` (`id`, `answer`, `question_id`) VALUES
-(1, 'test update 1', 4),
-(2, 'test insert 2', 4),
-(3, 'La piscine est ouverte tous les jours de la semaine sur des plages horaires spécifiques. Les horaires sont également différents pendant les petites et grandes vacances', 5),
-(4, 'Tous les Biarrots / Biarrotes peuvent profiter de tarifs préférentiels pour se garer dans les rues de la ville. Pour ce faire, il est nécessaire d\'ouvrir ses droits auprès du service Tranquillité Urbaine (STU).', 6);
+(4, 'Tous les Biarrots / Biarrotes peuvent profiter de tarifs préférentiels pour se garer dans les rues de la ville. Pour ce faire, il est nécessaire d\'ouvrir ses droits auprès du service Tranquillité Urbaine (STU).', 6),
+(5, 'Il n’est jamais trop tard pour débuter une activité physique et sportive ! Il y a cependant un certain nombre de règles à respecter.', 7),
+(6, 'Oui, car il ne faut pas croire que l’intensité d’un effort soit proportionnelle à son efficacité en terme de bénéfice santé.', 8),
+(7, 'QUELS BÉNÉFICES PEUT-ON ATTENDRE D’UNE ACTIVITÉ PHYSIQUE RÉGULIÈRE, EN CAS DE SURPOIDS ?', 9),
+(8, 'Vous pouvez vous adresser aux points de vente habituels tels que la Fnac pour vous en procurer.', 10),
+(9, 'En cas d\'annulation du spectacle, si vous souhaitez vous faire rembourser, merci de vous adresser au point de vente auprès duquel le billet a été acheté', 11),
+(10, 'Les bouteilles sans bouchons et les sandwichs sont autorisées dans l\'enceinte du Zénith. Les boissons alcoolisées sont cependant interdites.', 12),
+(11, 'Oui, un vestiaire payant est à votre disposition (CHF 2.- par article)', 13),
+(12, 'Non. Par contre, des distributeurs se trouvent à la gare Genève-Aéroport et à l’aéroport situés à 200m de l’exposition.', 14),
+(13, 'La demande de stationnement est supérieure à l\'offre et elle augmente régulièrement dans les centres villes des grandes agglomérations : organiser, maîtriser l\'utilisation de l\'espace public et permettre le partage répond au besoin de gérer un espace devenu étroit.', 16),
+(14, 'Favoriser la rotation en limitant la durée de stationnement sur une place devient une nécessité pour rendre le centre ville toulousain accessible au plus grand nombre.', 17),
+(15, 'Il s’agit d’une solution de conférence en ligne. Via notre interface, Studio, vous créez une conférence, vous invitez des participants en leur envoyant les informations de connexion par courriel. Au moment prévu pour la conférence, les participants n’auront plus qu’à composer un numéro de téléphone (fourni par Ubity), un numéro de conférence et un code d’accès.', 18);
 
 -- --------------------------------------------------------
 
@@ -206,10 +186,18 @@ CREATE TABLE `faq_questions` (
 --
 
 INSERT INTO `faq_questions` (`id`, `question`, `category_id`) VALUES
-(3, 'c quoi un spectacle ? test update 1', 3),
-(4, 'bla bla', 3),
-(5, 'Quels sont les horaires d\'ouverture de la Piscine ?', 3),
-(6, 'Comment obtenir une carte de stationnement sur la Ville ?', 9);
+(6, 'Comment obtenir une carte de stationnement sur la Ville ?', 9),
+(7, 'J’AI 40 ANS ET JE SOUHAITE DÉBUTER UNE ACTIVITÉ SPORTIVE. EST-IL TROP TARD ?', 3),
+(8, 'POUR FAIRE DU SPORT, ON M’A DIT QU’IL FAUT METTRE UNE TENUE ADAPTÉE. DÈS LORS QUE DOIS-JE ACHETER ?', 3),
+(9, 'QUELS BÉNÉFICES PEUT-ON ATTENDRE D’UNE ACTIVITÉ PHYSIQUE RÉGULIÈRE, EN CAS DE SURPOIDS ?', 3),
+(10, 'Où acheter des billets pour un spectacle ?', 1),
+(11, 'Le spectacle auquel je devais me rendre est annulé, comment me faire rembourser ?', 1),
+(12, 'Puis-je venir avec mon sandwich et ma boisson ?', 1),
+(13, 'Y-a-t-il un vestiaire ?', 2),
+(14, 'Y-a-t-il un moyen de retirer du cash à un distributeur dans l’exposition ?', 2),
+(16, 'Pourquoi le stationnement n\'est-il pas gratuit ?', 9),
+(17, 'Pourquoi le stationnement est-il limité en durée sur une même place ?', 9),
+(18, 'QU’EST-CE QU’UN PONT-CONFÉRENCE?', 10);
 
 -- --------------------------------------------------------
 
@@ -223,7 +211,7 @@ CREATE TABLE `medias` (
   `type_id` tinyint(10) UNSIGNED NOT NULL,
   `service_id` int(10) UNSIGNED DEFAULT NULL,
   `event_id` int(10) UNSIGNED DEFAULT NULL,
-  `bill_id` int(10) UNSIGNED NOT NULL
+  `bill_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -231,24 +219,21 @@ CREATE TABLE `medias` (
 --
 
 INSERT INTO `medias` (`id`, `name`, `type_id`, `service_id`, `event_id`, `bill_id`) VALUES
-(88, '16611603181559505835express.jpg', 1, NULL, 12, 0),
-(89, '7804467001559505835Seigneurs_de_Dogtown_.jpg', 1, NULL, 12, 0),
-(90, '270593563155950587849864914_2387290394890568_8322540042799022080_o.jpg', 1, NULL, 13, 0),
-(91, '3457518711559505924destiny.png', 1, NULL, 14, 0),
-(92, '1201517659155950592459248d643a98b.jpg', 1, NULL, 14, 0),
-(93, '2892132241559505924ac_media_screen-pyramids_ncsa.jpg', 1, NULL, 14, 0),
-(94, '12049403651559505988test-unlink.jpg', 1, NULL, 15, 0),
-(95, '2166344981559505988test-new-img.jpeg', 1, NULL, 15, 0),
-(96, '11574140681559506024star-wars-8-1.jpg', 1, NULL, 16, 0),
-(98, '14198118371559506287ok1-27-XDIAVEL-S-750x410.jpg', 1, 59, NULL, 0),
-(99, '19359864111559680644Seigneurs_de_Dogtown_.jpg', 1, 63, NULL, 0),
-(100, '7587835651559680644star-wars-8-1.jpg', 1, 63, NULL, 0),
-(101, '18263343131559680644fb_star-wars-derniers-jedi-box-office.jpg', 1, 63, NULL, 0),
-(102, '4168005341559680644ramones_cchalkie_davies.jpg', 1, 63, NULL, 0),
 (105, '3112450201560811251csm_IMG_4259_1be4f75989.jpg', 1, 64, NULL, 0),
-(106, '21445899711561314522Gandi_invoice_2019061701439.pdf', 3, NULL, NULL, 5),
-(107, '783920521561314638Gandi_invoice_2019061701439.pdf', 3, NULL, NULL, 6),
-(108, '4675576091561314659Gandi_invoice_2019061701439.pdf', 3, NULL, NULL, 7);
+(106, '7588733741561918965csm_BZ7I6316Copyright_delphinepernaud_Biarritz_3bd7eb2605.jpg', 1, 65, NULL, NULL),
+(107, '2529763601561919326csm_DSCN1685_894d7e393d.jpg', 1, 66, NULL, NULL),
+(108, '1080748841561919960csm_DOSSIER18_607b77d7c8.jpg', 1, 67, NULL, NULL),
+(109, '18268148631561921330ecole-du-web-paris.jpg', 1, 68, NULL, NULL),
+(110, '1383336048156192133023844698_1990845894512520_141590500748526599_n.jpg', 1, 68, NULL, NULL),
+(111, '15073174791561921330formation-en-alternance-2.jpg', 1, 68, NULL, NULL),
+(112, '20181197651561922735csm_image002-2_ee3a3f8b3e.jpg', 1, NULL, 1, NULL),
+(114, '16069955321561923333csm_Mediatheque_moyendef_fdc5e641ef.jpg', 1, NULL, 4, NULL),
+(115, '10910067141561923948csm_FMAAQU064V59Z4X0_SIMONE-AFF-800x600_1ce9fad516.jpg', 1, NULL, 5, NULL),
+(116, '20975465921561923948téléchargement.jpeg', 1, NULL, 5, NULL),
+(117, '15836565121561923948téléchargement (1).jpeg', 1, NULL, 5, NULL),
+(118, '17004538651561924137csm_FMAAQU064V5A0WLK_Colisee-3-juillet-Le-bal-des-Ames-Valoises-Studio-Ilargia_0c99798673.jpg', 1, NULL, 6, NULL),
+(119, '17456769401561924137téléchargement.jpeg', 1, NULL, 6, NULL),
+(120, '698759301156192537864122_commune_0.jpg', 1, NULL, 7, NULL);
 
 -- --------------------------------------------------------
 
@@ -348,12 +333,11 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `title`, `summary`, `content`, `phone_number`, `opening_days`, `hours_from`, `hours_to`, `created_at`, `is_published`, `address_id`) VALUES
-(59, 'test insert service 2', 'Test insert service 2', 'test insert service 2', '123456789', 'test insert service 2', '12:00:00', '18:00:00', '2019-06-02 20:11:27', 1, 89),
-(60, 'dfgn', 'Qwergfhn', 'qwerfgh', '12345', 'seffrdg', '12:45:00', '12:45:00', '2019-06-03 13:51:30', 1, 90),
-(61, 'dfgn', 'Qwergfhn', 'qwerfgh', '12345', 'seffrdg', '12:45:00', '12:45:00', '2019-06-03 13:53:29', 1, 91),
-(62, 'dfgh', '', '', '345', 'dfdg', '23:04:00', '23:45:00', '2019-06-03 14:24:00', 0, 93),
-(63, 'test service plusieurs images', 'Test service plusieurs images test service plusieurs images', 'test service plusieurs images test service plusieurs images test service plusieurs images test service plusieurs images test service plusieurs images', '123456789', 'lundi', '10:00:00', '20:00:00', '2019-06-04 20:37:24', 1, 94),
-(64, 'ACTES DE NAISSANCE, MARIAGE, DÉCÈS', 'Vous trouverez ici toutes les infos utiles pour obtenir un acte d\'Etat Civil de la Ville de Biarritz', '<p class=\"p1\">Les demandes de documents d&rsquo;actes d&rsquo;ETAT CIVIL sont trait&eacute;es GRATUITEMENT par nos services. Prenez garde &agrave; certains sites en ligne douteux qui proposent d&rsquo;effectuer votre d&eacute;marche contre r&eacute;tribution.</p>', '0559415941', 'du lundi au vendredi', '08:30:00', '17:30:00', '2019-06-17 22:25:20', 1, 98);
+(64, 'ACTES DE NAISSANCE, MARIAGE, DÉCÈS', 'Vous trouverez ici toutes les infos utiles pour obtenir un acte d\'Etat Civil de la Ville de Biarritz', '<p class=\"p1\">Les demandes de documents d&rsquo;actes d&rsquo;ETAT CIVIL sont trait&eacute;es GRATUITEMENT par nos services. Prenez garde &agrave; certains sites en ligne douteux qui proposent d&rsquo;effectuer votre d&eacute;marche contre r&eacute;tribution.</p>', '0559415941', 'du lundi au vendredi', '08:30:00', '17:30:00', '2019-06-17 22:25:20', 1, 98),
+(65, 'DES STRUCTURES À VOTRE ÉCOUTE', 'Les structures sociales locales vous reçoivent, vous écoutent et essaient d’apporter des solutions à vos difficultés.', '<p class=\"p1\">Le Centre d&rsquo;accueil de jour Alzheimer&nbsp;(Activit&eacute;s th&eacute;rapeutiques, salle Snoezelen,..) re&ccedil;oit&nbsp;le temps d&rsquo;une ou plusieurs journ&eacute;es par semaine, les personnes atteintes de pathologies neurod&eacute;g&eacute;n&eacute;ratives de type Alzheimer vivant &agrave; domicile, ce qui permet de soulager les aidants familiaux.</p>\r\n<p class=\"p1\">Il compl&egrave;te l&rsquo;offre g&eacute;rontologique de la commune, d&eacute;j&agrave; dot&eacute;e d&rsquo;un service d&rsquo;aide &agrave; domicile, d&rsquo;un Ehpad public, d&rsquo;un Centre d&rsquo;accueil jour autonome et d&rsquo;une unit&eacute; Alzheimer, toutes ces structures &eacute;tant g&eacute;r&eacute;es par le CCAS.&nbsp;</p>', '0559016100', 'Lundi et Mercredi', '09:00:00', '16:00:00', '2019-06-30 18:22:45', 1, 99),
+(66, 'SERVICE MUNICIPAL', 'Depuis plus de 25 ans, la Ville de Biarritz est engagée dans une politique volontariste de revitalisation de la langue basque', '<p class=\"active-title fade-in mui-enter-active\" style=\"box-sizing: inherit; border: 0px; padding: 0px; margin: 0px 0px 15px; font-family: rubik_regular, Arial, Verdana, sans-serif; font-size: 1.5em; line-height: 1.6em; color: #232323; background-color: #ffffff;\"><span style=\"font-size: 15px;\">A Biarritz, la politique publique de l&rsquo;euskara r&eacute;pond &agrave; 4 enjeux interconnect&eacute;s, qui, mobilis&eacute;s simultan&eacute;ment, cr&eacute;ent un cercle vertueux autour de la motivation du locuteur&nbsp;</span></p>', '0559415755', 'dimanche - samedi', '11:00:00', '15:00:00', '2019-06-30 18:28:46', 1, 101),
+(67, 'INSCRIPTION CENTRE DE LOISIRS', 'Rendez-vous sur l\'espace Famille pour effectuer cette démarche', '<p><span style=\"color: #232323; font-family: rubik_regular, Arial, Verdana, sans-serif; font-size: 15px; background-color: #ffffff;\">A Biarritz, la plateforme en ligne&nbsp;</span><span class=\"active-title fade-in mui-enter-active\" style=\"box-sizing: inherit; border: 0px; padding: 0px; margin: 0px; line-height: inherit; color: #232323; font-size: 15px; background-color: #ffffff; font-family: rubik_medium, Arial, Verdana, sans-serif !important;\">Espace Famille</span><span style=\"color: #232323; font-family: rubik_regular, Arial, Verdana, sans-serif; font-size: 15px; background-color: #ffffff;\">, regroupe toutes les d&eacute;marches &agrave; effectuer li&eacute;es &agrave; l\'enfance et &agrave; la famille. (R&eacute;servation cantine CLSH, paiement,&nbsp;activit&eacute;s piscine...).&nbsp;Pour profiter pleinement de toutes ces fonctionnalit&eacute;s,&nbsp;vous serez amen&eacute;s &agrave; cr&eacute;er votre espace personnel.&nbsp;</span><a class=\"act active-title fade-in mui-enter-active\" style=\"box-sizing: inherit; border-width: 0px 0px 1px; border-image: initial; padding: 0px 2px; margin: 0px; font-family: rubik_medium_italic, Arial, Verdana, sans-serif; background-color: #ffffff; color: #232323; text-decoration-line: none; line-height: inherit; cursor: pointer; transition: all 0.3s ease-in-out 0s; position: relative; font-size: 15px; border-color: initial initial #fdbb50 initial; border-style: initial initial solid initial;\" href=\"https://www.espace-citoyens.net/biarritz/espace-citoyens/Home/AccueilPublic\" target=\"_blank\" rel=\"noopener\"> Rendez-vous sur notre Espace Famille</a></p>', '0559415941', 'du lundi au vendredi', '08:00:00', '16:30:00', '2019-06-30 18:39:20', 1, 102),
+(68, 'École Webstart', 'Webstart est un Établissement d’enseignement supérieur technique privé faisant partie du groupe d’écoles MJM Graphic Design – Fort d’une experience de plus de 40 ans.', '<p><span style=\"color: #444444; font-family: \'Open Sans\', \'Helvetica Neue\', Arial, Helvetica, sans-serif; font-size: 16px; background-color: #ffffff;\">Notre philosophie ne se limite pas &agrave; &ecirc;tre qu&rsquo;une &eacute;cole, nous sommes une agence, une start-up avec un vivier de cr&eacute;atifs qui feront d&rsquo;aujourd&rsquo;hui le monde de demain. Cette &eacute;nergie s&rsquo;applique &agrave; nos m&eacute;thodes p&eacute;dagogiques actives transmisent par nos intervenants en activit&eacute;s, jusqu&rsquo;&agrave; l&rsquo;environnement des classes o&ugrave; le mobilier transpose les &eacute;tudiants dans un mode de travail&nbsp;</span><span style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; font-family: \'Open Sans\', \'Helvetica Neue\', Arial, Helvetica, sans-serif; vertical-align: baseline; color: #444444; background-color: #ffffff;\">collaboratif</span><span style=\"color: #444444; font-family: \'Open Sans\', \'Helvetica Neue\', Arial, Helvetica, sans-serif; font-size: 16px; background-color: #ffffff;\">&nbsp;et&nbsp;</span><span style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; font-family: \'Open Sans\', \'Helvetica Neue\', Arial, Helvetica, sans-serif; vertical-align: baseline; color: #444444; background-color: #ffffff;\">professionnalisant</span><span style=\"color: #444444; font-family: \'Open Sans\', \'Helvetica Neue\', Arial, Helvetica, sans-serif; font-size: 16px; background-color: #ffffff;\">.</span></p>', '0142419776', 'du lundi au vendredi', '08:00:00', '20:00:00', '2019-06-30 19:02:10', 1, 104);
 
 -- --------------------------------------------------------
 
@@ -369,29 +353,6 @@ CREATE TABLE `signal_problem` (
   `description` text NOT NULL,
   `email` varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `signal_problem`
---
-
-INSERT INTO `signal_problem` (`id`, `address`, `object_id`, `reason_id`, `description`, `email`) VALUES
-(1, '12 avenue Edouard VII', 4, 2, 'test 1', 'qwerty@gmail.com'),
-(2, 'aaa', 5, 5, 'test 2', 'qwerty@gmail.com'),
-(3, '12 avenue Edouard VII', 4, 3, 'test', 'qwerty@gmail.com'),
-(4, '12 avenue Edouard VII', 4, 3, 'test', 'qwerty@gmail.com'),
-(5, 'aaa', 5, 6, 'test', 'qwerty@gmail.com'),
-(6, '12 avenue Edouard VII', 5, 6, 'test', 'qwerty@gmail.com'),
-(7, 'aaa', 4, 2, 'tre', 'qwerty@gmail.com'),
-(8, 'aaa', 5, 6, 'ew', 'qwerty@gmail.com'),
-(9, 'aaa', 5, 5, 'edc', 'qwerty@gmail.com'),
-(10, 'aaa', 5, 5, 'vdxaz', 'qwerty@gmail.com'),
-(11, 'aaa', 6, 13, 'edx', 'qwerty@gmail.com'),
-(12, 'aaa', 5, 5, 'fcds', 'qwerty@gmail.com'),
-(13, '12 avenue Edouard VII', 6, 13, 'test final', 'qwerty@gmail.com'),
-(14, '12 avenue Edouard VII', 5, 6, 'test optimisation', 'qwerty@gmail.com'),
-(15, 'aaa', 6, 12, 'cdaz', 'qwerty@gmail.com'),
-(16, 'aaa', 6, 12, 'cdaz', 'qwerty@gmail.com'),
-(17, '12 avenue Edouard VII', 7, 8, 'fedws', 'qwerty@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -409,6 +370,7 @@ CREATE TABLE `users` (
   `home_number` varchar(15) DEFAULT NULL,
   `mobile_number` varchar(15) DEFAULT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT '0',
+  `account_confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `registered_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `address_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -417,9 +379,8 @@ CREATE TABLE `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `last_name`, `first_name`, `email`, `password`, `dob`, `home_number`, `mobile_number`, `is_admin`, `registered_at`, `address_id`) VALUES
-(1, 'edelman', 'Yoel', 'yoeledelman@gmail.com', '709bfa738ef16be56d391ac0c367f056', '1996-06-16', NULL, NULL, 1, '2019-06-06 21:21:53', 95),
-(2, 'aaa', 'Aaa', 'qwerty@gmail.com', 'a9a033351156bd354fbf9cf5bb4314a4', '2019-06-12', '', '', 1, '2019-06-12 13:13:49', 97);
+INSERT INTO `users` (`id`, `last_name`, `first_name`, `email`, `password`, `dob`, `home_number`, `mobile_number`, `is_admin`, `account_confirmed`, `registered_at`, `address_id`) VALUES
+(1, 'edelman', 'Yoel', 'yoeledelman@gmail.com', '709bfa738ef16be56d391ac0c367f056', '1996-06-16', NULL, NULL, 1, 0, '2019-06-06 21:21:53', 95);
 
 --
 -- Index pour les tables déchargées
@@ -531,49 +492,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT pour la table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `faq_answers`
 --
 ALTER TABLE `faq_answers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `faq_questions`
 --
 ALTER TABLE `faq_questions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT pour la table `medias`
 --
 ALTER TABLE `medias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT pour la table `media_type`
@@ -597,19 +558,19 @@ ALTER TABLE `reasons`
 -- AUTO_INCREMENT pour la table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT pour la table `signal_problem`
 --
 ALTER TABLE `signal_problem`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées

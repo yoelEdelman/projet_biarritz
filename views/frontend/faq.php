@@ -10,9 +10,9 @@
                 <div class="content">
                 <?php foreach($faqs as $key => $faq): ?>
                     <?php if ($category['id'] == $faq['category_id']): ?>
-                        <button class="collapsible"><?= $faq['question']; ?></button>
+                        <button class="collapsible to-upper"><?= $faq['question']; ?></button>
                         <div class="content">
-                            <p><?= $faq['answer']; ?></p>
+                            <p class="to-lower"><?= $faq['answer']; ?></p>
                         </div>
 <!--                        --><?php //else:?>
 <!--                            <p>Il n'y a pas de question pour le moment</p>-->

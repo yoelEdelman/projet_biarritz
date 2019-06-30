@@ -64,7 +64,7 @@ function updateUsers($address, $zipCode, $city, $country, $lastName, $firstName,
 {
     $db = dbConnect();
 
-    updateAddress($address, $zipCode, $city, $country, FALSE, $addressId);
+    updateAddress($address, $zipCode, $city, $country, $addressId, FALSE);
 
     $queryString = 'UPDATE users SET last_name = :lastName, first_name = :firstName, email = :mail, home_number = :homeNum, mobile_number = :mobileNum, is_admin = :isAdmin ';
     $queryParameters = [

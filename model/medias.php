@@ -72,7 +72,7 @@ require_once('dbConnect.php');
                 addMedias($media['name'], $media['typeId'], $serviceId, FALSE);
             }
         }
-        elseif ($eventId){
+        if ($eventId){
             deleteMedias($currentMedias, FALSE, $eventId);
             foreach ($medias as $media){
                 addMedias($media['name'], $media['typeId'], FALSE, $eventId);

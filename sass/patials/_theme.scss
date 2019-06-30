@@ -1,6 +1,5 @@
 $border-radius: .25rem !default;
 
-
 $font-size-base: 16px ;
 $tablet-font-size: 14px ;
 $phone-font-size: 12px ;
@@ -10,12 +9,9 @@ $yellow: #FFD876;
 $white: #fff;
 $light-blue: #51CBEE;
 
-
 @mixin button{
     @include padding(10px 30px);
     border-radius: 5px;
-    //font-size: $a-font-size;
-    //cursor: pointer;
 }
 
 @mixin button-blue{
@@ -37,11 +33,9 @@ $light-blue: #51CBEE;
 .success-message{
     color: green;
 }
-
-
-//@include until($phone){
-//    [type=submit]{
-//        width: 60%;
-//    }
-//}
-
+.to-upper{
+    text-transform: uppercase;
+}
+.to-lower{
+    text-transform: lowercase;
+}

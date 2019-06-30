@@ -10,7 +10,7 @@ require_once('addresses.php');
             $queryString = 'SELECT e.*, DATE_FORMAT(e.event_time, "%H:%i") AS event_time_formated, GROUP_CONCAT(m.name) AS name, a.address, a.zip_code, a.city, a.country, a.location, c.id AS category_id, c.name AS category_name';
         }
         else{
-            $queryString = 'SELECT e.id, e.title, e.summary, e.is_published, GROUP_CONCAT(m.name) AS name, c.name AS category_name';
+            $queryString = 'SELECT e.id, e.title, e.summary, e.is_published, DATE_FORMAT(e.event_date, "%e-%c-%Y") AS event_date_formated, DATE_FORMAT(e.event_time, "%H:%i") AS event_time_formated, GROUP_CONCAT(m.name) AS name, c.name AS category_name';
         }
 
         $queryString .= ' FROM addresses a INNER JOIN events e
@@ -22,7 +22,7 @@ require_once('addresses.php');
 
         if (!$eventId && !$backOffice && !$eventDate){
             $queryString .= ' WHERE is_published = 1
-            GROUP BY e.id';
+            GROUP BY e.id ORDER BY event_date ASC';
         }
         elseif (!$eventId && $backOffice){
             $queryString .= ' GROUP BY e.id
@@ -100,12 +100,12 @@ require_once('addresses.php');
     {
         $db = dbConnect();
 
-        if (isset($files['media']) && !empty($files['media'])){
+        if (isset($files['media']['name'][0]) && !empty($files['media']['name'][0])){
             $medias = checkMedias($files);
             updateMedias($currentMedias, $medias, FALSE, $eventId);
         }
 
-        updateAddress($address, $zipCode, $city, $country, $location, $addressId);
+        updateAddress($address, $zipCode, $city, $country, $addressId, $location);
 
         $queryString = 'UPDATE events SET title = :title, summary = :summary, content = :content, event_date = :eventDate, event_time = :eventTime, phone_number = :phoneNumber, is_published = :isPublished, published_at = :publishedAt, category_id = :categoryId ';
         $query_parameters = [
@@ -124,7 +124,6 @@ require_once('addresses.php');
         $queryString .= 'WHERE id = :id';
 
         $query = $db->prepare($queryString);
-
         return $query->execute($query_parameters);
     }
 

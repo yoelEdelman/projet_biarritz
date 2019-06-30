@@ -35,7 +35,7 @@ function addAddress($address, $zipCode, $city, $country, $location = FALSE)
     return $lastInsert = $db->lastInsertId();
 }
 
-function updateAddress($address, $zipCode, $city, $country, $location = FALSE, $id)
+function updateAddress($address, $zipCode, $city, $country, $id, $location = FALSE)
 {
     $db = dbConnect();
     $queryString = 'UPDATE addresses SET address = :address, zip_code = :zipCode, city = :city ';
@@ -49,7 +49,7 @@ function updateAddress($address, $zipCode, $city, $country, $location = FALSE, $
         $queryString .= ', country = :country ';
         $queryParameters['country'] = htmlspecialchars($country);
     }
-    elseif (isset($location) && !empty($location)) {
+    if (isset($location) && !empty($location)) {
         $queryString .= ', location = :location ';
         $queryParameters['location'] = htmlspecialchars($location);
 

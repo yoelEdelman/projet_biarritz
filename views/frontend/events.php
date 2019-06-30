@@ -27,6 +27,8 @@
                     <h3><?= $event['category_name'];?></h3>
                     <h2><?= $event['title'];?></h2>
                     <p><?= $event['summary'];?></p>
+                    <p><?= $event['event_date_formated'];?></p>
+                    <p><?= $event['event_time_formated'];?></p>
                     <a href="#jsModal" data-event-id="<?= $event['id'];?>" id="popup" class="jsModalTrigger">en savoir plus</a>
                 </div>
             </div>
