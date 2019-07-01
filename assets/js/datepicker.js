@@ -1,4 +1,3 @@
-
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :
@@ -14,7 +13,6 @@
     };
     let year, month;
     niceDatePicker.prototype.getMonthData = function (year, month) {
-        // let year, month;
         let ret = [];
 
         if (!year || !month) {
@@ -22,11 +20,9 @@
             let today = new Date();
 
             year = today.getFullYear();
-
             month = today.getMonth() + 1;
         }
         let firstDay = new Date(year, month - 1, 1);//premier jour du mois
-
         let firstDayWeekDay = firstDay.getDay();//premier jour du mois est le jour de la semaine
 
         if (firstDayWeekDay === 0) {
@@ -35,26 +31,20 @@
         }
 
         year = firstDay.getFullYear();
-
         month = firstDay.getMonth() + 1;
 
 
         let lastDayOfLastMonth = new Date(year, month - 1, 0);//Dernier jour du mois dernier
-
         let lastDateOfLastMonth = lastDayOfLastMonth.getDate();//dernier jour du mois dernier est le nombre
-
         let preMonthDayCount = firstDayWeekDay - 1;//Besoin d'afficher plusieurs dates du mois dernier
-
         let lastDay = new Date(year, month, 0);//dernier jour du mois
-
         let lastDate = lastDay.getDate() //dernier jour du mois est le nombre
         let styleCls = '';
+
         for (let i = 0; i < 7 * 6; i++) {
 
             let date = i + 1 - preMonthDayCount;
-
             let showDate = date;
-
             let thisMonth = month;
 
             if (date <= 0) {
@@ -73,8 +63,6 @@
                 } else {
                     styleCls = 'nice-normal';
                 }
-
-
             }
 
             if (thisMonth === 13) {
@@ -102,7 +90,6 @@
         this.monthData = this.getMonthData(year, month);
         this.dayWords = [['Lundi', 'Mardi',  'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'], ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di']];
         this.enMonthsWords = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
-
 
         let html = `<div class="nice-date-picker-warpper">
                         <div class="nice-date-picker-header">
@@ -139,11 +126,10 @@
     niceDatePicker.prototype.render = function (direction, $params) {
         let year, month;
         if (this.monthData) {
-
             year = this.monthData.year;
             month = this.monthData.month;
-
-        } else {
+        }
+        else {
             year = $params.year;
             month = $params.month;
         }
@@ -156,7 +142,6 @@
         }
         if (direction === 'next') {
             month++;
-
         }
         let html = this.buildUi(year, month);
         this.$warpper.innerHTML = html;
@@ -165,7 +150,6 @@
     let forColor = []
     let colorRound = 0
 
-
     // Ici pour gerer au click
     niceDatePicker.prototype.init = function ($params) {
         this.$warpper = $params.dom;
@@ -173,308 +157,93 @@
         let _this = this;
         this.$warpper.addEventListener('click', function (e) {
             let $target = e.target;
-           // console.log($target)
 
             if (colorRound>0){
                 forColor[colorRound-1].classList.remove('select')
             }
 
             forColor.push($target)
-
-            console.log(forColor)
             forColor[colorRound].classList.add('select')
-            console.log(colorRound)
 
             colorRound ++
 
             if ($target.classList.contains('prev-date-btn')) {
-
                 _this.render('prev');
-
             }
             if ($target.classList.contains('next-date-btn')) {
-
                 _this.render('next');
-
             }
-
             if ($target.classList.contains('nice-normal')) {
                 $params.onClickDate($target.getAttribute('data-date'));
-
             }
-
         }, false);
         this.$warpper.addEventListener('mouseover', function (e) {
             let $target = e.target;
             if ($target.classList.contains('nice-normal')) {
-
                 $target.classList.add('nice-active');
             }
         }, false);
         this.$warpper.addEventListener('mouseout', function (e) {
             let $target = e.target;
             if ($target.classList.contains('nice-normal')) {
-
                 $target.classList.remove('nice-active');
-
             }
-
         }, false);
-
     };
     return niceDatePicker;
 }));
-
-
-
-let forEvents = document.querySelector('.forEvents')
 
 new niceDatePicker({
     dom:document.getElementById('calendar1-wrapper2'),
     mode:'en',
     onClickDate:function(date){
-      //  document.querySelector('.dateSelected').innerHTML=date;
 
-        console.log(date)
         eventByDate(date)
 
-
         let dateForFrench = date.split('/');
-        console.log(dateForFrench[0])
-        console.log(dateForFrench[1])
-        console.log(dateForFrench[2])
-
-
         let dateFrenchConv = new Date(Date.UTC(dateForFrench[0], dateForFrench[1]-1, dateForFrench[2]));
-
         let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-
         document.querySelector('.dateSelected').innerHTML=dateFrenchConv.toLocaleDateString('fr-FR', options);
-
-
-        // let eventDate = new FormData
-
-        // eventDate.append('date', date)
-
-        // sendDate(eventDate)
     }
 });
 
-
-
-
 const eventByDate = function(param){
-    fetch('../controller/frontend/ajax/events.php', {
-        method: 'POST',
-        headers: new Headers(),
-        body: param
-    })
+    let noEvent = 0
+    let noEventMessage = document.querySelector('#no-event-message')
+    let eventsDate = document.querySelectorAll('.event[data-event-date]')
+    for (let i = 0; i < eventsDate.length; i++){
+        let eventDateAttribute = eventsDate[i].getAttribute('data-event-date')
 
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-
-            let event = document.querySelectorAll('.event')
-            for (let i = 0; i<event.length; i++){
-                event[i].style.display = "none";
-            }
-            // console.log(event)
-            console.log(data[0].name)
-
-            // console.log(medias)
-            let eventContainer = document.querySelector('#eventContainer')
-
-            for (let i = 0; i<data.length; i++){
-                let medias = data[i].name.split(',')
-                console.log(medias)
-
-
-                let div = document.createElement('div')
-                div.classList.add('event')
-                div.innerHTML = `<div>
-                                    <img class="" src="/assets/img/${medias[0]}" alt="">
-                                </div>
-                                <div>
-                                    <h3>type d'evenement</h3>
-                                    <h2>${data[i].title}</h2>
-                                    <p>${data[i].summary}</p>
-                                    <a href="#jsModal" data-event-id="${data[i].id}" id="popup" class="jsModalTrigger">en savoir plus</a>
-                                </div>`
-
-                eventContainer.appendChild(div)
-                console.log(eventHref)
-
-                console.log(div)
-
-               let testos = document.querySelectorAll(".jsModalTrigger")
-                testos.forEach(function (test){
-                    test.addEventListener('click', function () {
-                        console.log(this)
-                        console.log(this.getAttribute('data-event-id'))
-
-                       eventModal(parseInt(this.getAttribute('data-event-id')))
-                    })
-                })
-
-            }
-
-        })
-
-        .catch((data) =>{
-            alert("un incident s'est produit")
-        })
-
+        if (eventDateAttribute != param){
+            eventsDate[i].style.display = 'none'
+        }
+        else if(eventDateAttribute == param){
+            eventsDate[i].style.display = 'flex'
+            noEvent++
+        }
+    }
+    if (noEvent === 0){
+        noEventMessage.classList.remove('display-none')
+        noEventMessage.classList.add('display-block')
+    }
+    else {
+        noEventMessage.classList.remove('display-block')
+        noEventMessage.classList.add('display-none')
+    }
 }
-
-
-
-
-
-
-//
-// const eventDisplay = function (title, image, description, id) {
-//     let insideEvents = document.createElement('div')
-//     forEvents.appendChild(insideEvents)
-//     let titleEvent = document.createElement('h4')
-//     let descriptionEvent = document.createElement('div')
-//     titleEvent.innerText = title
-//     insideEvents.appendChild(titleEvent)
-//     let imageEvent = document.createElement('img')
-//     imageEvent.setAttribute('src', './assets/image/'+image)
-//     insideEvents.appendChild(imageEvent)
-//     insideEvents.appendChild(descriptionEvent)
-//     descriptionEvent.innerText = description
-//     let seeEvents = document.createElement('span')
-//     let forSeeEvents = document.createElement('div')
-//     insideEvents.appendChild(forSeeEvents)
-//     seeEvents.innerText= "Voir plus >"
-//     forSeeEvents.appendChild(seeEvents)
-//     seeEvents.classList.add('seeEvents')
-//     seeEvents.setAttribute('eventId', id)
-//     forSeeEvents.classList.add('forSeeEvents')
-//     insideEvents.classList.add('insideEvents')
-//
-//     seeEvents.addEventListener('click', function () {
-//         console.log(this)
-//         console.log(this.getAttribute('eventId'))
-//
-//         let idForEvent = this.getAttribute('eventId')
-//
-//         let dataForEvent = new FormData()
-//
-//         dataForEvent.append('id', idForEvent)
-//
-//         sendId(dataForEvent)
-//     })
-// }
-//
-//
-//
-// const removeDisplay = function () {
-//     forEvents.innerHTML = ""
-// }
-//
-//
-//
-// const sendDate = function (param) {
-//    // fetch(url+'event-by-date.php', {
-//     fetch('http://localhost:8888/projet-city/event-by-date.php', {
-//         method: 'POST',
-//         headers: new Headers(),
-//         body: param
-//     })
-//
-//         .then((res) => res.json())
-//
-//         .then((data) => {
-//             console.log(data)
-//             removeDisplay()
-//
-//             if (data.type === 0) {
-//                 console.log(data.message)
-//                 document.querySelector('.calendar2-msg').innerHTML=data.message;
-//
-//
-//             }
-//             else{
-//                 for (let i = 0; i<data.length;i++){
-//                     console.log(data[i].event_date)
-//                     eventDisplay(data[i].title, data[i].image,data[i].description,data[i].id)
-//
-//                     if (data.length>1) {
-//                         document.querySelector('.calendar2-msg').innerHTML='Il y a : '+data.length+' événements à cette date';
-//
-//                     }
-//                     else{
-//                         document.querySelector('.calendar2-msg').innerHTML='Il y a : '+data.length+' événement à cette date';
-//
-//                     }
-//
-//                 }
-//             }
-//
-//         })
-//
-//         .catch((data) => {
-//             alert("un incident s'est produit")
-//         })
-// }
-
 
 let dateObj = new Date();
 let month = dateObj.getUTCMonth() + 1; //months from 1-12
 let day = dateObj.getUTCDate();
 let year = dateObj.getUTCFullYear();
 
-let newdate = year + "/" + month + "/" + day;
-
-
-console.log(newdate)
-
+// let newdate = year + "/" + month + "/" + day;
 
 let dateFrench = new Date(Date.UTC(year, month-1, day, 3, 0, 0));
 
- options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-
-
-console.log(dateFrench.toLocaleDateString('fr-FR', options));
+options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
 let dateFrenchDay = dateFrench.toLocaleDateString('fr-FR', options)
 
-console.log(dateFrenchDay)
-
 document.querySelector('.dateSelected').innerHTML=dateFrenchDay;
-
-
-//
-//
-// let objDateDay = new FormData()
-//
-// objDateDay.append('date', newdate)
-//
-// window.onload = sendDate(objDateDay)
-//
-// const sendId = function (elem) {
-//
-//     fetch('http://localhost:8888/projet-city/oneEvent.php', {
-//         method: 'POST',
-//         headers: new Headers(),
-//         body: elem
-//     })
-//
-//         .then((res) => res.json())
-//
-//         .then((data) => {
-//             console.log(data)
-//
-//             displayMap(data['image'],data['content'],data['adress'],data['on_map'])
-//
-//
-//         })
-//
-//         .catch((data) => {
-//             alert("un incident s'est produit")
-//         })
-// }
-//

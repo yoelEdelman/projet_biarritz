@@ -9,14 +9,11 @@ $json = json_decode($data);
 
 sendProblemForm($json->address, $json->email, $json->description, $json->objectSelected, $json->reasonSelected);
 
-$result = mailTo('biarritz.dev@gmail.com');
-
-if (!$result){
+if (!mailTo('biarritz.dev@gmail.com')){
     echo 'Une erreur est survenue Veuillez réessayer 1!';
 }
 else{
-    $result = mailTo($json->email);
-    if (!$result){
+    if (!mailTo($json->email, FALSE, FALSE, FALSE, TRUE)){
         echo 'Une erreur est survenue Veuillez réessayer 2!';
     }
     else{

@@ -1,5 +1,4 @@
 <?php
-
 function dbConnect()
 {
     //paramétrage de la langue de traduction pour PHP

@@ -1,4 +1,4 @@
-<?php $title = 'Administration des objets -  !'; ?>
+<?php $title = 'Administration des objets - !'; ?>
 <?php ob_start(); ?>
 <div class="container-fluid">
     <?php require '././partials/backend/header.php'; ?>
@@ -45,4 +45,3 @@
 </div>
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
-

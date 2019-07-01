@@ -1,4 +1,4 @@
-<?php $title = ''; ?>
+<?php $title = 'histoire de la ville'; ?>
 <?php ob_start(); ?>
 <main>
     <?php require_once 'partials/frontend/logo.php';?>
@@ -67,4 +67,3 @@
 </main>
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
-

@@ -1,5 +1,3 @@
-
-
 @include at-least($tablet){
     p{
         font-size: $p-font-size;
@@ -27,35 +25,20 @@
     }
 }
 
-
-
 @include responsive-font-size($tablet, $tablet-font-size);
-
 @include responsive-font-size($phone, $phone-font-size);
 
-
-
 body{
-    //font-size: $font-size-base;
-
-    //color: $blue;
     overflow-x: hidden;
     font: {
-        //size: 14px;
         family: "Helvetica Neue";
-        //family: Comfortaa;
         weight: bold;
     }
 }
 
-
-
 main{
-    //padding-top: 57px;
     padding-top: 47px;
-
     @include flex(column, null, null, null, null);
-    //@include size(100%, calc(100vh - 58px));
     background: {
         image: url("/assets/img/home.jpg");
         size: cover;
@@ -71,7 +54,6 @@ main{
 img{
     @include img-fluid;
 }
-
 
 @include until($desktop){
     [type=submit]{

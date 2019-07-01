@@ -1,4 +1,4 @@
-<?php $title = ''; ?>
+<?php $title = 'services'; ?>
 <?php ob_start(); ?>
 <main>
     <?php require_once 'partials/frontend/logo.php';?>
@@ -24,9 +24,7 @@
             <div class="modal__container modal-content">
                 <div class="top-modal-service-content">
                     <!-- slider container -->
-                    <div id="slider-modal-container" class="services-slider-modal-container">
-
-                    </div>
+                    <div id="slider-modal-container" class="services-slider-modal-container"></div>
                     <div>
                         <h3 class="title"></h3>
                         <p></p>
@@ -50,9 +48,5 @@
     </section>
     <?php require_once 'partials/frontend/footer.php';?>
 </main>
-<script src="../../assets/js/test-modal-ajax.js"></script>
-<script src="../../assets/js/modal-slider.js"></script>
-
-
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>

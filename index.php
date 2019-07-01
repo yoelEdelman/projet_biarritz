@@ -1,5 +1,8 @@
 <?php
 require 'controller/frontend/index.php';
+require 'controller/frontend/security.php';
+require 'controller/backend/security.php';
+
 try{
     if(isset($_GET['page'])){
         switch ($_GET['page']) {
@@ -25,10 +28,12 @@ try{
                 break;
             case 'confirm-account':
                 require 'controller/frontend/confirmAccount.php';
+                securityNotConnected();
                 accountDetails();
                 break;
             case 'account':
                 require 'controller/frontend/account.php';
+                securityNotConnected();
                 account();
                 break;
             case 'faq':
@@ -37,74 +42,92 @@ try{
                 break;
             case 'admin':
                 require 'controller/backend/index.php';
+                securityNotAdmin();
                 adminHome();
                 break;
             case 'admin-categories-list':
                 require 'controller/backend/categories.php';
+                securityNotAdmin();
                 categoriesList();
                 break;
             case 'admin-categories-form':
                 require 'controller/backend/categories.php';
+                securityNotAdmin();
                 categoriesForm();
                 break;
             case 'admin-events-list':
                 require 'controller/backend/events.php';
+                securityNotAdmin();
                 eventsList();
                 break;
             case 'admin-events-form':
                 require 'controller/backend/events.php';
+                securityNotAdmin();
                 eventsForm();
                 break;
             case 'admin-services-list':
                 require 'controller/backend/services.php';
+                securityNotAdmin();
                 servicesList();
                 break;
             case 'admin-services-form':
                 require 'controller/backend/services.php';
+                securityNotAdmin();
                 servicesForm();
                 break;
             case 'admin-users-list':
                 require 'controller/backend/users.php';
+                securityNotAdmin();
                 usersList();
                 break;
             case 'admin-users-form':
                 require 'controller/backend/users.php';
+                securityNotAdmin();
                 usersForm();
                 break;
             case 'admin-bills-form':
                 require 'controller/backend/bills.php';
+                securityNotAdmin();
                 billsForm();
                 break;
             case 'admin-reasons-list':
                 require 'controller/backend/reasons.php';
+                securityNotAdmin();
                 reasonsList();
                 break;
             case 'admin-reasons-form':
                 require 'controller/backend/reasons.php';
+                securityNotAdmin();
                 reasonsForm();
                 break;
             case 'admin-objects-list':
                 require 'controller/backend/objects.php';
+                securityNotAdmin();
                 objectsList();
                 break;
             case 'admin-objects-form':
                 require 'controller/backend/objects.php';
+                securityNotAdmin();
                 objectsForm();
                 break;
             case 'admin-questions-list':
                 require 'controller/backend/questions.php';
+                securityNotAdmin();
                 questionsList();
                 break;
             case 'admin-questions-form':
                 require 'controller/backend/questions.php';
+                securityNotAdmin();
                 questionsForm();
                 break;
             case 'admin-responses-list':
                 require 'controller/backend/responses.php';
+                securityNotAdmin();
                 responsesList();
                 break;
             case 'admin-responses-form':
                 require 'controller/backend/responses.php';
+                securityNotAdmin();
                 responsesForm();
                 break;
             default:

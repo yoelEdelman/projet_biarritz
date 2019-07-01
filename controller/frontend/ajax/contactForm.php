@@ -13,7 +13,7 @@ if (!mailTo('biarritz.dev@gmail.com')){
     echo 'Une erreur est survenue Veuillez réessayer !';
 }
 else{
-    if (!mailTo($json->email)){
+    if (!mailTo($json->email, FALSE, FALSE, FALSE, TRUE)){
         echo 'Une erreur est survenue Veuillez réessayer !';
     }
     else{

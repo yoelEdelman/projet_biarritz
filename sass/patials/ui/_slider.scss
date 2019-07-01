@@ -83,11 +83,9 @@
     @include background-colors($white, $yellow);
     transition: .5s background-color, .5s border;
 }
-/* creating class active-dot which will get add into the dot that indicates what image is displayed */
 .active-dot {
     background-color: $blue;
 }
-/* fade animation */
 .fade{
     animation-name: fade;
     animation-duration: .5s;

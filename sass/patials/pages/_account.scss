@@ -17,7 +17,6 @@
             text-align: center;
             border-radius: 10px 10px 0 0;
             font-weight: normal;
-
         }
     }
     .profil {
@@ -32,15 +31,12 @@
                 @include padding();
 
             }
-
         }
     }
     .bills {
         width: 70%;
         min-height: 50%;
-
         @include flex(column, null, null, center);
-
         div{
             width: 100%;
             @include padding(10px 0);

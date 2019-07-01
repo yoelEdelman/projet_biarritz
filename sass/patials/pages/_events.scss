@@ -52,7 +52,9 @@
         }
     }
 }
-
+#no-event-message{
+    color: $white;
+}
 .top-modal-event-content{
     @include flex(row);
     margin-bottom: 50px;

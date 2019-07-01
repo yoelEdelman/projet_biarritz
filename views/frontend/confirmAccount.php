@@ -1,4 +1,4 @@
-<?php $title = ''; ?>
+<?php $title = 'confirmation de compte'; ?>
 <?php ob_start(); ?>
 <main>
     <?php require_once 'partials/frontend/logo.php';?>

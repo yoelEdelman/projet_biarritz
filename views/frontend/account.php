@@ -1,4 +1,4 @@
-<?php $title = ''; ?>
+<?php $title = 'mon compte'; ?>
 <?php ob_start(); ?>
 <main>
     <?php require_once 'partials/frontend/logo.php';?>
@@ -33,14 +33,7 @@
             </div>
         </section>
     </section>
-
     <?php require_once 'partials/frontend/footer.php';?>
-
-
 </main>
-<script src="../../assets/js/datepicker.js"></script>
-<script src="../../assets/js/test-modal-ajax.js"></script>
-<script src="../../assets/js/modal-slider.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
-

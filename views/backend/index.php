@@ -1,4 +1,4 @@
-<?php $title = 'Administration -  !'; ?>
+<?php $title = 'Administration - !'; ?>
 <?php ob_start(); ?>
     <div class="container-fluid">
         <?php require './partials/backend/header.php'; ?>

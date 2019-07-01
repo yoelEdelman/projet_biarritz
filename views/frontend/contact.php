@@ -1,4 +1,4 @@
-<?php $title = ''; ?>
+<?php $title = 'contact'; ?>
 <?php ob_start(); ?>
 <main>
     <?php require_once 'partials/frontend/logo.php';?>
@@ -92,5 +92,3 @@
 </main>
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
-
-

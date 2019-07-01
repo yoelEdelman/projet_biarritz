@@ -31,6 +31,18 @@ li {
   text-transform: lowercase;
 }
 
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-flex {
+  display: flex;
+}
+
 @media all and (min-width: 768px) {
   p {
     font-size: 16px;
@@ -824,12 +836,10 @@ footer .container {
   background-color: #FFD876;
 }
 
-/* creating class active-dot which will get add into the dot that indicates what image is displayed */
 .active-dot {
   background-color: #003051;
 }
 
-/* fade animation */
 .fade {
   animation-name: fade;
   animation-duration: 0.5s;
@@ -889,6 +899,8 @@ footer .container {
   text-align: center;
   font-size: 14px;
   display: block;
+  background-color: #fff;
+  border-radius: 5px;
 }
 
 .nice-date-picker-warpper {
@@ -1460,6 +1472,10 @@ td:first-child.nice-normal {
 }
 .event div:last-child a:hover {
   border: 1px solid #FFD876;
+}
+
+#no-event-message {
+  color: #fff;
 }
 
 .top-modal-event-content {

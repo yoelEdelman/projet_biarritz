@@ -1,9 +1,10 @@
-<?php $title = ''; ?>
+<?php $title = 'events'; ?>
 <?php ob_start(); ?>
 <main>
     <?php require_once 'partials/frontend/logo.php';?>
     <?php require_once 'partials/frontend/nav.php';?>
     <section class="events">
+
         <section>
             <section class="eventContainer">
                 <div class="container">
@@ -16,22 +17,25 @@
         </section>
 
         <section id="eventContainer">
+
             <h1>evenements</h1>
+            <h2 id="no-event-message" class="display-none">Aucun événement a cette date !</h2>
+
             <?php foreach ($events as $event):?>
-            <div class="event">
-                <div>
-                    <?php $medias = explode(',', $event['name']);?>
-                    <img class="" src="/assets/img/<?= $medias[0];?>" alt="">
+                <div class="event" data-event-id="<?= $event['id'];?>" data-event-date="<?= $event['event_date_slash'];?>">
+                    <div>
+                        <?php $medias = explode(',', $event['name']);?>
+                        <img class="" src="/assets/img/<?= $medias[0];?>" alt="">
+                    </div>
+                    <div>
+                        <h3><?= $event['category_name'];?></h3>
+                        <h2><?= $event['title'];?></h2>
+                        <p><?= $event['summary'];?></p>
+                        <p><?= $event['event_date_formated'];?></p>
+                        <p><?= $event['event_time_formated'];?></p>
+                        <a href="#jsModal" data-event-id="<?= $event['id'];?>" id="popup" class="jsModalTrigger">en savoir plus</a>
+                    </div>
                 </div>
-                <div>
-                    <h3><?= $event['category_name'];?></h3>
-                    <h2><?= $event['title'];?></h2>
-                    <p><?= $event['summary'];?></p>
-                    <p><?= $event['event_date_formated'];?></p>
-                    <p><?= $event['event_time_formated'];?></p>
-                    <a href="#jsModal" data-event-id="<?= $event['id'];?>" id="popup" class="jsModalTrigger">en savoir plus</a>
-                </div>
-            </div>
             <?php endforeach;?>
 
             <div id="jsModal" class="modal">
@@ -65,9 +69,5 @@
     </section>
     <?php require_once 'partials/frontend/footer.php';?>
 </main>
-<script src="../../assets/js/datepicker.js"></script>
-<script src="../../assets/js/test-modal-ajax.js"></script>
-<script src="../../assets/js/modal-slider.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
-

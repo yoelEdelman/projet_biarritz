@@ -6,11 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="/sass/style.css">
-<!--    <link rel="stylesheet" href="/datepicker/datepicker.css">-->
     <title><?= $title ?></title>
 </head>
     <body>
         <?= $content ?>
         <script src="../../assets/js/script.js"></script>
+        <script src="../../assets/js/test-modal-ajax.js"></script>
+        <script src="../../assets/js/modal-slider.js"></script>
+        <script src="../../assets/js/datepicker.js"></script>
+
+
+
     </body>
 </html>

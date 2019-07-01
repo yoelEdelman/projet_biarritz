@@ -1,4 +1,4 @@
-<?php $title = 'Administration des raisons -  !'; ?>
+<?php $title = 'Administration des raisons - !'; ?>
 <?php ob_start(); ?>
 <div class="container-fluid">
     <?php require '././partials/backend/header.php'; ?>
@@ -65,4 +65,3 @@
 </div>
 <?php $content = ob_get_clean(); ?>
 <?php require 'layout.php'; ?>
-
