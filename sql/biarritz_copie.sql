@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  Dim 30 juin 2019 à 22:31
+-- Généré le :  mar. 02 juil. 2019 à 17:01
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -53,7 +53,9 @@ INSERT INTO `addresses` (`id`, `address`, `zip_code`, `city`, `country`, `locati
 (109, '2 rue Ambroise Paré', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.990430899307!2d-1.556498484465829!3d43.4816700791276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516ad0c47e0a49%3A0x4d705d5a940096af!2s2+Rue+Ambroise+Par%C3%A9%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1561922862943!5m2!1sfr!2sfr'),
 (110, '11 Avenue Sarasate', 64200, 'BIARRITZ', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.763947483872!2d-1.5535959844657135!3d43.48639637912738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516adb14990a35%3A0xf9757bd7a91c6930!2s11+Avenue+Sarasate%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1561923927887!5m2!1sfr!2sfr'),
 (111, '11 Avenue Sarasate', 64200, 'BIARRITZ', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.7255713455656!2d-1.5543141844656474!3d43.48719717912742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516adb6fddc6f9%3A0xde380fa3e84fd309!2s12+Avenue+Sarasate%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1561924111400!5m2!1sfr!2sfr'),
-(112, 'Avenue du Lac Marion', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2895.6958903236027!2d-1.5485657844663103!3d43.46694577912807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd511531de074fab%3A0x18fc5107f322b568!2sAvenue+du+Lac+Marion%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1561925347187!5m2!1sfr!2sfr');
+(112, 'Avenue du Lac Marion', 64200, 'Biarritz', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2895.6958903236027!2d-1.5485657844663103!3d43.46694577912807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd511531de074fab%3A0x18fc5107f322b568!2sAvenue+du+Lac+Marion%2C+64200+Biarritz!5e0!3m2!1sfr!2sfr!4v1561925347187!5m2!1sfr!2sfr'),
+(114, 'Rue Saint-Martin', 64200, 'BIARRITZ', 'France', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1447.6524320370127!2d-1.555706291755612!3d43.475107744781944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd516ad49540f933%3A0x9948bbe2940eb65f!2sLa+Jeanne+D&amp;amp;#39;Arc+De+Biarritz!5e0!3m2!1sfr!2sfr!4v1562077297324!5m2!1sfr!2sfr'),
+(115, '61 bulevard beaumarchais', 75003, 'paris', 'France', NULL);
 
 -- --------------------------------------------------------
 
@@ -69,6 +71,15 @@ CREATE TABLE `bills` (
   `amount_due` int(11) NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `bills`
+--
+
+INSERT INTO `bills` (`id`, `bill_from`, `bill_to`, `paid`, `amount_due`, `user_id`) VALUES
+(1, '2019-06-01', '2019-06-30', 0, 248, 1),
+(3, '2019-05-01', '2019-05-31', 0, 84, 3),
+(5, '2019-06-13', '2019-07-26', 0, 198, 1);
 
 -- --------------------------------------------------------
 
@@ -90,7 +101,8 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 (2, 'exposition'),
 (3, 'sport'),
 (9, 'stationnement'),
-(10, 'conférence');
+(10, 'conférence'),
+(11, 'Fêtes ');
 
 -- --------------------------------------------------------
 
@@ -137,7 +149,8 @@ INSERT INTO `events` (`id`, `title`, `summary`, `content`, `event_date`, `event_
 (4, 'MASCULIN // FÉMININ : QUAND L’ART L’EMPORTE', 'Affirmer que les femmes sont sous-représentées dans l’histoire de la création artistique est un euphémisme.', '<p><span style=\"color: #232323; font-family: rubik_regular, Arial, Verdana, sans-serif; font-size: 15px; background-color: #ffffff;\">Affirmer que les femmes sont sous-repr&eacute;sent&eacute;es dans l&rsquo;histoire de la cr&eacute;ation artistique est un euph&eacute;misme. Dans notre soci&eacute;t&eacute; patriarcale occidentale, l&rsquo;homme a domin&eacute; l&rsquo;histoire de l&rsquo;art en tant que g&eacute;nie cr&eacute;ateur, d&eacute;cideur du bon go&ucirc;t et collectionneur critique.</span></p>', '2019-07-11', '19:00:00', '05 59 22 28 86', 1, '2019-06-30', '2019-06-30 19:35:33', 109, 10),
 (5, 'ABASTO - MÉLODIES SUD-AMÉRICAINES', 'ABASTO, du nom d’un vieux quartier de Buenos Aires, réunit trois excellents musiciens autour  de Simone Etcheverry, à la voix toujours aussi envoûtante.', '<p class=\"p1\">ABASTO, du nom d&rsquo;un vieux quartier de Buenos Aires, r&eacute;unit trois excellents musiciens autour</p>\r\n<p class=\"p1\">de Simone Etcheverry, &agrave; la voix toujours aussi envo&ucirc;tante.</p>\r\n<p class=\"p1\">L&rsquo;accord&eacute;on magique de J&eacute;sus Aured, aussi &agrave; l&rsquo;aise avec Bach qu&rsquo;avec Piazzola.</p>', '2019-07-03', '15:00:00', '0573847343', 1, '2019-06-30', '2019-06-30 19:45:48', 110, 1),
 (6, 'LE BAL DES ÂMES VALOISES', 'Alice va perdre connaissance et commencer à vagabonder dans un monde parallèle, étrange. Un spectacle pleins de mystères et de fantaisies.', '<p class=\"p1\">\"Que se passe-t-il lorsque l\'on tombe dans le coma? Restons-nous inerte ou est-ce que notre esprit s\'&eacute;vade au gr&egrave;s de nos envies? Ce sont des r&ecirc;ves? Des cauchemars? Des blancs ou des trous noirs? Bienvenues dans l\'incident.</p>', '2019-07-04', '18:30:00', '0634348723', 1, '2019-06-30', '2019-06-30 19:48:57', 111, 1),
-(7, 'COURSES AU TROT À L\'HIPPODROME DE BIARRITZ', 'La piste de l\'Hippodrome des Fleurs est atypique avec ses virages relevés et sa corde à droite. D\'une longueur de 803 mètres, elle est une des plus courtes de France.', '<p><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">La piste de l\'Hippodrome des Fleurs est atypique avec ses virages relev&eacute;s et sa corde &agrave; droite. D\'une longueur de 803 m&egrave;tres, elle est une des plus courtes de&nbsp;</span><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/france\">France</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">. Sa proximit&eacute; avec le public permet &agrave; celui-ci de vivre intens&eacute;ment le&nbsp;</span><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/spectacle\">spectacle</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">&nbsp;qui se d&eacute;roule sous ses yeux.&nbsp;</span><br style=\"box-sizing: inherit; color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" /><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/restauration\">Restauration</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">&nbsp;</span><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/restauration-sur-place\">sur place</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">.</span></p>', '2019-07-04', '20:00:00', '0987654321', 1, '2019-06-30', '2019-06-30 20:09:38', 112, 3);
+(7, 'COURSES AU TROT À L\'HIPPODROME DE BIARRITZ', 'La piste de l\'Hippodrome des Fleurs est atypique avec ses virages relevés et sa corde à droite. D\'une longueur de 803 mètres, elle est une des plus courtes de France.', '<p><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">La piste de l\'Hippodrome des Fleurs est atypique avec ses virages relev&eacute;s et sa corde &agrave; droite. D\'une longueur de 803 m&egrave;tres, elle est une des plus courtes de&nbsp;</span><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/france\">France</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">. Sa proximit&eacute; avec le public permet &agrave; celui-ci de vivre intens&eacute;ment le&nbsp;</span><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/spectacle\">spectacle</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">&nbsp;qui se d&eacute;roule sous ses yeux.&nbsp;</span><br style=\"box-sizing: inherit; color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" /><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/restauration\">Restauration</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">&nbsp;</span><a class=\"al\" style=\"box-sizing: inherit; text-decoration-line: none; color: #0000e0; transition: all 0.2s ease-out 0s; border-bottom: 1px dashed rgba(153, 153, 153, 0.3); font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\" href=\"https://www.eterritoire.fr/tout/restauration-sur-place\">sur place</a><span style=\"color: #525252; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; font-size: 16px; background-color: #fafafa;\">.</span></p>', '2019-07-04', '20:00:00', '0987654321', 1, '2019-06-30', '2019-06-30 20:09:38', 112, 3),
+(8, 'VILLAGE DES BODEGAS', 'Stands culinaires, bodegas, bal avec dj, feux d’artifice…', '<p>Au programme : stands culinaires, bodegas, bal avec dj, feux d&rsquo;artifice&hellip;</p>\r\n<p>Tout Public - Entr&eacute;e Gratuite Les associations de Biarritz seront mobilis&eacute;es pour cette soir&eacute;e festive et populaire, au Plateau du Phare.</p>', '2019-07-14', '18:00:00', '0827342735', 1, '2019-07-02', '2019-07-02 14:22:07', 114, 11);
 
 -- --------------------------------------------------------
 
@@ -219,7 +232,7 @@ CREATE TABLE `medias` (
 --
 
 INSERT INTO `medias` (`id`, `name`, `type_id`, `service_id`, `event_id`, `bill_id`) VALUES
-(105, '3112450201560811251csm_IMG_4259_1be4f75989.jpg', 1, 64, NULL, 0),
+(105, '3112450201560811251csm_IMG_4259_1be4f75989.jpg', 1, 64, NULL, NULL),
 (106, '7588733741561918965csm_BZ7I6316Copyright_delphinepernaud_Biarritz_3bd7eb2605.jpg', 1, 65, NULL, NULL),
 (107, '2529763601561919326csm_DSCN1685_894d7e393d.jpg', 1, 66, NULL, NULL),
 (108, '1080748841561919960csm_DOSSIER18_607b77d7c8.jpg', 1, 67, NULL, NULL),
@@ -233,7 +246,12 @@ INSERT INTO `medias` (`id`, `name`, `type_id`, `service_id`, `event_id`, `bill_i
 (117, '15836565121561923948téléchargement (1).jpeg', 1, NULL, 5, NULL),
 (118, '17004538651561924137csm_FMAAQU064V5A0WLK_Colisee-3-juillet-Le-bal-des-Ames-Valoises-Studio-Ilargia_0c99798673.jpg', 1, NULL, 6, NULL),
 (119, '17456769401561924137téléchargement.jpeg', 1, NULL, 6, NULL),
-(120, '698759301156192537864122_commune_0.jpg', 1, NULL, 7, NULL);
+(120, '698759301156192537864122_commune_0.jpg', 1, NULL, 7, NULL),
+(121, '12629719561562077326villages-des-bodegas-0i4UD.jpg', 1, NULL, 8, NULL),
+(122, '12006741881562077327village-des-bodegas-affiche-lhZE3.jpeg', 1, NULL, 8, NULL),
+(123, '6748606361562079011Gandi_invoice_2019061701439.pdf', 3, NULL, NULL, 1),
+(125, '12978071521562079104Bouyguestelecom_Facture_20190602.pdf', 3, NULL, NULL, 3),
+(127, '20767230751562079538Bouyguestelecom_Facture_20190602.pdf', 3, NULL, NULL, 5);
 
 -- --------------------------------------------------------
 
@@ -380,7 +398,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `last_name`, `first_name`, `email`, `password`, `dob`, `home_number`, `mobile_number`, `is_admin`, `account_confirmed`, `registered_at`, `address_id`) VALUES
-(1, 'edelman', 'Yoel', 'yoeledelman@gmail.com', '709bfa738ef16be56d391ac0c367f056', '1996-06-16', NULL, NULL, 1, 0, '2019-06-06 21:21:53', 95);
+(1, 'edelman', 'Yoel', 'yoeledelman@gmail.com', '709bfa738ef16be56d391ac0c367f056', '1996-06-16', '0142741871', '0675207887', 1, 0, '2019-06-06 21:21:53', 95),
+(3, 'edelman', 'Yoel', 'yoeledelman1996@gmail.com', '1130986e97e41c306f1549c01a6d969c', '1996-06-16', '', '0675207887', 0, 0, '2019-07-02 14:41:10', 115);
 
 --
 -- Index pour les tables déchargées
@@ -492,31 +511,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT pour la table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `faq_answers`
@@ -534,7 +553,7 @@ ALTER TABLE `faq_questions`
 -- AUTO_INCREMENT pour la table `medias`
 --
 ALTER TABLE `medias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT pour la table `media_type`
@@ -564,13 +583,13 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT pour la table `signal_problem`
 --
 ALTER TABLE `signal_problem`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
