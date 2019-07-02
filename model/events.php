@@ -7,10 +7,13 @@ function getEvents($eventId = FALSE, $backOffice = FALSE, $eventDate = FALSE)
 {
     $db = dbConnect();
     if ($eventId){
-        $queryString = 'SELECT e.*, DATE_FORMAT(e.event_time, "%H:%i") AS event_time_formated, GROUP_CONCAT(m.name) AS name, a.address, a.zip_code, a.city, a.country, a.location, c.id AS category_id, c.name AS category_name';
+        $queryString = 'SELECT e.*, DATE_FORMAT(e.event_time, "%H:%i") AS event_time_formated, GROUP_CONCAT(m.name) AS name,
+         a.address, a.zip_code, a.city, a.country, a.location, c.id AS category_id, c.name AS category_name';
     }
     else{
-        $queryString = 'SELECT e.id, e.title, e.summary, e.is_published, DATE_FORMAT(e.event_date, "%Y/%c/%e") AS event_date_slash, DATE_FORMAT(e.event_date, "%e-%c-%Y") AS event_date_formated, DATE_FORMAT(e.event_time, "%H:%i") AS event_time_formated, GROUP_CONCAT(m.name) AS name, c.name AS category_name';
+        $queryString = 'SELECT e.id, e.title, e.summary, e.is_published, e.event_date, 
+        DATE_FORMAT(e.event_date, "%Y/%c/%e") AS event_date_slash, DATE_FORMAT(e.event_time, "%Hh%i") AS event_time_formated, 
+        GROUP_CONCAT(m.name) AS name, c.name AS category_name';
     }
 
     $queryString .= ' FROM addresses a INNER JOIN events e

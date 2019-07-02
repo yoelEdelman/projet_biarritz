@@ -3,6 +3,7 @@ function dbConnect()
 {
     //paramétrage de la langue de traduction pour PHP
     setlocale(LC_ALL, "fr_FR");
+    setlocale( LC_TIME, 'fr_FR');
 
     //connexion à la base de données
     try{
