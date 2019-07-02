@@ -305,6 +305,7 @@ header {
   color: #003051;
   display: block;
   z-index: 100;
+  font-size: 16px;
 }
 
 .menu {
@@ -314,6 +315,7 @@ header {
   position: absolute;
   text-align: center;
   padding-top: 30px;
+  text-transform: uppercase;
 }
 .menu a {
   display: block;
@@ -401,8 +403,8 @@ header {
 }
 @media all and (max-width: 576px) {
   .logo {
-    width: 30%;
-    top: 2em;
+    width: 35%;
+    top: 2.3em;
   }
 }
 footer {
@@ -891,20 +893,10 @@ footer .container {
   border-radius: 5px;
 }
 
-.calendar2-msg {
-  width: 100%;
-  height: 30px;
-  line-height: 30px;
-  color: #000;
-  text-align: center;
-  font-size: 14px;
-  display: block;
-  background-color: #fff;
-  border-radius: 5px;
-}
-
 .nice-date-picker-warpper {
-  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -1403,7 +1395,6 @@ td:first-child.nice-normal {
 .events section:first-child {
   width: 100%;
   height: 30%;
-  background-color: rgba(255, 255, 255, 0.8);
 }
 .events section:nth-child(2) {
   width: 100%;
@@ -1412,6 +1403,7 @@ td:first-child.nice-normal {
 .events section:nth-child(2) h1 {
   text-transform: uppercase;
   color: #003051;
+  margin: 20px auto;
 }
 
 .event {
@@ -1486,7 +1478,6 @@ td:first-child.nice-normal {
   align-items: stretch;
   align-content: stretch;
   margin-bottom: 50px;
-  min-height: 300px;
 }
 .top-modal-event-content div {
   width: 50%;
@@ -1579,6 +1570,7 @@ td:first-child.nice-normal {
   border-radius: 0 0 10px 10px;
   width: 100%;
   height: 90%;
+  padding-top: 20px;
 }
 
 .tab-content {
@@ -1822,7 +1814,7 @@ li {
   font-weight: normal;
 }
 .account .profil {
-  width: 20%;
+  width: 25%;
 }
 .account .profil div {
   width: 80%;
@@ -1839,7 +1831,7 @@ li {
   padding: 5px;
 }
 .account .bills {
-  width: 70%;
+  width: 65%;
   min-height: 50%;
   display: flex;
   flex-direction: column;
@@ -1867,7 +1859,15 @@ li {
   color: #003051;
 }
 
-@media all and (max-width: 576px) {
+@media all and (max-width: 992px) {
+  .account .profil {
+    width: 30%;
+  }
+  .account .bills {
+    width: 60%;
+  }
+}
+@media all and (max-width: 768px) {
   .account {
     display: flex;
     flex-direction: column;

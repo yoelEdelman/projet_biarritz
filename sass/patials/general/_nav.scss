@@ -96,6 +96,7 @@
     color: $blue;
     display: block;
     z-index:100;
+    font-size: 16px;
 }
 .menu{
     transition: all 1s ease-in-out;
@@ -104,6 +105,7 @@
     position:absolute;
     text-align:center;
     padding-top: 30px;
+    text-transform: uppercase;
     a{
         display: block;
         color: $blue;

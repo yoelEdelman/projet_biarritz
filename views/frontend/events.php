@@ -10,7 +10,6 @@
                 <div class="container">
                     <div class="dateSelected"></div>
                     <div id="calendar1-wrapper2"></div>
-                    <span class="calendar2-msg"></span>
                 </div>
                 <section class="forEvents"></section>
             </section>

@@ -26,6 +26,7 @@
     background-color: $blue;
     border-radius: 0 0 10px 10px;
     @include size(100%, 90%);
+    padding-top: 20px;
 }
 .tab-content{
     @include size(100%);
