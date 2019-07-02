@@ -21,10 +21,10 @@
             </nav>
             <div class="social-networks-policy">
                 <div class="social-networks">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://twitter.com/Ville2Biarritz?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/ville2biarritz/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/biarritztourisme/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/user/Biarcom" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
                 <div class="policy">
                     <a href="index.php?page=faq">FAQ</a>
