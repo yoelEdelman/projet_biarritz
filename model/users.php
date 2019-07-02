@@ -66,7 +66,7 @@ function updateUsers($address, $zipCode, $city, $country, $lastName, $firstName,
 
     updateAddress($address, $zipCode, $city, $country, $addressId, FALSE);
 
-    $queryString = 'UPDATE users SET last_name = :lastName, first_name = :firstName, email = :mail, home_number = :homeNum, mobile_number = :mobileNum, is_admin = :isAdmin ';
+    $queryString = 'UPDATE users SET last_name = :lastName, first_name = :firstName, email = :mail, dob = :dob, home_number = :homeNum, mobile_number = :mobileNum, is_admin = :isAdmin ';
     $queryParameters = [
         'lastName' => htmlspecialchars($lastName),
         'firstName' => htmlspecialchars(ucfirst($firstName)),
