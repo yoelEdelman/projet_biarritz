@@ -45,6 +45,7 @@
     }
 }
 .menu-connected{
+    border-radius: 0 0 0 10px;
     transition: all .5s ease-in-out;
     @include padding(0 5px 5px 5px);
     box-sizing: border-box;
