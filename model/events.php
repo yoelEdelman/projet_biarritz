@@ -3,7 +3,7 @@ require_once('dbConnect.php');
 require_once('medias.php');
 require_once('addresses.php');
 
-function getEvents($eventId = FALSE, $backOffice = FALSE, $eventDate = FALSE)
+function getEvents($eventId = FALSE, $backOffice = FALSE, $eventDate = FALSE, $limit = FALSE)
 {
     $db = dbConnect();
     if ($eventId){
@@ -23,9 +23,13 @@ function getEvents($eventId = FALSE, $backOffice = FALSE, $eventDate = FALSE)
     INNER JOIN categories c
     ON c.id = e.category_id';
 
-    if (!$eventId && !$backOffice && !$eventDate){
+    if (!$eventId && !$backOffice && !$eventDate && !$limit){
         $queryString .= ' WHERE is_published = 1
         GROUP BY e.id ORDER BY event_date ASC';
+    }
+    elseif (!$eventId && !$backOffice && !$eventDate && $limit){
+        $queryString .= ' WHERE is_published = 1
+        GROUP BY e.id ORDER BY event_date ASC LIMIT '.$limit;
     }
     elseif (!$eventId && $backOffice){
         $queryString .= ' GROUP BY e.id
